@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalBillDataLpgMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataLpg" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="LPG_RELIABLITY_LEVEL" property="lpgReliablityLevel" jdbcType="INTEGER" />
+    <result column="LPG_GAS_USED" property="lpgGasUsed" jdbcType="REAL" />
+    <result column="LPG_PERIOD_SELECT" property="lpgPeriodSelect" jdbcType="INTEGER" />
+    <result column="LPG_PERIOD" property="lpgPeriod" jdbcType="REAL" />
+    <result column="LPG_CHARGING_BASIS" property="lpgChargingBasis" jdbcType="INTEGER" />
+    <result column="LPG_ST_AMOUNT_SELECT" property="lpgStAmountSelect" jdbcType="INTEGER" />
+    <result column="LPG_ST_AMOUNT" property="lpgStAmount" jdbcType="REAL" />
+    <result column="LPG_ST_UNIT_PRICE" property="lpgStUnitPrice" jdbcType="REAL" />
+    <result column="LPG_TW_INITIAL_UNIT" property="lpgTwInitialUnit" jdbcType="REAL" />
+    <result column="LPG_TW_UNITS" property="lpgTwUnits" jdbcType="REAL" />
+    <result column="LPG_TW_UNITS_SELECTED" property="lpgTwUnitsSelected" jdbcType="INTEGER" />
+    <result column="LPG_TW_FOLLOW_ON" property="lpgTwFollowOn" jdbcType="REAL" />
+    <result column="LPG_VAT_ABLE" property="lpgVatAble" jdbcType="INTEGER" />
+    <result column="LPG_UNUSUAL_ENERGY_USINGABLE" property="lpgUnusualEnergyUsingable" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataLpg" extends="BaseResultMap" >
+    <result column="LPG_UNUSUAL_ENERGY_USINGABLE_DES" property="lpgUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    REPORT_ID, LPG_RELIABLITY_LEVEL, LPG_GAS_USED, LPG_PERIOD_SELECT, LPG_PERIOD, LPG_CHARGING_BASIS, 
+    LPG_ST_AMOUNT_SELECT, LPG_ST_AMOUNT, LPG_ST_UNIT_PRICE, LPG_TW_INITIAL_UNIT, LPG_TW_UNITS, 
+    LPG_TW_UNITS_SELECTED, LPG_TW_FOLLOW_ON, LPG_VAT_ABLE, LPG_UNUSUAL_ENERGY_USINGABLE
+  </sql>
+  <sql id="Blob_Column_List" >
+    LPG_UNUSUAL_ENERGY_USINGABLE_DES
+  </sql>
+  <select id="load" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from GDSAP_EVAL_BILL_DATA_LPG
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_BILL_DATA_LPG
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataLpg" >
+    insert into GDSAP_EVAL_BILL_DATA_LPG (REPORT_ID, LPG_RELIABLITY_LEVEL, LPG_GAS_USED, 
+      LPG_PERIOD_SELECT, LPG_PERIOD, LPG_CHARGING_BASIS, 
+      LPG_ST_AMOUNT_SELECT, LPG_ST_AMOUNT, LPG_ST_UNIT_PRICE, 
+      LPG_TW_INITIAL_UNIT, LPG_TW_UNITS, LPG_TW_UNITS_SELECTED, 
+      LPG_TW_FOLLOW_ON, LPG_VAT_ABLE, LPG_UNUSUAL_ENERGY_USINGABLE, 
+      LPG_UNUSUAL_ENERGY_USINGABLE_DES)
+    values (#{reportId,jdbcType=BIGINT}, #{lpgReliablityLevel,jdbcType=INTEGER}, #{lpgGasUsed,jdbcType=REAL}, 
+      #{lpgPeriodSelect,jdbcType=INTEGER}, #{lpgPeriod,jdbcType=REAL}, #{lpgChargingBasis,jdbcType=INTEGER}, 
+      #{lpgStAmountSelect,jdbcType=INTEGER}, #{lpgStAmount,jdbcType=REAL}, #{lpgStUnitPrice,jdbcType=REAL}, 
+      #{lpgTwInitialUnit,jdbcType=REAL}, #{lpgTwUnits,jdbcType=REAL}, #{lpgTwUnitsSelected,jdbcType=INTEGER}, 
+      #{lpgTwFollowOn,jdbcType=REAL}, #{lpgVatAble,jdbcType=INTEGER}, #{lpgUnusualEnergyUsingable,jdbcType=INTEGER}, 
+      #{lpgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataLpg" >
+    update GDSAP_EVAL_BILL_DATA_LPG
+    <set >
+      <if test="lpgReliablityLevel != null" >
+        LPG_RELIABLITY_LEVEL = #{lpgReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="lpgGasUsed != null" >
+        LPG_GAS_USED = #{lpgGasUsed,jdbcType=REAL},
+      </if>
+      <if test="lpgPeriodSelect != null" >
+        LPG_PERIOD_SELECT = #{lpgPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="lpgPeriod != null" >
+        LPG_PERIOD = #{lpgPeriod,jdbcType=REAL},
+      </if>
+      <if test="lpgChargingBasis != null" >
+        LPG_CHARGING_BASIS = #{lpgChargingBasis,jdbcType=INTEGER},
+      </if>
+      <if test="lpgStAmountSelect != null" >
+        LPG_ST_AMOUNT_SELECT = #{lpgStAmountSelect,jdbcType=INTEGER},
+      </if>
+      <if test="lpgStAmount != null" >
+        LPG_ST_AMOUNT = #{lpgStAmount,jdbcType=REAL},
+      </if>
+      <if test="lpgStUnitPrice != null" >
+        LPG_ST_UNIT_PRICE = #{lpgStUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="lpgTwInitialUnit != null" >
+        LPG_TW_INITIAL_UNIT = #{lpgTwInitialUnit,jdbcType=REAL},
+      </if>
+      <if test="lpgTwUnits != null" >
+        LPG_TW_UNITS = #{lpgTwUnits,jdbcType=REAL},
+      </if>
+      <if test="lpgTwUnitsSelected != null" >
+        LPG_TW_UNITS_SELECTED = #{lpgTwUnitsSelected,jdbcType=INTEGER},
+      </if>
+      <if test="lpgTwFollowOn != null" >
+        LPG_TW_FOLLOW_ON = #{lpgTwFollowOn,jdbcType=REAL},
+      </if>
+      <if test="lpgVatAble != null" >
+        LPG_VAT_ABLE = #{lpgVatAble,jdbcType=INTEGER},
+      </if>
+      <if test="lpgUnusualEnergyUsingable != null" >
+        LPG_UNUSUAL_ENERGY_USINGABLE = #{lpgUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="lpgUnusualEnergyUsingableDes != null" >
+        LPG_UNUSUAL_ENERGY_USINGABLE_DES = #{lpgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataLpg" >
+    update GDSAP_EVAL_BILL_DATA_LPG
+    set LPG_RELIABLITY_LEVEL = #{lpgReliablityLevel,jdbcType=INTEGER},
+      LPG_GAS_USED = #{lpgGasUsed,jdbcType=REAL},
+      LPG_PERIOD_SELECT = #{lpgPeriodSelect,jdbcType=INTEGER},
+      LPG_PERIOD = #{lpgPeriod,jdbcType=REAL},
+      LPG_CHARGING_BASIS = #{lpgChargingBasis,jdbcType=INTEGER},
+      LPG_ST_AMOUNT_SELECT = #{lpgStAmountSelect,jdbcType=INTEGER},
+      LPG_ST_AMOUNT = #{lpgStAmount,jdbcType=REAL},
+      LPG_ST_UNIT_PRICE = #{lpgStUnitPrice,jdbcType=REAL},
+      LPG_TW_INITIAL_UNIT = #{lpgTwInitialUnit,jdbcType=REAL},
+      LPG_TW_UNITS = #{lpgTwUnits,jdbcType=REAL},
+      LPG_TW_UNITS_SELECTED = #{lpgTwUnitsSelected,jdbcType=INTEGER},
+      LPG_TW_FOLLOW_ON = #{lpgTwFollowOn,jdbcType=REAL},
+      LPG_VAT_ABLE = #{lpgVatAble,jdbcType=INTEGER},
+      LPG_UNUSUAL_ENERGY_USINGABLE = #{lpgUnusualEnergyUsingable,jdbcType=INTEGER},
+      LPG_UNUSUAL_ENERGY_USINGABLE_DES = #{lpgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+</mapper>

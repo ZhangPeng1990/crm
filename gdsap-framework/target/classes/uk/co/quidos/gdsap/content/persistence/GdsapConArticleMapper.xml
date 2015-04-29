@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.content.persistence.GdsapConArticleMapper">
+
+	<resultMap id="rm" type="uk.co.quidos.gdsap.content.persistence.object.GdsapConArticle">
+		<id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="CATEGORY_ID" property="categoryId" jdbcType="BIGINT" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="SUMMARY" property="summary" jdbcType="VARCHAR" />
+		<result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="TOPABLE" property="topable" jdbcType="INTEGER" />
+		<result column="TOPABLE_START_TIME" property="topableStartTime" jdbcType="TIMESTAMP" />
+		<result column="TOPABLE_END_TIME" property="topableEndTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	
+	<resultMap id="articleFullResultMap" type="uk.co.quidos.gdsap.content.persistence.object.GdsapConArticleFullResultMap" >
+	    <id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="CATEGORY_ID" property="categoryId" jdbcType="BIGINT" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="SUMMARY" property="summary" jdbcType="VARCHAR" />
+		<result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="TOPABLE" property="topable" jdbcType="INTEGER" />
+		<result column="TOPABLE_START_TIME" property="topableStartTime" jdbcType="TIMESTAMP" />
+		<result column="TOPABLE_END_TIME" property="topableEndTime" jdbcType="TIMESTAMP" />
+	    <result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+	</resultMap>
+  
+	<select id="load" resultMap="rm" parameterType="java.lang.Long">
+		select
+		*
+		from GDSAP_CON_ARTICLE
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from GDSAP_CON_ARTICLE
+		where ID = #{id,jdbcType=BIGINT}
+ 	</delete>
+
+	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.content.persistence.object.GdsapConArticle" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+		insert into GDSAP_CON_ARTICLE (ID, CATEGORY_ID, TITLE,
+		SUMMARY, INSERT_TIME, UPDATE_TIME,
+		TOPABLE, TOPABLE_START_TIME,
+		TOPABLE_END_TIME
+		)
+		values (#{id,jdbcType=BIGINT},
+		#{categoryId,jdbcType=BIGINT},
+		#{title,jdbcType=VARCHAR},
+		#{summary,jdbcType=VARCHAR}, #{insertTime,jdbcType=TIMESTAMP},
+		#{updateTime,jdbcType=TIMESTAMP},
+		#{topable,jdbcType=INTEGER},
+		#{topableStartTime,jdbcType=TIMESTAMP},
+		#{topableEndTime,jdbcType=TIMESTAMP}
+		)
+  	</insert>
+
+	<select id="countAll" resultType="java.lang.Integer">
+		select count(*) from
+		GDSAP_CON_ARTICLE
+  	</select>
+
+	<select id="findAll" resultMap="rm">
+		select * from GDSAP_CON_ARTICLE
+	</select>
+
+	<select id="findAllIds" resultType="java.lang.Integer">
+		select ID from
+		GDSAP_CON_ARTICLE
+  	</select>
+  	
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.content.persistence.object.GdsapConArticle">
+		update GDSAP_CON_ARTICLE
+		<set>
+			<if test="categoryId != null">
+				CATEGORY_ID = #{categoryId,jdbcType=BIGINT},
+      		</if>
+			<if test="title != null">
+				TITLE = #{title,jdbcType=VARCHAR},
+      		</if>
+			<if test="summary != null">
+				SUMMARY = #{summary,jdbcType=VARCHAR},
+      		</if>
+			<if test="insertTime != null">
+				INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      		</if>
+			<if test="updateTime != null">
+				UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      		</if>
+			<if test="topable != null">
+				TOPABLE = #{topable,jdbcType=INTEGER},
+      		</if>
+			<if test="topableStartTime != null">
+				TOPABLE_START_TIME =
+				#{topableStartTime,jdbcType=TIMESTAMP},
+      		</if>
+			<if test="topableEndTime != null">
+				TOPABLE_END_TIME = #{topableEndTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+	
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.content.persistence.object.GdsapConArticle">
+		update GDSAP_CON_ARTICLE
+		set CATEGORY_ID =#{categoryId,jdbcType=BIGINT},
+		TITLE = #{title,jdbcType=VARCHAR},
+		SUMMARY = #{summary,jdbcType=VARCHAR},
+		INSERT_TIME =
+		#{insertTime,jdbcType=TIMESTAMP},
+		UPDATE_TIME =
+		#{updateTime,jdbcType=TIMESTAMP},
+		TOPABLE =
+		#{topable,jdbcType=INTEGER},
+		TOPABLE_START_TIME =
+		#{topableStartTime,jdbcType=TIMESTAMP},
+		TOPABLE_END_TIME =
+		#{topableEndTime,jdbcType=TIMESTAMP}
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<delete id="deleteByCategoryId" parameterType="java.lang.Long">
+	delete from GDSAP_CON_ARTICLE where CATEGORY_ID =#{categoryId,jdbcType=BIGINT}
+	</delete>
+	
+	<select id="findPageBreakByCondition" parameterType="map" resultMap="articleFullResultMap">
+	select * 
+		from GDSAP_CON_ARTICLE as rm 
+	<if test="initial">
+		inner join GDSAP_CON_ARTICLE_DETAIL as rm_detail 
+		on rm.ID = rm_detail.ARTICLE_ID 
+	</if>
+	<where>
+	<if test="categoryId != null">
+		and CATEGORY_ID =#{categoryId,jdbcType=BIGINT} 
+	</if>
+	<if test="title != null">
+		and TITLE "%"#{title,jdbcType=VARCHAR}"%" 
+	</if>
+	<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+		 and INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP} 
+	</if>
+	<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+		 and INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} 
+	</if>
+	<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+		 and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP} 
+	</if>
+	</where>
+	ORDER BY UPDATE_TIME DESC 
+	</select>
+	
+	<select id="findNumberByCondition" parameterType="map" resultType="java.lang.Integer">
+	select count(0) as c 
+		from GDSAP_CON_ARTICLE as rm 
+	<where>
+	<if test="categoryId != null">
+		and CATEGORY_ID =#{categoryId,jdbcType=BIGINT} 
+	</if>
+	<if test="title != null">
+		and TITLE "%"#{title,jdbcType=VARCHAR}"%" 
+	</if>
+	<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+		 and INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP} 
+	</if>
+	<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+		 and INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} 
+	</if>
+	<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+		 and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP} 
+	</if>
+	</where>
+	ORDER BY UPDATE_TIME DESC 
+	</select>
+	
+	<update id="updateCategoryId" parameterType="map">
+	update GDSAP_CON_ARTICLE set CATEGORY_ID=#{newCategoryId,jdbcType=BIGINT} 
+	where 
+	CATEGORY_ID=#{oldCategoryId,jdbcType=BIGINT}
+	</update>
+	
+	<select id="findNextByInsertTime" parameterType="map" resultType="java.lang.Long">
+	SELECT ID FROM GDSAP_CON_ARTICLE WHERE 
+	CATEGORY_ID=#{categoryId,jdbcType=BIGINT} AND 
+	INSERT_TIME &lt; #{insertTime,jdbcType=TIMESTAMP} order by INSERT_TIME DESC limit 0,1
+	</select>
+	
+	<select id="findPreByInsertTime" parameterType="map" resultType="java.lang.Long">
+	SELECT ID FROM GDSAP_CON_ARTICLE WHERE 
+	CATEGORY_ID=#{categoryId,jdbcType=BIGINT} AND 
+	INSERT_TIME &gt; #{insertTime,jdbcType=TIMESTAMP} ORDER BY INSERT_TIME limit 0,1
+	</select>
+	
+	<select id="findArticleIdByCategoryId" parameterType="java.lang.Long" resultType="java.lang.Long">
+	SELECT GDSAP_CON_ARTICLE.ID FROM 
+	GDSAP_CON_ARTICLE INNER JOIN GDSAP_CON_CATEGORY 
+	ON 
+	GDSAP_CON_ARTICLE.CATEGORY_ID = GDSAP_CON_CATEGORY.ID
+	WHERE 
+	GDSAP_CON_CATEGORY.ID=#{categoryId,jdbcType=BIGINT}
+	LIMIT 0,1
+	</select>
+</mapper>

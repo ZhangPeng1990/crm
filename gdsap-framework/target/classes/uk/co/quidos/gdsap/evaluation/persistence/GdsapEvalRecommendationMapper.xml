@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalRecommendationMapper">
+	<resultMap id="BaseResultMap"
+		type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalRecommendation">
+		<id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="RECOMMENDATION_CODE" property="recommendationCode" jdbcType="INTEGER" />
+		<result column="RECOMMENDATION_TYPE" property="recommendationType" jdbcType="INTEGER" />
+		<result column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		ID, RECOMMENDATION_CODE,RECOMMENDATION_TYPE, REPORT_ID
+	</sql>
+	<select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from GDSAP_EVAL_RECOMMENDATION
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from GDSAP_EVAL_RECOMMENDATION
+		where ID = #{id,jdbcType=BIGINT}
+	</delete>
+
+	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalRecommendation"  useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+		insert into GDSAP_EVAL_RECOMMENDATION (ID, RECOMMENDATION_CODE,RECOMMENDATION_TYPE,
+		REPORT_ID
+		)
+		values (#{id,jdbcType=BIGINT}, #{recommendationCode,jdbcType=INTEGER},#{recommendationType,jdbcType=INTEGER},
+		#{reportId,jdbcType=BIGINT}
+		)
+	</insert>
+
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalRecommendation">
+		update GDSAP_EVAL_RECOMMENDATION
+		<set>
+			<if test="recommendationCode != null">
+				RECOMMENDATION_CODE = #{recommendationCode,jdbcType=INTEGER},
+			</if>
+			<if test="recommendationType != null">
+				RECOMMENDATION_TYPE = #{recommendationType,jdbcType=INTEGER},
+			</if>
+			<if test="reportId != null">
+				REPORT_ID = #{reportId,jdbcType=BIGINT},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalRecommendation">
+		update GDSAP_EVAL_RECOMMENDATION
+		set RECOMMENDATION_CODE = #{recommendationCode,jdbcType=INTEGER},
+		REPORT_ID = #{reportId,jdbcType=BIGINT}
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<select id="findAll" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List"/>
+		from GDSAP_EVAL_RECOMMENDATION
+	</select>
+	
+	<select id="countAll" resultType="java.lang.Integer">
+	  	select count(0) as c from GDSAP_EVAL_RECOMMENDATION
+	</select>
+  
+	<select id="findAllIds" resultMap="BaseResultMap">
+		select 
+		ID 
+		from GDSAP_EVAL_RECOMMENDATION
+	</select>
+	
+	<select id="findByReportAndType" parameterType="map" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/> from 
+		GDSAP_EVAL_RECOMMENDATION 
+		where 
+		REPORT_ID = #{reportId,jdbcType=BIGINT} and RECOMMENDATION_TYPE = #{recommendationType,jdbcType=INTEGER}
+	</select>
+	
+	<select id="findByReportId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"/> from 
+		GDSAP_EVAL_RECOMMENDATION 
+		where 
+		REPORT_ID = #{reportId,jdbcType=BIGINT} 
+	</select>
+	
+	<delete id="deleteByReportAndType" parameterType="map">
+		delete from GDSAP_EVAL_RECOMMENDATION where REPORT_ID = #{reportId,jdbcType=BIGINT} 
+			and RECOMMENDATION_TYPE = #{recommendationType,jdbcType=INTEGER}
+	</delete>
+	
+	<delete id="deleteByReportId" parameterType="java.lang.Long">
+		delete from GDSAP_EVAL_RECOMMENDATION where REPORT_ID = #{reportId,jdbcType=BIGINT} 
+	</delete>
+</mapper>

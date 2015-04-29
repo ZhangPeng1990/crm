@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalImprovementMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalImprovement" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="IMPROVEMENT_CATEGORY" property="improvementCategory" jdbcType="INTEGER" />
+    <result column="IMPROVEMENT_TYPE" property="improvementType" jdbcType="VARCHAR" />
+    <result column="TYPICAL_SAVING" property="typicalSaving" jdbcType="REAL" />
+    <result column="ENERGY_PERFORMANCE_RATING" property="energyPerformanceRating" jdbcType="REAL" />
+    <result column="ENVIRONMENTAL_IMPACT_RATING" property="environmentalImpactRating" jdbcType="REAL" />
+    <result column="RECOMMENDATION_CODE" property="recommendationCode" jdbcType="INTEGER" />
+    <result column="INDICATIVE_COST" property="indicativeCost" jdbcType="VARCHAR" />
+    <result column="GREEN_DEAL_CATEGORY" property="greenDealCategory" jdbcType="INTEGER" />
+    <result column="SCOPE" property="scope" jdbcType="INTEGER" />
+    <result column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <select id="load" resultMap="rm" parameterType="java.lang.Long" >
+    select 
+    *
+    from GDSAP_EVAL_IMPROVEMENT
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_IMPROVEMENT
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalImprovement"  useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+    insert into GDSAP_EVAL_IMPROVEMENT (ID, IMPROVEMENT_CATEGORY, IMPROVEMENT_TYPE, 
+      TYPICAL_SAVING, ENERGY_PERFORMANCE_RATING, ENVIRONMENTAL_IMPACT_RATING, 
+      RECOMMENDATION_CODE, INDICATIVE_COST, GREEN_DEAL_CATEGORY, 
+      SCOPE, REPORT_ID)
+    values (#{id,jdbcType=BIGINT}, #{improvementCategory,jdbcType=INTEGER}, #{improvementType,jdbcType=VARCHAR}, 
+      #{typicalSaving,jdbcType=REAL}, #{energyPerformanceRating,jdbcType=REAL}, #{environmentalImpactRating,jdbcType=REAL}, 
+      #{recommendationCode,jdbcType=INTEGER}, #{indicativeCost,jdbcType=VARCHAR}, #{greenDealCategory,jdbcType=INTEGER}, 
+      #{scope,jdbcType=INTEGER}, #{reportId,jdbcType=BIGINT})
+  </insert>
+  
+  <select id="countAll" resultType="java.lang.Integer" >
+    select count(0) from GDSAP_EVAL_IMPROVEMENT
+  </select>
+  
+  <select id="findAll" resultMap="rm" >
+    select * from GDSAP_EVAL_IMPROVEMENT
+  </select>
+  
+  <select id="findAllIds" resultType="java.lang.Long" >
+    select ID from GDSAP_EVAL_IMPROVEMENT
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalImprovement" >
+    update GDSAP_EVAL_IMPROVEMENT
+    <set >
+      <if test="improvementCategory != null" >
+        IMPROVEMENT_CATEGORY = #{improvementCategory,jdbcType=INTEGER},
+      </if>
+      <if test="improvementType != null" >
+        IMPROVEMENT_TYPE = #{improvementType,jdbcType=VARCHAR},
+      </if>
+      <if test="typicalSaving != null" >
+        TYPICAL_SAVING = #{typicalSaving,jdbcType=REAL},
+      </if>
+      <if test="energyPerformanceRating != null" >
+        ENERGY_PERFORMANCE_RATING = #{energyPerformanceRating,jdbcType=REAL},
+      </if>
+      <if test="environmentalImpactRating != null" >
+        ENVIRONMENTAL_IMPACT_RATING = #{environmentalImpactRating,jdbcType=REAL},
+      </if>
+      <if test="recommendationCode != null" >
+        RECOMMENDATION_CODE = #{recommendationCode,jdbcType=INTEGER},
+      </if>
+      <if test="indicativeCost != null" >
+        INDICATIVE_COST = #{indicativeCost,jdbcType=VARCHAR},
+      </if>
+      <if test="greenDealCategory != null" >
+        GREEN_DEAL_CATEGORY = #{greenDealCategory,jdbcType=INTEGER},
+      </if>
+      <if test="scope != null" >
+        SCOPE = #{scope,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        REPORT_ID = #{reportId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalImprovement" >
+    update GDSAP_EVAL_IMPROVEMENT
+    set IMPROVEMENT_CATEGORY = #{improvementCategory,jdbcType=INTEGER},
+      IMPROVEMENT_TYPE = #{improvementType,jdbcType=VARCHAR},
+      TYPICAL_SAVING = #{typicalSaving,jdbcType=REAL},
+      ENERGY_PERFORMANCE_RATING = #{energyPerformanceRating,jdbcType=REAL},
+      ENVIRONMENTAL_IMPACT_RATING = #{environmentalImpactRating,jdbcType=REAL},
+      RECOMMENDATION_CODE = #{recommendationCode,jdbcType=INTEGER},
+      INDICATIVE_COST = #{indicativeCost,jdbcType=VARCHAR},
+      GREEN_DEAL_CATEGORY = #{greenDealCategory,jdbcType=INTEGER},
+      SCOPE = #{scope,jdbcType=INTEGER},
+      REPORT_ID = #{reportId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findByReportIdAndScope" parameterType="map" resultMap="rm">
+  	select * from GDSAP_EVAL_IMPROVEMENT 
+  	<where> 
+  		<if test="reportId != null" >
+        and REPORT_ID = #{reportId,jdbcType=BIGINT} 
+      	</if>
+  		<if test="scope != null" >
+        and SCOPE = #{scope,jdbcType=INTEGER} 
+      	</if>
+    </where>
+  </select>
+  
+  <select id="findBySolutionId" parameterType="java.lang.Long" resultMap="rm">
+  	SELECT model.* FROM GDSAP_EVAL_SOLUTION_IMPROVEMENT_REL AS rel INNER JOIN 
+	GDSAP_EVAL_IMPROVEMENT AS model ON 
+	rel.SOLUTION_ID=model.ID
+	WHERE 
+	rel.SOLUTION_ID=#{solutionId,jdbcType=BIGINT}
+  </select>
+</mapper>

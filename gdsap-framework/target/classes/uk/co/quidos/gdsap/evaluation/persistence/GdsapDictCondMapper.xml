@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapDictCondMapper">
+	<resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapDictCond">
+        <result property="id" jdbcType="INTEGER" column="ID"/>
+        <result property="dictItemId" jdbcType="INTEGER" column="DICT_ITEM_ID"/>
+        <result property="condType" jdbcType="VARCHAR" column="COND_TYPE"/>
+	</resultMap>
+	
+	<select id="load" resultMap="rm">
+		SELECT 
+	        ID,
+	        DICT_ITEM_ID,
+	        COND_TYPE
+		FROM gdsap_dict_cond 
+	    WHERE 
+	        ID = #{id} 
+	</select>
+	<!-- 查询所有的ID -->
+	<select id="findAllIds" resultType="java.lang.Integer">
+		SELECT ID FROM gdsap_dict_cond
+	</select>
+	<!-- 查询所有 -->
+	<select id="getAll" parameterType="java.lang.Integer" resultMap="rm">
+		SELECT
+	        ID,
+	        DICT_ITEM_ID,
+	        COND_TYPE
+		FROM gdsap_dict_cond
+		WHERE
+        ID = #{id} 
+	</select>
+	<!-- 按Id删除 -->
+	<delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM gdsap_dict_cond WHERE
+        ID = #{id} 
+    </delete>
+     <!-- 插入 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO gdsap_dict_cond (
+        	ID ,
+        	DICT_ITEM_ID ,
+        	COND_TYPE 
+        ) VALUES (
+        	#{id} ,
+        	#{dictItemId} ,
+        	#{condType} 
+        )
+	</insert>
+	
+	<select id="countAll" resultType="java.lang.Long">
+        SELECT count(ID) FROM gdsap_dict_cond    
+    </select>
+    
+	<select id="findAll" resultMap="rm">
+    	SELECT 
+	        ID,
+	        DICT_ITEM_ID,
+	        COND_TYPE
+	    FROM gdsap_dict_cond
+    </select>
+	
+	<!-- 更新 -->
+	<update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapDictCond">
+        UPDATE gdsap_dict_cond 
+        	<set>
+			        <if test="DICT_ITEM_ID!=null" >
+			        DICT_ITEM_ID = #{dictItemId} ,
+					</if>
+			        <if test="COND_TYPE!=null" >
+			        COND_TYPE = #{condType} 
+					</if>
+	        </set>
+        WHERE 
+	        ID = #{id} 
+	</update>
+	
+	<update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapDictCond">
+        UPDATE gdsap_dict_cond SET
+	        DICT_ITEM_ID = #{dictItemId} ,
+	        COND_TYPE = #{condType} 
+        WHERE 
+	        ID = #{id} 
+	</update>
+	
+	
+	<delete id="deleteAllByDictCond" parameterType="java.lang.String">
+        DELETE FROM gdsap_dict_cond WHERE
+        COND_TYPE = #{condType} 
+    </delete>
+</mapper>
+

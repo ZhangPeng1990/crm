@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionSeqMapper">
+	<resultMap id="BaseResultMap"
+		type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionSeq">
+		<id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+		<id column="SOLUTION_TYPE" property="solutionType" jdbcType="INTEGER" />
+		<result column="SEQ_VALUE" property="seqValue" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		REPORT_ID, SOLUTION_TYPE, SEQ_VALUE
+  	</sql>
+	<select id="load" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from GDSAP_EVAL_SOLUTION_SEQ
+		where REPORT_ID = #{reportId,jdbcType=BIGINT} and SOLUTION_TYPE = #{solutionType,jdbcType=INTEGER}
+	</select>
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from GDSAP_EVAL_SOLUTION_SEQ
+		where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  	</delete>
+	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionSeq">
+		insert into GDSAP_EVAL_SOLUTION_SEQ (REPORT_ID, SOLUTION_TYPE, SEQ_VALUE)
+		values (#{reportId,jdbcType=BIGINT}, #{solutionType,jdbcType=INTEGER}, #{seqValue,jdbcType=INTEGER})
+  	</insert>
+
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionSeq">
+		update GDSAP_EVAL_SOLUTION_SEQ
+		<set>
+			<if test="seqValue != null">
+				SEQ_VALUE = #{seqValue,jdbcType=INTEGER},
+      		</if>
+		</set>
+		where REPORT_ID = #{reportId,jdbcType=BIGINT} and SOLUTION_TYPE = #{solutionType,jdbcType=INTEGER}
+	</update>
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionSeq">
+		update GDSAP_EVAL_SOLUTION_SEQ
+		set SEQ_VALUE = #{seqValue,jdbcType=INTEGER}
+		where REPORT_ID = #{reportId,jdbcType=BIGINT} and SOLUTION_TYPE = #{solutionType,jdbcType=INTEGER}
+  </update>
+</mapper>

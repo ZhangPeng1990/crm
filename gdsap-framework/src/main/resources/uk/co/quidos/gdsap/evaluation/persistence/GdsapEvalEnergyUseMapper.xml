@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalEnergyUseMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEnergyUse" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="ENERGY_RATING_CURRENT" property="energyRatingCurrent" jdbcType="INTEGER" />
+    <result column="ENERGY_RATING_POTENTIAL" property="energyRatingPotential" jdbcType="INTEGER" />
+    <result column="ENERGY_RATING_AVERAGE" property="energyRatingAverage" jdbcType="INTEGER" />
+    <result column="ENVIRONMENTAL_IMPACT_CURRENT" property="environmentalImpactCurrent" jdbcType="INTEGER" />
+    <result column="ENVIRONMENTAL_IMPACT_POTENTIAL" property="environmentalImpactPotential" jdbcType="INTEGER" />
+    <result column="ENERGY_CONSUMPTION_CURRENT" property="energyConsumptionCurrent" jdbcType="REAL" />
+    <result column="ENERGY_CONSUMPTION_POTENTIAL" property="energyConsumptionPotential" jdbcType="REAL" />
+    <result column="CO2_EMISSIONS_CURRENT" property="co2EmissionsCurrent" jdbcType="REAL" />
+    <result column="CO2_EMISSIONS_CURRENT_PER_FLOOR_AREA" property="co2EmissionsCurrentPerFloorArea" jdbcType="REAL" />
+    <result column="CO2_EMISSIONS_POTENTIAL" property="co2EmissionsPotential" jdbcType="REAL" />
+    <result column="LIGHTING_COST_CURRENT" property="lightingCostCurrent" jdbcType="REAL" />
+    <result column="LIGHTING_COST_POTENTIAL" property="lightingCostPotential" jdbcType="REAL" />
+    <result column="HEATING_COST_CURRENT" property="heatingCostCurrent" jdbcType="REAL" />
+    <result column="HEATING_COST_POTENTIAL" property="heatingCostPotential" jdbcType="REAL" />
+    <result column="HOT_WATER_COST_CURRENT" property="hotWaterCostCurrent" jdbcType="REAL" />
+    <result column="HOT_WATER_COST_POTENTIAL" property="hotWaterCostPotential" jdbcType="REAL" />
+  </resultMap>
+  
+  <select id="load" resultMap="rm" parameterType="java.lang.Long" >
+    select 
+     * 
+    from GDSAP_EVAL_ENERGY_USE
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_ENERGY_USE
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEnergyUse" >
+    insert into GDSAP_EVAL_ENERGY_USE (REPORT_ID, ENERGY_RATING_CURRENT, ENERGY_RATING_POTENTIAL, 
+      ENERGY_RATING_AVERAGE, ENVIRONMENTAL_IMPACT_CURRENT, 
+      ENVIRONMENTAL_IMPACT_POTENTIAL, ENERGY_CONSUMPTION_CURRENT, 
+      ENERGY_CONSUMPTION_POTENTIAL, CO2_EMISSIONS_CURRENT, 
+      CO2_EMISSIONS_CURRENT_PER_FLOOR_AREA, CO2_EMISSIONS_POTENTIAL, 
+      LIGHTING_COST_CURRENT, LIGHTING_COST_POTENTIAL, HEATING_COST_CURRENT, 
+      HEATING_COST_POTENTIAL, HOT_WATER_COST_CURRENT, HOT_WATER_COST_POTENTIAL
+      )
+    values (#{reportId,jdbcType=BIGINT}, #{energyRatingCurrent,jdbcType=INTEGER}, #{energyRatingPotential,jdbcType=INTEGER}, 
+      #{energyRatingAverage,jdbcType=INTEGER}, #{environmentalImpactCurrent,jdbcType=INTEGER}, 
+      #{environmentalImpactPotential,jdbcType=INTEGER}, #{energyConsumptionCurrent,jdbcType=REAL}, 
+      #{energyConsumptionPotential,jdbcType=REAL}, #{co2EmissionsCurrent,jdbcType=REAL}, 
+      #{co2EmissionsCurrentPerFloorArea,jdbcType=REAL}, #{co2EmissionsPotential,jdbcType=REAL}, 
+      #{lightingCostCurrent,jdbcType=REAL}, #{lightingCostPotential,jdbcType=REAL}, #{heatingCostCurrent,jdbcType=REAL}, 
+      #{heatingCostPotential,jdbcType=REAL}, #{hotWaterCostCurrent,jdbcType=REAL}, #{hotWaterCostPotential,jdbcType=REAL}
+      )
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEnergyUse" >
+    update GDSAP_EVAL_ENERGY_USE
+    <set >
+      <if test="energyRatingCurrent != null" >
+        ENERGY_RATING_CURRENT = #{energyRatingCurrent,jdbcType=INTEGER},
+      </if>
+      <if test="energyRatingPotential != null" >
+        ENERGY_RATING_POTENTIAL = #{energyRatingPotential,jdbcType=INTEGER},
+      </if>
+      <if test="energyRatingAverage != null" >
+        ENERGY_RATING_AVERAGE = #{energyRatingAverage,jdbcType=INTEGER},
+      </if>
+      <if test="environmentalImpactCurrent != null" >
+        ENVIRONMENTAL_IMPACT_CURRENT = #{environmentalImpactCurrent,jdbcType=INTEGER},
+      </if>
+      <if test="environmentalImpactPotential != null" >
+        ENVIRONMENTAL_IMPACT_POTENTIAL = #{environmentalImpactPotential,jdbcType=INTEGER},
+      </if>
+      <if test="energyConsumptionCurrent != null" >
+        ENERGY_CONSUMPTION_CURRENT = #{energyConsumptionCurrent,jdbcType=REAL},
+      </if>
+      <if test="energyConsumptionPotential != null" >
+        ENERGY_CONSUMPTION_POTENTIAL = #{energyConsumptionPotential,jdbcType=REAL},
+      </if>
+      <if test="co2EmissionsCurrent != null" >
+        CO2_EMISSIONS_CURRENT = #{co2EmissionsCurrent,jdbcType=REAL},
+      </if>
+      <if test="co2EmissionsCurrentPerFloorArea != null" >
+        CO2_EMISSIONS_CURRENT_PER_FLOOR_AREA = #{co2EmissionsCurrentPerFloorArea,jdbcType=REAL},
+      </if>
+      <if test="co2EmissionsPotential != null" >
+        CO2_EMISSIONS_POTENTIAL = #{co2EmissionsPotential,jdbcType=REAL},
+      </if>
+      <if test="lightingCostCurrent != null" >
+        LIGHTING_COST_CURRENT = #{lightingCostCurrent,jdbcType=REAL},
+      </if>
+      <if test="lightingCostPotential != null" >
+        LIGHTING_COST_POTENTIAL = #{lightingCostPotential,jdbcType=REAL},
+      </if>
+      <if test="heatingCostCurrent != null" >
+        HEATING_COST_CURRENT = #{heatingCostCurrent,jdbcType=REAL},
+      </if>
+      <if test="heatingCostPotential != null" >
+        HEATING_COST_POTENTIAL = #{heatingCostPotential,jdbcType=REAL},
+      </if>
+      <if test="hotWaterCostCurrent != null" >
+        HOT_WATER_COST_CURRENT = #{hotWaterCostCurrent,jdbcType=REAL},
+      </if>
+      <if test="hotWaterCostPotential != null" >
+        HOT_WATER_COST_POTENTIAL = #{hotWaterCostPotential,jdbcType=REAL},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEnergyUse" >
+    update GDSAP_EVAL_ENERGY_USE
+    set ENERGY_RATING_CURRENT = #{energyRatingCurrent,jdbcType=INTEGER},
+      ENERGY_RATING_POTENTIAL = #{energyRatingPotential,jdbcType=INTEGER},
+      ENERGY_RATING_AVERAGE = #{energyRatingAverage,jdbcType=INTEGER},
+      ENVIRONMENTAL_IMPACT_CURRENT = #{environmentalImpactCurrent,jdbcType=INTEGER},
+      ENVIRONMENTAL_IMPACT_POTENTIAL = #{environmentalImpactPotential,jdbcType=INTEGER},
+      ENERGY_CONSUMPTION_CURRENT = #{energyConsumptionCurrent,jdbcType=REAL},
+      ENERGY_CONSUMPTION_POTENTIAL = #{energyConsumptionPotential,jdbcType=REAL},
+      CO2_EMISSIONS_CURRENT = #{co2EmissionsCurrent,jdbcType=REAL},
+      CO2_EMISSIONS_CURRENT_PER_FLOOR_AREA = #{co2EmissionsCurrentPerFloorArea,jdbcType=REAL},
+      CO2_EMISSIONS_POTENTIAL = #{co2EmissionsPotential,jdbcType=REAL},
+      LIGHTING_COST_CURRENT = #{lightingCostCurrent,jdbcType=REAL},
+      LIGHTING_COST_POTENTIAL = #{lightingCostPotential,jdbcType=REAL},
+      HEATING_COST_CURRENT = #{heatingCostCurrent,jdbcType=REAL},
+      HEATING_COST_POTENTIAL = #{heatingCostPotential,jdbcType=REAL},
+      HOT_WATER_COST_CURRENT = #{hotWaterCostCurrent,jdbcType=REAL},
+      HOT_WATER_COST_POTENTIAL = #{hotWaterCostPotential,jdbcType=REAL}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <select id="countALl" resultType="java.lang.Integer">
+  	select count(0) as c from GDSAP_EVAL_ENERGY_USE
+  </select>
+  
+  <select id="findAllIds" resultType="java.lang.Long">
+  	select REPORT_ID from  GDSAP_EVAL_ENERGY_USE 
+  </select>
+  
+  <select id="findAll" resultMap="rm">
+  	select * from GDSAP_EVAL_ENERGY_USE
+  </select>
+  
+</mapper>

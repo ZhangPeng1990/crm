@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalOtherFuelMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOtherFuel" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="RELIABLITY_LEVEL" property="reliablityLevel" jdbcType="INTEGER" />
+    <result column="FIXED_COST" property="fixedCost" jdbcType="REAL" />
+    <result column="FIXED_COST_SELECTED" property="fixedCostSelected" jdbcType="INTEGER" />
+    <result column="UNIT_OF_SALE" property="unitOfSale" jdbcType="INTEGER" />
+    <result column="UNIT_PRICE" property="unitPrice" jdbcType="REAL" />
+    <result column="UNITS_PURCHASED_NUMBER" property="unitsPurchasedNumber" jdbcType="REAL" />
+    <result column="TOTAL_COST" property="totalCost" jdbcType="REAL" />
+    <result column="PERIOD_SELECT" property="periodSelect" jdbcType="INTEGER" />
+    <result column="PERIOD" property="period" jdbcType="REAL" />
+    <result column="VATABLE" property="vatable" jdbcType="INTEGER" />
+    <result column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="FUEL_CODE" property="fuelCode" jdbcType="INTEGER" />
+    
+    <result column="UNUSUAL_ENERGY_USINGABLE" property="unusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="UNUSUAL_ENERGY_USINGABLE_DES" property="unusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+    
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, RELIABLITY_LEVEL, FIXED_COST, FIXED_COST_SELECTED, UNIT_OF_SALE, UNIT_PRICE, UNITS_PURCHASED_NUMBER, 
+    TOTAL_COST, PERIOD_SELECT, PERIOD, VATABLE, REPORT_ID, FUEL_CODE ,UNUSUAL_ENERGY_USINGABLE,UNUSUAL_ENERGY_USINGABLE_DES
+  </sql>
+  <select id="load" resultMap="rm" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from GDSAP_EVAL_OTHER_FUEL
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Integer" >
+    delete from GDSAP_EVAL_OTHER_FUEL
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <delete id="delteByReportId" parameterType="java.lang.Long">
+    delete from GDSAP_EVAL_OTHER_FUEL
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOtherFuel" useGeneratedKeys="true" keyProperty="id">
+ 	<selectKey resultType="long" order="AFTER" keyProperty="id">
+		select LAST_INSERT_ID() as id
+	</selectKey>
+    insert into GDSAP_EVAL_OTHER_FUEL (ID, RELIABLITY_LEVEL, FIXED_COST, FIXED_COST_SELECTED, 
+      UNIT_OF_SALE, UNIT_PRICE, 
+      UNITS_PURCHASED_NUMBER, TOTAL_COST, PERIOD_SELECT, 
+      PERIOD, VATABLE, REPORT_ID,FUEL_CODE ,UNUSUAL_ENERGY_USINGABLE,UNUSUAL_ENERGY_USINGABLE_DES
+      )
+    values (#{id,jdbcType=BIGINT}, #{reliablityLevel,jdbcType=INTEGER}, #{fixedCost,jdbcType=REAL}, #{fixedCostSelected,jdbcType=INTEGER}, 
+      #{unitOfSale,jdbcType=INTEGER}, #{unitPrice,jdbcType=REAL}, 
+      #{unitsPurchasedNumber,jdbcType=REAL}, #{totalCost,jdbcType=REAL}, #{periodSelect,jdbcType=INTEGER}, 
+      #{period,jdbcType=REAL}, #{vatable,jdbcType=INTEGER}, 
+      #{reportId,jdbcType=BIGINT}, #{fuelCode,jdbcType=INTEGER},#{unusualEnergyUsingable,jdbcType=INTEGER},#{unusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOtherFuel" >
+    update GDSAP_EVAL_OTHER_FUEL
+    <set >
+      <if test="reliablityLevel != null" >
+        RELIABLITY_LEVEL = #{reliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="fixedCost != null" >
+        FIXED_COST = #{fixedCost,jdbcType=REAL},
+      </if>
+      <if test="fixedCostSelected != null">
+      	FIXED_COST_SELECTED = #{fixedCostSelected,jdbcType=INTEGER},
+      </if>
+      <if test="unitOfSale != null" >
+        UNIT_OF_SALE = #{unitOfSale,jdbcType=INTEGER},
+      </if>
+      <if test="unitPrice != null" >
+        UNIT_PRICE = #{unitPrice,jdbcType=REAL},
+      </if>
+      <if test="unitsPurchasedNumber != null" >
+        UNITS_PURCHASED_NUMBER = #{unitsPurchasedNumber,jdbcType=REAL},
+      </if>
+      <if test="totalCost != null" >
+        TOTAL_COST = #{totalCost,jdbcType=REAL},
+      </if>
+      <if test="periodSelect != null" >
+        PERIOD_SELECT = #{periodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="period != null" >
+        PERIOD = #{period,jdbcType=REAL},
+      </if>
+      <if test="vatable != null" >
+        VATABLE = #{vatable,jdbcType=INTEGER},
+      </if>
+      <if test="reportId != null" >
+        REPORT_ID = #{reportId,jdbcType=BIGINT},
+      </if>
+      <if test="fuelCode != null" >
+        FUEL_CODE = #{fuelCode,jdbcType=BIGINT},
+      </if>
+      <if test="unusualEnergyUsingable != null">
+      	UNUSUAL_ENERGY_USINGABLE = #{unusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="unusualEnergyUsingableDes != null">
+      	UNUSUAL_ENERGY_USINGABLE_DES = #{unusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+      
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOtherFuel" >
+    update GDSAP_EVAL_OTHER_FUEL
+    set RELIABLITY_LEVEL = #{reliablityLevel,jdbcType=INTEGER},
+      FIXED_COST = #{fixedCost,jdbcType=REAL},
+      FIXED_COST_SELECTED = #{fixedCostSelected,jdbcType=INTEGER},
+      UNIT_OF_SALE = #{unitOfSale,jdbcType=INTEGER},
+      UNIT_PRICE = #{unitPrice,jdbcType=REAL},
+      UNITS_PURCHASED_NUMBER = #{unitsPurchasedNumber,jdbcType=REAL},
+      TOTAL_COST = #{totalCost,jdbcType=REAL},
+      PERIOD_SELECT = #{periodSelect,jdbcType=INTEGER},
+      PERIOD = #{period,jdbcType=REAL},
+      VATABLE = #{vatable,jdbcType=INTEGER},
+      REPORT_ID = #{reportId,jdbcType=BIGINT},
+      FUEL_CODE = #{fuelCode,jdbcType=BIGINT},
+      UNUSUAL_ENERGY_USINGABLE = #{unusualEnergyUsingable,jdbcType=INTEGER},
+      UNUSUAL_ENERGY_USINGABLE_DES = #{unusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findAll" resultMap="rm">
+  	select 
+  	<include refid="Base_Column_List" />
+  	from GDSAP_EVAL_OTHER_FUEL
+  </select>
+  
+  <select id="findByReportId" resultMap="rm" parameterType="java.lang.Long">
+  	select * from GDSAP_EVAL_OTHER_FUEL where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <select id="countAll" resultType="java.lang.Integer">
+  	select count(0) as c from GDSAP_EVAL_OTHER_FUEL
+  </select>
+</mapper>

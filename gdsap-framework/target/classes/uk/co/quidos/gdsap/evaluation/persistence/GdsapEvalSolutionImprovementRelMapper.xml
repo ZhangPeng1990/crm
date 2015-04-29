@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionImprovementRelMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionImprovementRelKey" >
+    <id column="IMPROVEMENT_ID" property="improvementId" jdbcType="BIGINT" />
+    <id column="SOLUTION_ID" property="solutionId" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionImprovementRelKey" >
+    insert into GDSAP_EVAL_SOLUTION_IMPROVEMENT_REL (IMPROVEMENT_ID, SOLUTION_ID)
+    values (#{improvementId,jdbcType=BIGINT}, #{solutionId,jdbcType=BIGINT})
+  </insert>
+  
+  <delete id="deleteBySolutionId" parameterType="java.lang.Long">
+  	delete from GDSAP_EVAL_SOLUTION_IMPROVEMENT_REL as rel where rel.SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </delete>
+  
+</mapper>

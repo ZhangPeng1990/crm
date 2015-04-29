@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalPerFuelCalResultMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalPerFuelCalResult" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="SOLUTION_ID" property="solutionId" jdbcType="BIGINT" />
+    <result column="FUEL_CODE" property="fuelCode" jdbcType="INTEGER" />
+    <result column="KWH_SAVING" property="kwhSaving" jdbcType="REAL" />
+    <result column="SC_FRACTION" property="scFraction" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SOLUTION_ID, FUEL_CODE, KWH_SAVING, SC_FRACTION
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gdsap_eval_per_fuel_cal_result
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from gdsap_eval_per_fuel_cal_result
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalPerFuelCalResult" >
+    insert into gdsap_eval_per_fuel_cal_result (ID, SOLUTION_ID, FUEL_CODE, 
+      KWH_SAVING, SC_FRACTION)
+    values (#{id,jdbcType=BIGINT}, #{solutionId,jdbcType=BIGINT}, #{fuelCode,jdbcType=INTEGER}, 
+      #{kwhSaving,jdbcType=REAL}, #{scFraction,jdbcType=REAL})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalPerFuelCalResult" >
+    update gdsap_eval_per_fuel_cal_result
+    <set >
+      <if test="solutionId != null" >
+        SOLUTION_ID = #{solutionId,jdbcType=BIGINT},
+      </if>
+      <if test="fuelCode != null" >
+        FUEL_CODE = #{fuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="kwhSaving != null" >
+        KWH_SAVING = #{kwhSaving,jdbcType=REAL},
+      </if>
+      <if test="scFraction != null" >
+        SC_FRACTION = #{scFraction,jdbcType=REAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalPerFuelCalResult" >
+    update gdsap_eval_per_fuel_cal_result
+    set SOLUTION_ID = #{solutionId,jdbcType=BIGINT},
+      FUEL_CODE = #{fuelCode,jdbcType=INTEGER},
+      KWH_SAVING = #{kwhSaving,jdbcType=REAL},
+      SC_FRACTION = #{scFraction,jdbcType=REAL}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="findBySolutionId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> from 
+  	gdsap_eval_per_fuel_cal_result 
+  	where 
+  	SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteBySolutionId" parameterType="java.lang.Long">
+  	delete from gdsap_eval_per_fuel_cal_result where 
+  	SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </delete>
+</mapper>

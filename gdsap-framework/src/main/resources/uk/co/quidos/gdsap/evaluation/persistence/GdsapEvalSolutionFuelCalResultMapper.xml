@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionFuelCalResultMapper">
+
+	<resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionFuelCalResult" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="SOLUTION_ID" property="solutionId" jdbcType="BIGINT" />
+    <result column="FUEL_CODE" property="fuelCode" jdbcType="INTEGER" />
+    <result column="OTHER_FUEL_COST" property="otherFuelCost" jdbcType="REAL" />
+    <result column="OTHER_FUEL_USE" property="otherFuelUse" jdbcType="REAL" />
+    <result column="SC_INPUT" property="scInput" jdbcType="REAL" />
+    <result column="SC_TABLE" property="scTable" jdbcType="REAL" />
+    <result column="UP_INPUT" property="upInput" jdbcType="REAL" />
+    <result column="UP_TABLE" property="upTable" jdbcType="REAL" />
+    
+    <result column="UNIT_INPUT" property="unitInput" jdbcType="INTEGER" />
+    <result column="UNIT_TABLE" property="unitTable" jdbcType="INTEGER" />
+    
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, SOLUTION_ID, FUEL_CODE, OTHER_FUEL_COST, OTHER_FUEL_USE, SC_INPUT, SC_TABLE, 
+    UP_INPUT, UP_TABLE ,UNIT_INPUT, UNIT_TABLE 
+  </sql>
+  
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gdsap_eval_solution_fuel_cal_result
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from gdsap_eval_solution_fuel_cal_result
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionFuelCalResult"  useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+    insert into gdsap_eval_solution_fuel_cal_result (ID, SOLUTION_ID, FUEL_CODE, 
+      OTHER_FUEL_COST, OTHER_FUEL_USE, SC_INPUT, 
+      SC_TABLE, UP_INPUT, UP_TABLE, UNIT_INPUT, UNIT_TABLE)
+    values (#{id,jdbcType=BIGINT}, #{solutionId,jdbcType=BIGINT}, #{fuelCode,jdbcType=INTEGER}, 
+      #{otherFuelCost,jdbcType=REAL}, #{otherFuelUse,jdbcType=REAL}, #{scInput,jdbcType=REAL}, 
+      #{scTable,jdbcType=REAL}, #{upInput,jdbcType=REAL}, #{upTable,jdbcType=REAL},
+      #{unitInput,jdbcType=INTEGER},#{unitTable,jdbcType=INTEGER})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionFuelCalResult" >
+    update gdsap_eval_solution_fuel_cal_result
+    <set >
+      <if test="solutionId != null" >
+        SOLUTION_ID = #{solutionId,jdbcType=BIGINT},
+      </if>
+      <if test="fuelCode != null" >
+        FUEL_CODE = #{fuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="otherFuelCost != null" >
+        OTHER_FUEL_COST = #{otherFuelCost,jdbcType=REAL},
+      </if>
+      <if test="otherFuelUse != null" >
+        OTHER_FUEL_USE = #{otherFuelUse,jdbcType=REAL},
+      </if>
+      <if test="scInput != null" >
+        SC_INPUT = #{scInput,jdbcType=REAL},
+      </if>
+      <if test="scTable != null" >
+        SC_TABLE = #{scTable,jdbcType=REAL},
+      </if>
+      <if test="upInput != null" >
+        UP_INPUT = #{upInput,jdbcType=REAL},
+      </if>
+      <if test="upTable != null" >
+        UP_TABLE = #{upTable,jdbcType=REAL},
+      </if>
+      <if test="unitInput != null" >
+        UNIT_INPUT = #{unitInput,jdbcType=INTEGER},
+      </if>
+      <if test="unitTable != null" >
+        UNIT_TABLE = #{unitTable,jdbcType=INTEGER}
+      </if>
+      
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionFuelCalResult" >
+    update gdsap_eval_solution_fuel_cal_result
+    set SOLUTION_ID = #{solutionId,jdbcType=BIGINT},
+      FUEL_CODE = #{fuelCode,jdbcType=INTEGER},
+      OTHER_FUEL_COST = #{otherFuelCost,jdbcType=REAL},
+      OTHER_FUEL_USE = #{otherFuelUse,jdbcType=REAL},
+      SC_INPUT = #{scInput,jdbcType=REAL},
+      SC_TABLE = #{scTable,jdbcType=REAL},
+      UP_INPUT = #{upInput,jdbcType=REAL},
+      UP_TABLE = #{upTable,jdbcType=REAL},
+      UNIT_INPUT = #{unitInput,jdbcType=INTEGER},
+      UNIT_TABLE = #{unitTable,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+	
+	<select id="findGdsapEvalSolutionFuelCalResults" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select <include refid="Base_Column_List"/> from 
+		GDSAP_EVAL_SOLUTION_FUEL_CAL_RESULT 
+		where 
+		SOLUTION_ID=#{solutionId,jdbcType=BIGINT}
+	</select>
+	
+	<delete id="deleteBySolution" parameterType="java.lang.Long">
+		delete from GDSAP_EVAL_SOLUTION_FUEL_CAL_RESULT where SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+	</delete>
+</mapper>

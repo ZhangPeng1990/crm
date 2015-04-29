@@ -1,0 +1,1885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GDOA:ExternalDefinitions xmlns:GDOA="GDOA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="EPC ExternalDefinitions.xsd">
+    <Recommendation-Declarations>
+    	<Recommendation-Declaration-EAW>
+    		<for_windows>
+    			<![CDATA[U-value entered does not achieve the standard for upgrading retained thermal elements with insulation as set out in the Building Regulations 2010 (see Table 3, Section 5: Guidance on thermal elements, Approved Document L1B Conservation of fuel and power in existing dwellings). Please tick box to confirm that this work is carried out in accordance with Appendix A: Work to thermal elements, Approved Document L1B Conservation of fuel and power in existing dwellings.]]>
+    		</for_windows>
+    		
+    		<for_wall_floor_roof>
+    			<![CDATA[U-value entered does not achieve the standard for upgrading retained controlled fittings as set out in the Building Regulations 2010 (see Table 1, Section 4: Guidance relating to building work, Approved Document L1B Conservation of fuel and power in existing dwellings). Please tick box to confirm that this work is carried out in accordance with Approved Document L1B Conservation of fuel and power in existing dwellings. ]]>
+    		</for_wall_floor_roof>
+    		
+    		<for_partWall>
+    			<![CDATA[The Party Wall etc. Act 1996 requires that Adjoining Owners are given notice of the intention to carry out work on a party wall, and contains provisions on preventing or resolving disputes in relation to party walls. Please tick box to confirm that this will be done before the work is undertaken. ]]>
+    		</for_partWall>
+    	</Recommendation-Declaration-EAW>
+    	
+    	<Recommendation-Declaration-SCT>
+	    	<for_windows>
+	    		<![CDATA[U-value entered does not achieve the performance recommended for reconstruction of thermal elements and/or replacement of windows as set out within clause 6.2.11 to standard 6.2 of the Building (Scotland) Regulations 2004 (refer to values in column b in the table to clause 6.2.9).  Please tick box to confirm that the alternative value entered is assessed as the best performance that can be achieved in improving the thermal element, taking into account both technical risk of improvement and what is ‘reasonably practicable’ and, where works are the subject of a building warrant, that the value is accepted by the verifier.]]>
+	    	</for_windows>
+	    	
+    		<for_wall_floor_roof>
+    			<![CDATA[U-value entered does not achieve the performance recommended for reconstruction of thermal elements and/or replacement of windows as set out within clause 6.2.11 to standard 6.2 of the Building (Scotland) Regulations 2004 (refer to values in column b in the table to clause 6.2.9).  Please tick box to confirm that the alternative value entered is assessed as the best performance that can be achieved in improving the thermal element, taking into account both technical risk of improvement and what is ‘reasonably practicable’ and, where works are the subject of a building warrant, that the value is accepted by the verifier.]]>
+    		</for_wall_floor_roof>
+    		
+    		<for_partWall>
+    			<![CDATA[In relation to houses, both owners would normally have rights over a party wall. In relation to flats or maisonettes, the owner needs to be satisfied that he or she has obtained sufficient consent from other owners before carrying out works on communal property. In all cases, the owner will need to be satisfied that he or she has obtained any necessary consents e.g. building warrant, planning or listed building. Please tick box to confirm that the owner has sufficient consent to proceed.]]>
+    		</for_partWall>
+    	</Recommendation-Declaration-SCT>
+    </Recommendation-Declarations>
+    
+    <Recommendation>
+		<Improvement-Number>5</Improvement-Number>
+		<Improvement-Item>A</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Loft or rafter insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Loft insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.16">0.16</EAW-value>
+				<SCT-value desc="0.15">0.15</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Loft insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.16">0.16</EAW-value>
+				<SCT-value desc="0.15">0.15</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Loft-Insulation-Location" name="Loft insulation">
+				<li code="1" name="1" desc="at joists"/>
+				<li code="0" name="2" desc="at rafters"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>105</Improvement-Number>
+		<Improvement-Item>A</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Loft or rafter insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Pitched roof, no access to loft</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Access to loft is needed to establish existing loft insulation.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Pitched roof, no access to loft</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Access to loft is needed to establish existing loft insulation.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Loft insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.16">0.16</EAW-value>
+				<SCT-value desc="0.15">0.15</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Loft insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.16">0.16</EAW-value>
+				<SCT-value desc="0.15">0.15</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Loft-Insulation-Location" name="Loft insulation">
+				<li code="1" name="1" desc="at joists"/>
+				<li code="0" name="2" desc="at rafters"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>45</Improvement-Number>
+		<Improvement-Item>A2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Flat roof insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Value>
+			<desc>Flat roof insulation</desc>
+			<name>Flat insulation</name>
+			<EAW-value desc="0.18">0.18</EAW-value>
+			<SCT-value desc="0.18">0.18</SCT-value>
+		</Improvement-Value>
+		<GDIP-Improvement-Options>
+			<ul code="Flat-Roof-Insulation-Location" name="Insulation at">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of improved roof</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>145</Improvement-Number>
+		<Improvement-Item>A2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Flat roof insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Flat roof, insulation unknown</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Flat roof insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Flat roof, insulation unknown</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Flat roof insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-SCT>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="6" name="100" desc="100mm"/>
+				<li code="7" name="150" desc="150mm"/>
+				<li code="8" name="200" desc="200mm"/>
+				<li code="9" name="250" desc="250mm"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Flat-Roof-Insulation-Location" name="Insulation at">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of improved roof</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>46</Improvement-Number>
+		<Improvement-Item>A3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Room-in-roof insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Roof room insulation: U-value=</desc>
+				<name>Flat-Ceiling</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Flat ceiling U-value</desc>
+				<name>Flat-Ceiling</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Slope U-value</desc>
+				<name>Slope</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Stud wall U-value</desc>
+				<name>Stud-Wall</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Gable wall U-value</desc>
+				<name>Gable-Wall</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>146</Improvement-Number>
+		<Improvement-Item>A3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Roof room insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Room rooms, insulation unknown for some or all</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Roof room insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Room rooms, insulation unknown for some or all</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Roof room insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Roof room insulation: U-value=</desc>
+				<name>Flat-Ceiling</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Flat ceiling U-value</desc>
+				<name>Flat-Ceiling</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Slope U-value</desc>
+				<name>Slope</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Stud wall U-value</desc>
+				<name>Stud-Wall</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Gable wall U-value</desc>
+				<name>Gable-Wall</name>
+				<EAW-value desc="0.18">0.18</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>4</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Group-Name>Insulation measures</Group-Name>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>106</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Cavity wall, cavity fill unknown</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>A borescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Cavity wall, cavity fill unknown</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>A borescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>109</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>System build</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Some of the walls are system built or of non-conventional construction. It needs to be established that these walls are suitable for cavity insulation.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>System build</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Some of the walls are system built or of non-conventional construction. It needs to be established that these walls are suitable for cavity insulation.</Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>110</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Stone walls not insulated</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>It should be established whether stone walls are of cavity construction and suitable for cavity fill.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Stone walls not insulated</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>It should be established whether stone walls are of cavity construction and suitable for cavity fill.</Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1101</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Cavity wall, fill selected but possible high exposure indicated in EPC addendum</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Suitability for cavity fill should be checked in relation to local exposure conditions and wall construction</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Cavity wall, fill selected but possible high exposure indicated in EPC addendum</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Suitability for cavity fill should be checked in relation to local exposure conditions and wall construction</Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1102</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Cavity wall, fill selected but access issues indicated in EPC addendum </Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Establish whether access to applicable walls can be arranged. </Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Cavity wall, fill selected but access issues indicated in EPC addendum </Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Establish whether access to applicable walls can be arranged. </Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1103</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Cavity wall, fill selected but narrow cavities indicated in EPC addendum</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>The walls may have narrow cavities. This should be checked to establish a suitable type of cavity wall insulation.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Cavity wall, fill selected but narrow cavities indicated in EPC addendum</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>The walls may have narrow cavities. This should be checked to establish a suitable type of cavity wall insulation.</Improvement-Conditions-SCT>
+	</Recommendation>
+	
+	
+	<Recommendation>
+		<Improvement-Number>55</Improvement-Number>
+		<Improvement-Item>Q2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>External or internal insulation with cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation cavity</desc>
+				<name>Wall-Insulation-Location</name>
+				<EAW-value desc="External or internal">1</EAW-value>
+				<SCT-value desc="External or internal">1</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value  readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of improved wall</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.3">0.3</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of improved wall</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.3">0.3</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Improved wall">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>155</Improvement-Number>
+		<Improvement-Item>Q2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>External or internal insulation with cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Cavity wall, cavity fill unknown</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>A borescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Cavity wall, cavity fill unknown</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>A borescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions-SCT>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="2" name="50" desc="50mm"/>
+				<li code="3" name="100" desc="100mm"/>
+				<li code="4" name="150" desc="150mm"/>
+			</ul>
+		</Improvement-Options>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation cavity</desc>
+				<name>Wall-Insulation-Location</name>
+				<EAW-value desc="External or internal">1</EAW-value>
+				<SCT-value desc="External or internal">1</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value  readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of improved wall</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.3">0.3</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of improved wall</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Improved wall">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>6</Improvement-Number>
+		<Improvement-Item>B4</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Party wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Party wall insulation selected</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>The Party Wall etc. Act 1996 requires that Adjoining Owners are given notice of the intention to carry out work on a party wall, and contains provisions on preventing or resolving disputes in relation to party walls.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Party wall insulation selected (Scotland)</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>In relation to houses, both owners would normally have rights over a party wall. In relation to flats or maisonettes, the owner needs to be satisfied that he or she has obtained sufficient consent from other owners before carrying out works on communal property. In all cases, the owner will need to be satisfied that he or she has obtained all necessary consents e.g. building warrant, planning or listed building.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of party walls=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.20">0.20</EAW-value>
+				<SCT-value desc="0.20">0.20</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<!-- B4改进应该没有输入U value
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" readonly="false" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>U-value of party walls=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.20">0.20</EAW-value>
+				<SCT-value desc="0.20">0.20</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		-->
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>7</Improvement-Number>
+		<Improvement-Item>Q</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Wall insulation</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Prcentage of wall to be improved">
+				<li code="1" name="100" desc="100%" defaultOption="YES"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>107</Improvement-Number>
+		<Improvement-Item>Q</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Solid wall insulation unknow</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>It needs to be established whether the solid walls are insulated.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Solid wall insulation unknow</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>It needs to be established whether the solid walls are insulated.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Wall insulation</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="1" name="1" desc="external"/>
+				<li code="2" name="2" desc="internal"/>
+			</ul>
+		    <ul code="Insulation-Thickness" name="Insulation thickness (Internal or External wall)">
+				<li code="2" name="50" desc="50mm"/>
+				<li code="3" name="100" desc="100mm"/>
+				<li code="4" name="150" desc="150mm"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Percentage of wall to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Prcentage of wall to be improved">
+				<li code="1" name="100" desc="100%" defaultOption="YES"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>156</Improvement-Number>
+		<Improvement-Item>Q1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Wall insulation</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Prcentage of wall to be improved">
+				<li code="100" name="100" desc="100%" defaultOption="YES"/>
+				<li code="90" name="90" desc="90%"/>
+				<li code="80" name="80" desc="80%"/>
+				<li code="70" name="70" desc="70%"/>
+				<li code="60" name="60" desc="60%"/>
+				<li code="50" name="50" desc="50%"/>
+				<li code="40" name="40" desc="40%"/>
+				<li code="30" name="30" desc="30%"/>
+				<li code="20" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+			<!-- Wall-Construction 临时的，需要删除 -->
+			<ul code="Wall-Construction" name="Wall Construction">
+				<li code="2" name="2" desc="Sandstone or limestone" defaultOption="YES"/>
+				<li code="3" name="3" desc="Solid Brick"/>
+				<li code="8" name="8" desc="System Built"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>157</Improvement-Number>
+		<Improvement-Item>Q1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Solid wall insulation unknown</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>It needs to be established whether the solid walls are insulated.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Solid wall insulation unknown</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>It needs to be established whether the solid walls are insulated.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Wall insulation</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Prcentage of wall to be improved">
+				<li code="100" name="100" desc="100%" defaultOption="YES"/>
+				<li code="90" name="90" desc="90%"/>
+				<li code="80" name="80" desc="80%"/>
+				<li code="70" name="70" desc="70%"/>
+				<li code="60" name="60" desc="60%"/>
+				<li code="50" name="50" desc="50%"/>
+				<li code="40" name="40" desc="40%"/>
+				<li code="30" name="30" desc="30%"/>
+				<li code="20" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+			<!-- Wall-Construction 临时的，需要删除 -->
+			<ul code="Wall-Construction" name="Wall Construction">
+				<li code="2" name="2" desc="Sandstone or limestone" defaultOption="YES"/>
+				<li code="3" name="3" desc="Solid Brick"/>
+				<li code="8" name="8" desc="System Built"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1570</Improvement-Number>
+		<Improvement-Item>Q1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>System built wall insulation</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Insulation of system built walls requires that the existing insulation is ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>System built wall insulation</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Insulation of system built walls requires that the existing insulation is ascertained.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Wall insulation</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.30">0.30</EAW-value>
+				<SCT-value desc="0.22">0.22</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="0" name="2" desc="Internal"/>
+				<li code="1" name="1" desc="external"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Prcentage of wall to be improved">
+				<li code="100" name="100" desc="100%" defaultOption="YES"/>
+				<li code="90" name="90" desc="90%"/>
+				<li code="80" name="80" desc="80%"/>
+				<li code="70" name="70" desc="70%"/>
+				<li code="60" name="60" desc="60%"/>
+				<li code="50" name="50" desc="50%"/>
+				<li code="40" name="40" desc="40%"/>
+				<li code="30" name="30" desc="30%"/>
+				<li code="20" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+			<!-- Wall-Construction 临时的，需要删除 -->
+			<ul code="Wall-Construction" name="Wall Construction">
+				<li code="2" name="2" desc="Sandstone or limestone" defaultOption="YES"/>
+				<li code="3" name="3" desc="Solid Brick"/>
+				<li code="8" name="8" desc="System Built"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>57</Improvement-Number>
+		<Improvement-Item>W1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation(suspended floor)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Floor insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>570</Improvement-Number>
+		<Improvement-Item>W1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation(suspended floor)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Floor insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>5700</Improvement-Number>
+		<Improvement-Item>W1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation(suspended floor)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Floor insulation unknown</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Floor insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Floor insulation unknown</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Floor insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Floor insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>58</Improvement-Number>
+		<Improvement-Item>W2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation(solid ground floor)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Floor insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>580</Improvement-Number>
+		<Improvement-Item>W2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation(solid ground floor)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Floor insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>5800</Improvement-Number>
+		<Improvement-Item>W2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation(solid ground floor)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation-EAW>Floor insulation unknown</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Floor insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Floor insulation unknown</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Floor insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions-SCT>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Floor insulation: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulation U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="0.25">0.25</EAW-value>
+				<SCT-value desc="0.18">0.18</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>10</Improvement-Number>
+		<Improvement-Item>D</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Draught proofing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>35</Improvement-Number>
+		<Improvement-Item>E2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Energy efficient luminaires</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Lighting</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="INTEGER" inputType="INPUT">
+				<desc>number of fittings to be removed:</desc>
+				<name>Fittings-Removed</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>average wattage of existing fittings:</desc>
+				<name>Average-Wattage-Of-Existing</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="INTEGER" inputType="INPUT">
+				<desc>number of new fittings:</desc>
+				<name>New-Fittings</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>average wattage of new fittings:</desc>
+				<name>Average-Wattage-Of-New</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="TIME" inputType="INPUT">
+				<desc>usage per day:</desc>
+				<name>Usage-Per-Day</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="INTEGER" inputType="INPUT">
+				<desc>number of days per year:</desc>
+				<name>Days-Per-Year</name>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Values>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="INTEGER" inputType="INPUT">
+				<desc>number of fittings to be removed:</desc>
+				<name>Fittings-Removed</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>average wattage of existing fittings:</desc>
+				<name>Average-Wattage-Of-Existing</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="INTEGER" inputType="INPUT">
+				<desc>number of new fittings:</desc>
+				<name>New-Fittings</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>average wattage of new fittings:</desc>
+				<name>Average-Wattage-Of-New</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="TIME" inputType="INPUT">
+				<desc>usage per day:</desc>
+				<name>Usage-Per-Day</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="INTEGER" inputType="INPUT">
+				<desc>number of days per year:</desc>
+				<name>Days-Per-Year</name>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1</Improvement-Number>
+		<Improvement-Item>C</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Hot water cylinder insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>101</Improvement-Number>
+		<Improvement-Item>C</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Hot water cylinder insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Hot water cylinder present but inaccessible</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>The existing cylinder insulation is not known. Access to the cylinder is needed to establish this.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Hot water cylinder present but inaccessible</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>The existing cylinder insulation is not known. Access to the cylinder is needed to establish this.</Improvement-Conditions-SCT>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1040</Improvement-Number>
+		<Improvement-Item>F</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cylinder thermostat</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>104</Improvement-Number>
+		<Improvement-Item>F</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cylinder thermostat</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Hot water cylinder present but inaccessible</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>It is not known whether a cylinder thermostat is present. Access to the cylinder is needed to establish this.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Hot water cylinder present but inaccessible</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>It is not known whether a cylinder thermostat is present. Access to the cylinder is needed to establish this.</Improvement-Conditions-SCT>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>11</Improvement-Number>
+		<Improvement-Item>G</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Heating controls for wet central heating system</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Heating Controls:</desc>
+				<name>Heating-Controls</name>
+				<EAW-value desc="Time and temperature zone control">2</EAW-value>
+				<SCT-value desc="Time and temperature zone control">2</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Heating-Controls" name="Heating Controls">
+				<li code="1" name="1" desc="Programmer, room thermostat and TRVs" defaultOption="YES"/>
+				<li code="2" name="2" desc="Time and temperature zone control"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1111</Improvement-Number>
+		<Improvement-Item>G</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Heating controls for wet central heating system</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Heating Controls:</desc>
+				<name>Heating-Controls</name>
+				<EAW-value desc="Programmer, room thermostat and TRVs">1</EAW-value>
+				<SCT-value desc="Programmer, room thermostat and TRVs">1</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Heating-Controls" name="Heating Controls">
+				<li code="1" name="1" desc="Programmer, room thermostat and TRVs" defaultOption="YES"/>
+				<li code="2" name="2" desc="Time and temperature zone control"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>17</Improvement-Number>
+		<Improvement-Item>H</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Heating controls for warm air system</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Air-Systems" name="Air system">
+			    <li code="0" name="Programmer" desc="Programmer" defaultOption="YES"/>
+				<li code="1" name="roomstat" desc="roomstat"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>18</Improvement-Number>
+		<Improvement-Item>I</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>20</Improvement-Number>
+		<Improvement-Item>I</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2011</Improvement-Number>
+		<Improvement-Item>I</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	
+	<Recommendation>
+		<Improvement-Number>120</Improvement-Number>	
+		<Improvement-Item>I+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel, and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1201</Improvement-Number>
+		<Improvement-Item>I+T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel, and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>40</Improvement-Number>
+		<Improvement-Item>S</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (no fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>4011</Improvement-Number>
+		<Improvement-Item>S</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (no fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>140</Improvement-Number>
+		<Improvement-Item>S+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to gas condensing boiler (no fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1401</Improvement-Number>
+		<Improvement-Item>S+T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to gas condensing boiler (no fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>29</Improvement-Number>
+		<Improvement-Item>T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>129</Improvement-Number>
+		<Improvement-Item>T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Mains gas not available</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Mains gas not available</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions-SCT>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2911</Improvement-Number>
+		<Improvement-Item>T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="3" name="3" desc="35℃ ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>50</Improvement-Number>
+		<Improvement-Item>T+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Mains gas not available</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Mains gas not available</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>150</Improvement-Number>
+		<Improvement-Item>T+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1501</Improvement-Number>
+		<Improvement-Item>T+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>28</Improvement-Number>
+		<Improvement-Item>R</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Condensing oil boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="Unknown" defaultOption="YES"/>
+				<li code="1" name="1" desc=">45℃"/>
+				<li code="3" name="3" desc=">35℃ and ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2811</Improvement-Number>
+		<Improvement-Item>R</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Condensing oil boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="Unknown" defaultOption="YES"/>
+				<li code="1" name="1" desc=">45℃"/>
+				<li code="3" name="3" desc=">35℃ and ≤45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false" defaultOption="YES"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>22</Improvement-Number>
+		<Improvement-Item>J</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood logs boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2211</Improvement-Number>
+		<Improvement-Item>J</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood logs boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false" defaultOption="YES"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:32 -->
+		<Improvement-Number>23</Improvement-Number>
+		<Improvement-Item>K</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood pellets room heater with boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2311</Improvement-Number>
+		<Improvement-Item>K</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood pellets room heater with boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="0" desc="false" defaultOption="YES"/>
+				<li code="1" name="1" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>24</Improvement-Number>
+		<Improvement-Item>L</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>New or replacement storage heaters</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2411</Improvement-Number>
+		<Improvement-Item>L</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>New or replacement storage heaters</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="0" desc="false" defaultOption="YES"/>
+				<li code="1" name="1" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>26</Improvement-Number>
+		<Improvement-Item>M</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Replacement warm-air unit</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Main gas supply needed</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Main gas supply needed.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Main gas supply needed</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Main gas supply needed.</Improvement-Conditions-SCT>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2611</Improvement-Number>
+		<Improvement-Item>M</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Replacement warm-air unit</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Main gas supply needed</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Main gas supply needed.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Main gas supply needed</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Main gas supply needed.</Improvement-Conditions-SCT>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="0" desc="false"/>
+				<li code="1" name="1" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>51</Improvement-Number>
+		<Improvement-Item>Z1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Air source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>5111</Improvement-Number>
+		<Improvement-Item>Z1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Air source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="0" desc="false"/>
+				<li code="1" name="1" desc="true"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>151</Improvement-Number>
+		<Improvement-Item>Z4</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Ground source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>1511</Improvement-Number>
+		<Improvement-Item>Z4</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Ground source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="0" desc="false"/>
+				<li code="1" name="1" desc="true"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Emitter-Temperature" name="Design flow temperature">
+				<li code="0" name="0" desc="not assessed" defaultOption="YES"/>
+				<li code="1" name="1" desc="≥45℃"/>
+				<li code="4" name="4" desc="≤35℃"/>	
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>53</Improvement-Number>
+		<Improvement-Item>Z3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Micro-CHP</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>5311</Improvement-Number>
+		<Improvement-Item>Z3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Micro-CHP</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false" defaultOption="YES"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>5310</Improvement-Number>
+		<Improvement-Item>Z3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Micro-CHP</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation-EAW>Mains gas not available</Improvement-Situation-EAW>
+		<Improvement-Conditions-EAW>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions-EAW>
+		<Improvement-Situation-SCT>Mains gas not available</Improvement-Situation-SCT>
+		<Improvement-Conditions-SCT>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions-SCT>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>530</Improvement-Number>
+		<Improvement-Item>EP</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Circulation Pump</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>19</Improvement-Number>
+		<Improvement-Item>N</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Solar water heating</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Roof orientation:</desc>
+				<name>Orientation</name>
+				<EAW-value desc="South">5</EAW-value>
+				<SCT-value desc="South">5</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>solar panel(m²):</desc>
+				<name>Aperture-Area</name>
+				<EAW-value desc="4">4</EAW-value>
+				<SCT-value desc="4">4</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<Improvement-Options>
+			<ul code="Solar-Panel-Area" name="Panel aperture area(m2)">
+				<li code="1" name="3" desc="3" defaultOption="YES"/>
+				<li code="2" name="6" desc="6"/>
+			</ul>
+		</Improvement-Options>
+		<GDIP-Improvement-Options>
+			<ul code="Collector-Type" name="Collector type">
+				<li code="2" name="2" desc="flat panel" defaultOption="YES"/>
+				<li code="1" name="3" desc="evacuated tube"/>
+			</ul>	
+			<ul code="Orientation" name="Roof orientation">
+				<li code="1" name="5" desc="South" defaultOption="YES"/>
+				<li code="2" name="4" desc="South East"/>
+				<li code="3" name="3" desc="East"/>
+				<li code="4" name="2" desc="North East"/>
+				<li code="5" name="1" desc="North"/>
+				<li code="6" name="8" desc="North West"/>
+				<li code="7" name="7" desc="West"/>
+				<li code="8" name="6" desc="South West"/>
+				<li code="9" name="ND" desc="Horizontal"/>
+			</ul>
+			<ul code="Pitch" name="Pitch">
+				<li code="1" name="1" desc="Hrizontal" defaultOption="YES"/>
+				<li code="2" name="2" desc="30°"/>
+				<li code="3" name="3" desc="45°"/>
+				<li code="4" name="4" desc="60°"/>
+				<li code="5" name="5" desc="Vertical"/>
+				</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Panel aperture area(m2)</desc>
+				<name>Aperture-Area</name>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Collector Efficiency(%)</desc>
+				<name>Zero-Loss-Efficiency</name>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Heat loss cofficient</desc>
+				<name>Linear-Heat-Loss-Coefficient</name>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Second order Heat loss cofficient</desc>
+				<name>Second-Order-Heat-Loss-Coefficient</name>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>37</Improvement-Number>
+		<Improvement-Item>Y</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Waste water heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>38</Improvement-Number>
+		<Improvement-Item>Y2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Storage waste water heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>25</Improvement-Number>
+		<Improvement-Item>L2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Fan-assisted storage heaters (high heat retention)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	<Recommendation>
+		<Improvement-Number>2500</Improvement-Number>
+		<Improvement-Item>L2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Fan-assisted storage heaters (high heat retention)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="0" desc="false" defaultOption="YES"/>
+				<li code="1" name="1" desc="true"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>8</Improvement-Number>
+		<Improvement-Item>O</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Double glazing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%" defaultOption="YES"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="1.6" confirmValue="1.6">1.6</EAW-value>
+				<SCT-value desc="1.6" confirmValue="1.6">1.6</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window g-value</desc>
+				<name>Solar-Transmittance</name>
+				<EAW-value desc="0.63">0.63</EAW-value>
+				<SCT-value desc="0.63">0.63</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>108</Improvement-Number>
+		<Improvement-Item>O2</Improvement-Item>
+		<Improvement-Summary/>	
+		<Improvement-Heading>Windows replacement</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%" defaultOption="YES"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="1.3" confirmValue="1.6">1.3</EAW-value>
+				<SCT-value desc="1.3" confirmValue="1.6">1.3</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window g-value</desc>
+				<name>Solar-Transmittance</name>
+				<EAW-value desc="0.60">0.60</EAW-value>
+				<SCT-value desc="0.60">0.60</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>56</Improvement-Number>
+		<Improvement-Item>O3</Improvement-Item>
+		<Improvement-Summary/>	
+		<Improvement-Heading>Glazing replacement</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="1.6">1.6</EAW-value>
+				<SCT-value desc="1.6">1.6</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window g-value</desc>
+				<name>Solar-Transmittance</name>
+				<EAW-value desc="0.74">0.74</EAW-value>
+				<SCT-value desc="0.74">0.74</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%" defaultOption="YES"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</GDIP-Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>9</Improvement-Number>
+		<Improvement-Item>P</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Secondary glazing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<GDIP-Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%" defaultOption="YES"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value needConfirm="true" required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window U-value</desc>
+				<name>U-value</name>
+				<EAW-value desc="2.4">2.4</EAW-value>
+				<SCT-value desc="2.4">2.4</SCT-value>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>window g-value</desc>
+				<name>Solar-Transmittance</name>
+				<EAW-value desc="0.76">0.76</EAW-value>
+				<SCT-value desc="0.76">0.76</SCT-value>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>48</Improvement-Number>
+		<Improvement-Item>X</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Insulated doors</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Insulated doors: U-value=</desc>
+				<name>U-value</name>
+				<EAW-value desc="1.5">1.5</EAW-value>
+				<SCT-value desc="1.5">1.5</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>34</Improvement-Number>
+		<Improvement-Item>U</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Photovoltaics</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Electricity_Generation</Improvement-Group>
+		<Improvement-Values>
+			<Improvement-Value readonly="true" required="true" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Roof orientation: </desc>
+				<name>Orientation1</name>
+				<EAW-value desc="South">5</EAW-value>
+				<SCT-value desc="South">5</SCT-value>
+			</Improvement-Value>
+		</Improvement-Values>
+		<GDIP-Improvement-Options>
+			<ul code="Orientation1" name="Roof orientation">
+				<li code="1" name="5" desc="South" defaultOption="YES"/>
+				<li code="2" name="4" desc="South East"/>
+				<li code="3" name="3" desc="East"/>
+				<li code="4" name="2" desc="North East"/>
+				<li code="5" name="1" desc="North"/>
+				<li code="6" name="8" desc="North West"/>
+				<li code="7" name="7" desc="West"/>
+				<li code="8" name="6" desc="South West"/>
+				<li code="9" name="ND" desc="Horizontal"/>
+			</ul>
+			<ul code="Pitch1" name="Roof Pitch">
+				<li code="1" name="1" desc="Hrizontal" defaultOption="YES"/>
+				<li code="2" name="2" desc="30°"/>
+				<li code="3" name="3" desc="45°"/>
+				<li code="4" name="4" desc="60°"/>
+				<li code="5" name="5" desc="Vertical"/>
+			</ul>
+			<ul code="Orientation2" name="Second Roof orientation">
+				<li code="1" name="5" desc="South" defaultOption="YES"/>
+				<li code="2" name="4" desc="South East"/>
+				<li code="3" name="3" desc="East"/>
+				<li code="4" name="2" desc="North East"/>
+				<li code="5" name="1" desc="North"/>
+				<li code="6" name="8" desc="North West"/>
+				<li code="7" name="7" desc="West"/>
+				<li code="8" name="6" desc="South West"/>
+				<li code="9" name="ND" desc="Horizontal"/>
+			</ul>
+			<ul code="Pitch2" name="Second Roof Pitch">
+				<li code="1" name="1" desc="Hrizontal" defaultOption="YES"/>
+				<li code="2" name="2" desc="30°"/>
+				<li code="3" name="3" desc="45°"/>
+				<li code="4" name="4" desc="60°"/>
+				<li code="5" name="5" desc="Vertical"/>
+			</ul>
+		</GDIP-Improvement-Options>
+		<GDIP-Improvement-Values>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>kWp</desc>
+				<name>Peak-Power1</name>
+			</Improvement-Value>
+			<Improvement-Value required="false" DefaultValue="true" valueType="DOUBLE" inputType="INPUT">
+				<desc>Second kWp</desc>
+				<name>Peak-Power2</name>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>144</Improvement-Number>
+		<Improvement-Item>V2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Wind turbine (on mast)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Electricity_Generation</Improvement-Group>
+		<GDIP-Improvement-Values>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>Blade diameter(m)</desc>
+				<name>Rotor-Diameter</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>Hub height above ridge(m)</desc>
+				<name>Hub-Height</name>
+			</Improvement-Value>
+			<Improvement-Value readonly="false" required="false" DefaultValue="false" valueType="DOUBLE" inputType="INPUT">
+				<desc>Rated output of turbine(kw)</desc>
+				<name>Rated-Output</name>
+			</Improvement-Value>
+		</GDIP-Improvement-Values>
+	</Recommendation>
+	
+</GDOA:ExternalDefinitions>

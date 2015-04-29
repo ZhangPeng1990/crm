@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="QuidosServiceRequest">
+		<xs:annotation>
+			<xs:documentation>the request body's schema of web service PushOAToQuidos </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Company_ID"/>
+				<xs:element name="Company_Job_Ref"/>
+				<xs:element name="EPCRRN" type="RRNType">
+					<xs:annotation>
+						<xs:documentation>RRN of the EPC</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Assessor_ID"/>
+				<xs:element name="OA_XML" type="xs:base64Binary">
+					<xs:annotation>
+						<xs:documentation>OA_XML will match the OA-2.0 schema at https://uat.oaregister.com/secure/oa/lodgements/OA-Report.xsd</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="RRNType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

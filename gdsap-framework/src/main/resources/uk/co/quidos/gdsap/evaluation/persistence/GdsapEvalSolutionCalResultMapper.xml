@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionCalResultMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionCalResult" >
+    <id column="CAL_RESULT_ID" property="calResultId" jdbcType="BIGINT" />
+    <result column="ACTUAL_HOUSEHOLD" property="actualHousehold" jdbcType="REAL" />
+    <result column="TYPICAL_HOUSEHOLD" property="typicalHousehold" jdbcType="REAL" />
+    <result column="ELECTRICITY_SAVINGS" property="electricitySavings" jdbcType="REAL" />
+    <result column="GAS_SAVINGS" property="gasSavings" jdbcType="REAL" />
+    <result column="OTHER_FUEL_SAVINGS" property="otherFuelSavings" jdbcType="REAL" />
+    <result column="PERCENT_HEATING" property="percentHeating" jdbcType="REAL" />
+    <result column="PERCENT_HOT_WATER" property="percentHotWater" jdbcType="REAL" />
+    <result column="COST_REDUCTION" property="costReduction" jdbcType="REAL" />
+    <result column="COMM_ENERGY_COST" property="commEnergyCost" jdbcType="REAL" />
+    <result column="COMM_ENERGY_USE" property="commEnergyUse" jdbcType="REAL" />
+    <result column="COMM_ENERGY_SC_INPUT" property="commEnergyScInput" jdbcType="REAL" />
+    <result column="COMM_ENERGY_SC_TABLE" property="commEnergyScTable" jdbcType="REAL" />
+    <result column="COMM_ENERGY_UP_INPUT" property="commEnergyUpInput" jdbcType="REAL" />
+    <result column="COMM_ENERGY_UP_TABLE" property="commEnergyUpTable" jdbcType="REAL" />
+    <result column="ELE_SD_COST" property="eleSdCost" jdbcType="REAL" />
+    <result column="ELE_SD_USE" property="eleSdUse" jdbcType="REAL" />
+    <result column="ELE_SD_SC_INPUT" property="eleSdScInput" jdbcType="REAL" />
+    <result column="ELE_SD_SC_TABLE" property="eleSdScTable" jdbcType="REAL" />
+    <result column="ELE_SD_UP_INPUT" property="eleSdUpInput" jdbcType="REAL" />
+    <result column="ELE_SD_UP_TABLE" property="eleSdUpTable" jdbcType="REAL" />
+    <result column="ELE_OP_COST_HIGHRATE" property="eleOpCostHighrate" jdbcType="REAL" />
+    <result column="ELE_OP_USE_HIGHRATE" property="eleOpUseHighrate" jdbcType="REAL" />
+    <result column="ELE_OP_SC_INPUT_HIGHRATE" property="eleOpScInputHighrate" jdbcType="REAL" />
+    <result column="ELE_OP_SC_TABLE_HIGHRATE" property="eleOpScTableHighrate" jdbcType="REAL" />
+    <result column="ELE_OP_UP_INPUT_HIGHRATE" property="eleOpUpInputHighrate" jdbcType="REAL" />
+    <result column="ELE_OP_UP_TABLE_HIGHRATE" property="eleOpUpTableHighrate" jdbcType="REAL" />
+    <result column="ELE_COST_LOWRATE" property="eleCostLowrate" jdbcType="REAL" />
+    <result column="ELE_USE_LOWRATE" property="eleUseLowrate" jdbcType="REAL" />
+    <result column="ELE_SC_INPUT_LOWRATE" property="eleScInputLowrate" jdbcType="REAL" />
+    <result column="ELE_SC_TABLE_LOWRATE" property="eleScTableLowrate" jdbcType="REAL" />
+    <result column="ELE_UP_INPUT_LOWRATE" property="eleUpInputLowrate" jdbcType="REAL" />
+    <result column="ELE_UP_TABLE_LOWRATE" property="eleUpTableLowrate" jdbcType="REAL" />
+    <result column="MAINS_GAS_COST" property="mainsGasCost" jdbcType="REAL" />
+    <result column="MAINS_GAS_USE" property="mainsGasUse" jdbcType="REAL" />
+    <result column="MAINS_GAS_SC_INPUT" property="mainsGasScInput" jdbcType="REAL" />
+    <result column="MAINS_GAS_SC_TABLE" property="mainsGasScTable" jdbcType="REAL" />
+    <result column="MAINS_GAS_UP_INPUT" property="mainsGasUpInput" jdbcType="REAL" />
+    <result column="MAINS_GAS_UP_TABLE" property="mainsGasUpTable" jdbcType="REAL" />
+    <result column="SPACE_HEATING" property="spaceHeating" jdbcType="REAL" />
+    <result column="WATER_HEATING" property="waterHeating" jdbcType="REAL" />
+    <result column="ENERGY_TOTAL" property="energyTotal" jdbcType="REAL" />
+    <result column="ST_OCCUPANTS" property="stOccupants" jdbcType="INTEGER" />
+    <result column="ST_AVERAGE_HOURS" property="stAverageHours" jdbcType="VARCHAR" />
+    <result column="ST_THERMOSTAT_SETTING" property="stThermostatSetting" jdbcType="INTEGER" />
+    <result column="ST_UNHEATED_ROOMS" property="stUnheatedRooms" jdbcType="INTEGER" />
+    <result column="ST_RECOMMEND_SHOWERSABLE" property="stRecommendShowersable" jdbcType="INTEGER" />
+    <result column="ST_RECOMMEND_OUTSIDEABLE" property="stRecommendOutsideable" jdbcType="INTEGER" />
+    <result column="AC_OCCUPANTS" property="acOccupants" jdbcType="INTEGER" />
+    <result column="AC_AVERAGE_HOURS" property="acAverageHours" jdbcType="VARCHAR" />
+    <result column="AC_THERMOSTAT_SETTING" property="acThermostatSetting" jdbcType="INTEGER" />
+    <result column="AC_UNHEATED_ROOMS" property="acUnheatedRooms" jdbcType="INTEGER" />
+    <result column="AC_RECOMMEND_SHOWERSABLE" property="acRecommendShowersable" jdbcType="INTEGER" />
+    <result column="AC_RECOMMEND_OUTSIDEABLE" property="acRecommendOutsideable" jdbcType="INTEGER" />
+    <result column="COMM_FUEL_CODE" property="commFuelCode" jdbcType="INTEGER" />
+    <result column="MG_FUEL_CODE" property="mgFuelCode" jdbcType="INTEGER" />
+    <result column="ELE_ST_FUEL_CODE" property="eleStFuelCode" jdbcType="INTEGER" />
+    <result column="ELE_H_FUEL_CODE" property="eleHFuelCode" jdbcType="INTEGER" />
+    <result column="ELE_L_FUEL_CODE" property="eleLFuelCode" jdbcType="INTEGER" />
+    <result column="TOTAL_ELE_SAVING" property="totalEleSaving" jdbcType="REAL" />
+    <result column="TOTAL_GAS_SAVING" property="totalGasSaving" jdbcType="REAL" />
+    <result column="TOTAL_OTHER_FUEL_SAVING" property="totalOtherFuelSaving" jdbcType="REAL" />
+    <result column="IMP_BOILER_FUEL" property="impBoilerFuel" jdbcType="INTEGER" />
+    <result column="IMP_SINGLE_GLAZED_PERCENTAGE" property="impSingleGlazedPercentage" jdbcType="INTEGER" />
+    <result column="COMM_UNIT_TABLE" property="commUnitTable" jdbcType="INTEGER" />
+    <result column="MG_UNIT_TABLE" property="mgUnitTable" jdbcType="INTEGER" />
+    <result column="ELE_SD_UNIT_TABLE" property="eleSdUnitTable" jdbcType="INTEGER" />
+    <result column="ELE_SD24_UNIT_TABLE" property="eleSd24UnitTable" jdbcType="INTEGER" />
+    <result column="ELE_H_UNIT_TABLE" property="eleHUnitTable" jdbcType="INTEGER" />
+    <result column="ELE_L_UNIT_TABLE" property="eleLUnitTable" jdbcType="INTEGER" />
+    <result column="COMM_UNIT_INPUT" property="commUnitInput" jdbcType="INTEGER" />
+    <result column="MG_UNIT_INPUT" property="mgUnitInput" jdbcType="INTEGER" />
+    <result column="ELE_SD_UNIT_INPUT" property="eleSdUnitInput" jdbcType="INTEGER" />
+    <result column="ELE_SD24_UNIT_INPUT" property="eleSd24UnitInput" jdbcType="INTEGER" />
+    <result column="ELE_H_UNIT_INPUT" property="eleHUnitInput" jdbcType="INTEGER" />
+    <result column="ELE_L_UNIT_INPUT" property="eleLUnitInput" jdbcType="INTEGER" />
+    <result column="ELE_SD24_COST" property="eleSd24Cost" jdbcType="REAL" />
+    <result column="ELE_SD24_USE" property="eleSd24Use" jdbcType="REAL" />
+    <result column="ELE_SD24_SC_INPUT" property="eleSd24ScInput" jdbcType="REAL" />
+    <result column="ELE_SD24_SC_TABLE" property="eleSd24ScTable" jdbcType="REAL" />
+    <result column="ELE_SD24_UP_INPUT" property="eleSd24UpInput" jdbcType="REAL" />
+    <result column="ELE_SD24_UP_TABLE" property="eleSd24UpTable" jdbcType="REAL" />
+    <result column="ELE_ST24_FUEL_CODE" property="eleSt24FuelCode" jdbcType="INTEGER" />
+    <result column="COMM_CHP_ENERGY_COST" property="commChpEnergyCost" jdbcType="REAL" />
+    <result column="COMM_CHP_ENERGY_USE" property="commChpEnergyUse" jdbcType="REAL" />
+    <result column="COMM_CHP_ENERGY_SC_INPUT" property="commChpEnergyScInput" jdbcType="REAL" />
+    <result column="COMM_CHP_ENERGY_SC_TABLE" property="commChpEnergyScTable" jdbcType="REAL" />
+    <result column="COMM_CHP_ENERGY_UP_INPUT" property="commChpEnergyUpInput" jdbcType="REAL" />
+    <result column="COMM_CHP_ENERGY_UP_TABLE" property="commChpEnergyUpTable" jdbcType="REAL" />
+    <result column="COMM_CHP_UNIT_INPUT" property="commChpUnitInput" jdbcType="INTEGER" />
+    <result column="COMM_CHP_UNIT_TABLE" property="commChpUnitTable" jdbcType="INTEGER" />
+    <result column="COMM_CHP_FUEL_CODE" property="commChpFuelCode" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CAL_RESULT_ID, ACTUAL_HOUSEHOLD, TYPICAL_HOUSEHOLD, ELECTRICITY_SAVINGS, GAS_SAVINGS, 
+    OTHER_FUEL_SAVINGS, PERCENT_HEATING, PERCENT_HOT_WATER, COST_REDUCTION, COMM_ENERGY_COST, 
+    COMM_ENERGY_USE, COMM_ENERGY_SC_INPUT, COMM_ENERGY_SC_TABLE, COMM_ENERGY_UP_INPUT, 
+    COMM_ENERGY_UP_TABLE, ELE_SD_COST, ELE_SD_USE, ELE_SD_SC_INPUT, ELE_SD_SC_TABLE, 
+    ELE_SD_UP_INPUT, ELE_SD_UP_TABLE, ELE_OP_COST_HIGHRATE, ELE_OP_USE_HIGHRATE, ELE_OP_SC_INPUT_HIGHRATE, 
+    ELE_OP_SC_TABLE_HIGHRATE, ELE_OP_UP_INPUT_HIGHRATE, ELE_OP_UP_TABLE_HIGHRATE, ELE_COST_LOWRATE, 
+    ELE_USE_LOWRATE, ELE_SC_INPUT_LOWRATE, ELE_SC_TABLE_LOWRATE, ELE_UP_INPUT_LOWRATE, 
+    ELE_UP_TABLE_LOWRATE, MAINS_GAS_COST, MAINS_GAS_USE, MAINS_GAS_SC_INPUT, MAINS_GAS_SC_TABLE, 
+    MAINS_GAS_UP_INPUT, MAINS_GAS_UP_TABLE, SPACE_HEATING, WATER_HEATING, ENERGY_TOTAL, 
+    ST_OCCUPANTS, ST_AVERAGE_HOURS, ST_THERMOSTAT_SETTING, ST_UNHEATED_ROOMS, ST_RECOMMEND_SHOWERSABLE, 
+    ST_RECOMMEND_OUTSIDEABLE, AC_OCCUPANTS, AC_AVERAGE_HOURS, AC_THERMOSTAT_SETTING, 
+    AC_UNHEATED_ROOMS, AC_RECOMMEND_SHOWERSABLE, AC_RECOMMEND_OUTSIDEABLE, COMM_FUEL_CODE, 
+    MG_FUEL_CODE, ELE_ST_FUEL_CODE, ELE_H_FUEL_CODE, ELE_L_FUEL_CODE, TOTAL_ELE_SAVING, 
+    TOTAL_GAS_SAVING, TOTAL_OTHER_FUEL_SAVING, IMP_BOILER_FUEL, IMP_SINGLE_GLAZED_PERCENTAGE, 
+    COMM_UNIT_TABLE, MG_UNIT_TABLE, ELE_SD_UNIT_TABLE, ELE_SD24_UNIT_TABLE, ELE_H_UNIT_TABLE, 
+    ELE_L_UNIT_TABLE, COMM_UNIT_INPUT, MG_UNIT_INPUT, ELE_SD_UNIT_INPUT, ELE_SD24_UNIT_INPUT, 
+    ELE_H_UNIT_INPUT, ELE_L_UNIT_INPUT, ELE_SD24_COST, ELE_SD24_USE, ELE_SD24_SC_INPUT, 
+    ELE_SD24_SC_TABLE, ELE_SD24_UP_INPUT, ELE_SD24_UP_TABLE, ELE_ST24_FUEL_CODE, COMM_CHP_ENERGY_COST, 
+    COMM_CHP_ENERGY_USE, COMM_CHP_ENERGY_SC_INPUT, COMM_CHP_ENERGY_SC_TABLE, COMM_CHP_ENERGY_UP_INPUT, 
+    COMM_CHP_ENERGY_UP_TABLE, COMM_CHP_UNIT_INPUT, COMM_CHP_UNIT_TABLE, COMM_CHP_FUEL_CODE
+  </sql>
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gdsap_eval_solution_cal_result
+    where CAL_RESULT_ID = #{calResultId,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from gdsap_eval_solution_cal_result
+    where CAL_RESULT_ID = #{calResultId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionCalResult" >
+    insert into gdsap_eval_solution_cal_result (CAL_RESULT_ID, ACTUAL_HOUSEHOLD, TYPICAL_HOUSEHOLD, 
+      ELECTRICITY_SAVINGS, GAS_SAVINGS, OTHER_FUEL_SAVINGS, 
+      PERCENT_HEATING, PERCENT_HOT_WATER, COST_REDUCTION, 
+      COMM_ENERGY_COST, COMM_ENERGY_USE, COMM_ENERGY_SC_INPUT, 
+      COMM_ENERGY_SC_TABLE, COMM_ENERGY_UP_INPUT, COMM_ENERGY_UP_TABLE, 
+      ELE_SD_COST, ELE_SD_USE, ELE_SD_SC_INPUT, 
+      ELE_SD_SC_TABLE, ELE_SD_UP_INPUT, ELE_SD_UP_TABLE, 
+      ELE_OP_COST_HIGHRATE, ELE_OP_USE_HIGHRATE, ELE_OP_SC_INPUT_HIGHRATE, 
+      ELE_OP_SC_TABLE_HIGHRATE, ELE_OP_UP_INPUT_HIGHRATE, ELE_OP_UP_TABLE_HIGHRATE, 
+      ELE_COST_LOWRATE, ELE_USE_LOWRATE, ELE_SC_INPUT_LOWRATE, 
+      ELE_SC_TABLE_LOWRATE, ELE_UP_INPUT_LOWRATE, ELE_UP_TABLE_LOWRATE, 
+      MAINS_GAS_COST, MAINS_GAS_USE, MAINS_GAS_SC_INPUT, 
+      MAINS_GAS_SC_TABLE, MAINS_GAS_UP_INPUT, MAINS_GAS_UP_TABLE, 
+      SPACE_HEATING, WATER_HEATING, ENERGY_TOTAL, 
+      ST_OCCUPANTS, ST_AVERAGE_HOURS, ST_THERMOSTAT_SETTING, 
+      ST_UNHEATED_ROOMS, ST_RECOMMEND_SHOWERSABLE, 
+      ST_RECOMMEND_OUTSIDEABLE, AC_OCCUPANTS, AC_AVERAGE_HOURS, 
+      AC_THERMOSTAT_SETTING, AC_UNHEATED_ROOMS, AC_RECOMMEND_SHOWERSABLE, 
+      AC_RECOMMEND_OUTSIDEABLE, COMM_FUEL_CODE, MG_FUEL_CODE, 
+      ELE_ST_FUEL_CODE, ELE_H_FUEL_CODE, ELE_L_FUEL_CODE, 
+      TOTAL_ELE_SAVING, TOTAL_GAS_SAVING, TOTAL_OTHER_FUEL_SAVING, 
+      IMP_BOILER_FUEL, IMP_SINGLE_GLAZED_PERCENTAGE, 
+      COMM_UNIT_TABLE, MG_UNIT_TABLE, ELE_SD_UNIT_TABLE, 
+      ELE_SD24_UNIT_TABLE, ELE_H_UNIT_TABLE, ELE_L_UNIT_TABLE, 
+      COMM_UNIT_INPUT, MG_UNIT_INPUT, ELE_SD_UNIT_INPUT, 
+      ELE_SD24_UNIT_INPUT, ELE_H_UNIT_INPUT, ELE_L_UNIT_INPUT, 
+      ELE_SD24_COST, ELE_SD24_USE, ELE_SD24_SC_INPUT, 
+      ELE_SD24_SC_TABLE, ELE_SD24_UP_INPUT, ELE_SD24_UP_TABLE, 
+      ELE_ST24_FUEL_CODE, COMM_CHP_ENERGY_COST, COMM_CHP_ENERGY_USE, 
+      COMM_CHP_ENERGY_SC_INPUT, COMM_CHP_ENERGY_SC_TABLE, COMM_CHP_ENERGY_UP_INPUT, 
+      COMM_CHP_ENERGY_UP_TABLE, COMM_CHP_UNIT_INPUT, COMM_CHP_UNIT_TABLE, 
+      COMM_CHP_FUEL_CODE)
+    values (#{calResultId,jdbcType=BIGINT}, #{actualHousehold,jdbcType=REAL}, #{typicalHousehold,jdbcType=REAL}, 
+      #{electricitySavings,jdbcType=REAL}, #{gasSavings,jdbcType=REAL}, #{otherFuelSavings,jdbcType=REAL}, 
+      #{percentHeating,jdbcType=REAL}, #{percentHotWater,jdbcType=REAL}, #{costReduction,jdbcType=REAL}, 
+      #{commEnergyCost,jdbcType=REAL}, #{commEnergyUse,jdbcType=REAL}, #{commEnergyScInput,jdbcType=REAL}, 
+      #{commEnergyScTable,jdbcType=REAL}, #{commEnergyUpInput,jdbcType=REAL}, #{commEnergyUpTable,jdbcType=REAL}, 
+      #{eleSdCost,jdbcType=REAL}, #{eleSdUse,jdbcType=REAL}, #{eleSdScInput,jdbcType=REAL}, 
+      #{eleSdScTable,jdbcType=REAL}, #{eleSdUpInput,jdbcType=REAL}, #{eleSdUpTable,jdbcType=REAL}, 
+      #{eleOpCostHighrate,jdbcType=REAL}, #{eleOpUseHighrate,jdbcType=REAL}, #{eleOpScInputHighrate,jdbcType=REAL}, 
+      #{eleOpScTableHighrate,jdbcType=REAL}, #{eleOpUpInputHighrate,jdbcType=REAL}, #{eleOpUpTableHighrate,jdbcType=REAL}, 
+      #{eleCostLowrate,jdbcType=REAL}, #{eleUseLowrate,jdbcType=REAL}, #{eleScInputLowrate,jdbcType=REAL}, 
+      #{eleScTableLowrate,jdbcType=REAL}, #{eleUpInputLowrate,jdbcType=REAL}, #{eleUpTableLowrate,jdbcType=REAL}, 
+      #{mainsGasCost,jdbcType=REAL}, #{mainsGasUse,jdbcType=REAL}, #{mainsGasScInput,jdbcType=REAL}, 
+      #{mainsGasScTable,jdbcType=REAL}, #{mainsGasUpInput,jdbcType=REAL}, #{mainsGasUpTable,jdbcType=REAL}, 
+      #{spaceHeating,jdbcType=REAL}, #{waterHeating,jdbcType=REAL}, #{energyTotal,jdbcType=REAL}, 
+      #{stOccupants,jdbcType=INTEGER}, #{stAverageHours,jdbcType=VARCHAR}, #{stThermostatSetting,jdbcType=INTEGER}, 
+      #{stUnheatedRooms,jdbcType=INTEGER}, #{stRecommendShowersable,jdbcType=INTEGER}, 
+      #{stRecommendOutsideable,jdbcType=INTEGER}, #{acOccupants,jdbcType=INTEGER}, #{acAverageHours,jdbcType=VARCHAR}, 
+      #{acThermostatSetting,jdbcType=INTEGER}, #{acUnheatedRooms,jdbcType=INTEGER}, #{acRecommendShowersable,jdbcType=INTEGER}, 
+      #{acRecommendOutsideable,jdbcType=INTEGER}, #{commFuelCode,jdbcType=INTEGER}, #{mgFuelCode,jdbcType=INTEGER}, 
+      #{eleStFuelCode,jdbcType=INTEGER}, #{eleHFuelCode,jdbcType=INTEGER}, #{eleLFuelCode,jdbcType=INTEGER}, 
+      #{totalEleSaving,jdbcType=REAL}, #{totalGasSaving,jdbcType=REAL}, #{totalOtherFuelSaving,jdbcType=REAL}, 
+      #{impBoilerFuel,jdbcType=INTEGER}, #{impSingleGlazedPercentage,jdbcType=INTEGER}, 
+      #{commUnitTable,jdbcType=INTEGER}, #{mgUnitTable,jdbcType=INTEGER}, #{eleSdUnitTable,jdbcType=INTEGER}, 
+      #{eleSd24UnitTable,jdbcType=INTEGER}, #{eleHUnitTable,jdbcType=INTEGER}, #{eleLUnitTable,jdbcType=INTEGER}, 
+      #{commUnitInput,jdbcType=INTEGER}, #{mgUnitInput,jdbcType=INTEGER}, #{eleSdUnitInput,jdbcType=INTEGER}, 
+      #{eleSd24UnitInput,jdbcType=INTEGER}, #{eleHUnitInput,jdbcType=INTEGER}, #{eleLUnitInput,jdbcType=INTEGER}, 
+      #{eleSd24Cost,jdbcType=REAL}, #{eleSd24Use,jdbcType=REAL}, #{eleSd24ScInput,jdbcType=REAL}, 
+      #{eleSd24ScTable,jdbcType=REAL}, #{eleSd24UpInput,jdbcType=REAL}, #{eleSd24UpTable,jdbcType=REAL}, 
+      #{eleSt24FuelCode,jdbcType=INTEGER}, #{commChpEnergyCost,jdbcType=REAL}, #{commChpEnergyUse,jdbcType=REAL}, 
+      #{commChpEnergyScInput,jdbcType=REAL}, #{commChpEnergyScTable,jdbcType=REAL}, #{commChpEnergyUpInput,jdbcType=REAL}, 
+      #{commChpEnergyUpTable,jdbcType=REAL}, #{commChpUnitInput,jdbcType=INTEGER}, #{commChpUnitTable,jdbcType=INTEGER}, 
+      #{commChpFuelCode,jdbcType=INTEGER})
+  </insert>
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionCalResult" >
+    update gdsap_eval_solution_cal_result
+    <set >
+      <if test="actualHousehold != null" >
+        ACTUAL_HOUSEHOLD = #{actualHousehold,jdbcType=REAL},
+      </if>
+      <if test="typicalHousehold != null" >
+        TYPICAL_HOUSEHOLD = #{typicalHousehold,jdbcType=REAL},
+      </if>
+      <if test="electricitySavings != null" >
+        ELECTRICITY_SAVINGS = #{electricitySavings,jdbcType=REAL},
+      </if>
+      <if test="gasSavings != null" >
+        GAS_SAVINGS = #{gasSavings,jdbcType=REAL},
+      </if>
+      <if test="otherFuelSavings != null" >
+        OTHER_FUEL_SAVINGS = #{otherFuelSavings,jdbcType=REAL},
+      </if>
+      <if test="percentHeating != null" >
+        PERCENT_HEATING = #{percentHeating,jdbcType=REAL},
+      </if>
+      <if test="percentHotWater != null" >
+        PERCENT_HOT_WATER = #{percentHotWater,jdbcType=REAL},
+      </if>
+      <if test="costReduction != null" >
+        COST_REDUCTION = #{costReduction,jdbcType=REAL},
+      </if>
+      <if test="commEnergyCost != null" >
+        COMM_ENERGY_COST = #{commEnergyCost,jdbcType=REAL},
+      </if>
+      <if test="commEnergyUse != null" >
+        COMM_ENERGY_USE = #{commEnergyUse,jdbcType=REAL},
+      </if>
+      <if test="commEnergyScInput != null" >
+        COMM_ENERGY_SC_INPUT = #{commEnergyScInput,jdbcType=REAL},
+      </if>
+      <if test="commEnergyScTable != null" >
+        COMM_ENERGY_SC_TABLE = #{commEnergyScTable,jdbcType=REAL},
+      </if>
+      <if test="commEnergyUpInput != null" >
+        COMM_ENERGY_UP_INPUT = #{commEnergyUpInput,jdbcType=REAL},
+      </if>
+      <if test="commEnergyUpTable != null" >
+        COMM_ENERGY_UP_TABLE = #{commEnergyUpTable,jdbcType=REAL},
+      </if>
+      <if test="eleSdCost != null" >
+        ELE_SD_COST = #{eleSdCost,jdbcType=REAL},
+      </if>
+      <if test="eleSdUse != null" >
+        ELE_SD_USE = #{eleSdUse,jdbcType=REAL},
+      </if>
+      <if test="eleSdScInput != null" >
+        ELE_SD_SC_INPUT = #{eleSdScInput,jdbcType=REAL},
+      </if>
+      <if test="eleSdScTable != null" >
+        ELE_SD_SC_TABLE = #{eleSdScTable,jdbcType=REAL},
+      </if>
+      <if test="eleSdUpInput != null" >
+        ELE_SD_UP_INPUT = #{eleSdUpInput,jdbcType=REAL},
+      </if>
+      <if test="eleSdUpTable != null" >
+        ELE_SD_UP_TABLE = #{eleSdUpTable,jdbcType=REAL},
+      </if>
+      <if test="eleOpCostHighrate != null" >
+        ELE_OP_COST_HIGHRATE = #{eleOpCostHighrate,jdbcType=REAL},
+      </if>
+      <if test="eleOpUseHighrate != null" >
+        ELE_OP_USE_HIGHRATE = #{eleOpUseHighrate,jdbcType=REAL},
+      </if>
+      <if test="eleOpScInputHighrate != null" >
+        ELE_OP_SC_INPUT_HIGHRATE = #{eleOpScInputHighrate,jdbcType=REAL},
+      </if>
+      <if test="eleOpScTableHighrate != null" >
+        ELE_OP_SC_TABLE_HIGHRATE = #{eleOpScTableHighrate,jdbcType=REAL},
+      </if>
+      <if test="eleOpUpInputHighrate != null" >
+        ELE_OP_UP_INPUT_HIGHRATE = #{eleOpUpInputHighrate,jdbcType=REAL},
+      </if>
+      <if test="eleOpUpTableHighrate != null" >
+        ELE_OP_UP_TABLE_HIGHRATE = #{eleOpUpTableHighrate,jdbcType=REAL},
+      </if>
+      <if test="eleCostLowrate != null" >
+        ELE_COST_LOWRATE = #{eleCostLowrate,jdbcType=REAL},
+      </if>
+      <if test="eleUseLowrate != null" >
+        ELE_USE_LOWRATE = #{eleUseLowrate,jdbcType=REAL},
+      </if>
+      <if test="eleScInputLowrate != null" >
+        ELE_SC_INPUT_LOWRATE = #{eleScInputLowrate,jdbcType=REAL},
+      </if>
+      <if test="eleScTableLowrate != null" >
+        ELE_SC_TABLE_LOWRATE = #{eleScTableLowrate,jdbcType=REAL},
+      </if>
+      <if test="eleUpInputLowrate != null" >
+        ELE_UP_INPUT_LOWRATE = #{eleUpInputLowrate,jdbcType=REAL},
+      </if>
+      <if test="eleUpTableLowrate != null" >
+        ELE_UP_TABLE_LOWRATE = #{eleUpTableLowrate,jdbcType=REAL},
+      </if>
+      <if test="mainsGasCost != null" >
+        MAINS_GAS_COST = #{mainsGasCost,jdbcType=REAL},
+      </if>
+      <if test="mainsGasUse != null" >
+        MAINS_GAS_USE = #{mainsGasUse,jdbcType=REAL},
+      </if>
+      <if test="mainsGasScInput != null" >
+        MAINS_GAS_SC_INPUT = #{mainsGasScInput,jdbcType=REAL},
+      </if>
+      <if test="mainsGasScTable != null" >
+        MAINS_GAS_SC_TABLE = #{mainsGasScTable,jdbcType=REAL},
+      </if>
+      <if test="mainsGasUpInput != null" >
+        MAINS_GAS_UP_INPUT = #{mainsGasUpInput,jdbcType=REAL},
+      </if>
+      <if test="mainsGasUpTable != null" >
+        MAINS_GAS_UP_TABLE = #{mainsGasUpTable,jdbcType=REAL},
+      </if>
+      <if test="spaceHeating != null" >
+        SPACE_HEATING = #{spaceHeating,jdbcType=REAL},
+      </if>
+      <if test="waterHeating != null" >
+        WATER_HEATING = #{waterHeating,jdbcType=REAL},
+      </if>
+      <if test="energyTotal != null" >
+        ENERGY_TOTAL = #{energyTotal,jdbcType=REAL},
+      </if>
+      <if test="stOccupants != null" >
+        ST_OCCUPANTS = #{stOccupants,jdbcType=INTEGER},
+      </if>
+      <if test="stAverageHours != null" >
+        ST_AVERAGE_HOURS = #{stAverageHours,jdbcType=VARCHAR},
+      </if>
+      <if test="stThermostatSetting != null" >
+        ST_THERMOSTAT_SETTING = #{stThermostatSetting,jdbcType=INTEGER},
+      </if>
+      <if test="stUnheatedRooms != null" >
+        ST_UNHEATED_ROOMS = #{stUnheatedRooms,jdbcType=INTEGER},
+      </if>
+      <if test="stRecommendShowersable != null" >
+        ST_RECOMMEND_SHOWERSABLE = #{stRecommendShowersable,jdbcType=INTEGER},
+      </if>
+      <if test="stRecommendOutsideable != null" >
+        ST_RECOMMEND_OUTSIDEABLE = #{stRecommendOutsideable,jdbcType=INTEGER},
+      </if>
+      <if test="acOccupants != null" >
+        AC_OCCUPANTS = #{acOccupants,jdbcType=INTEGER},
+      </if>
+      <if test="acAverageHours != null" >
+        AC_AVERAGE_HOURS = #{acAverageHours,jdbcType=VARCHAR},
+      </if>
+      <if test="acThermostatSetting != null" >
+        AC_THERMOSTAT_SETTING = #{acThermostatSetting,jdbcType=INTEGER},
+      </if>
+      <if test="acUnheatedRooms != null" >
+        AC_UNHEATED_ROOMS = #{acUnheatedRooms,jdbcType=INTEGER},
+      </if>
+      <if test="acRecommendShowersable != null" >
+        AC_RECOMMEND_SHOWERSABLE = #{acRecommendShowersable,jdbcType=INTEGER},
+      </if>
+      <if test="acRecommendOutsideable != null" >
+        AC_RECOMMEND_OUTSIDEABLE = #{acRecommendOutsideable,jdbcType=INTEGER},
+      </if>
+      <if test="commFuelCode != null" >
+        COMM_FUEL_CODE = #{commFuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="mgFuelCode != null" >
+        MG_FUEL_CODE = #{mgFuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="eleStFuelCode != null" >
+        ELE_ST_FUEL_CODE = #{eleStFuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="eleHFuelCode != null" >
+        ELE_H_FUEL_CODE = #{eleHFuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="eleLFuelCode != null" >
+        ELE_L_FUEL_CODE = #{eleLFuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="totalEleSaving != null" >
+        TOTAL_ELE_SAVING = #{totalEleSaving,jdbcType=REAL},
+      </if>
+      <if test="totalGasSaving != null" >
+        TOTAL_GAS_SAVING = #{totalGasSaving,jdbcType=REAL},
+      </if>
+      <if test="totalOtherFuelSaving != null" >
+        TOTAL_OTHER_FUEL_SAVING = #{totalOtherFuelSaving,jdbcType=REAL},
+      </if>
+      <if test="impBoilerFuel != null" >
+        IMP_BOILER_FUEL = #{impBoilerFuel,jdbcType=INTEGER},
+      </if>
+      <if test="impSingleGlazedPercentage != null" >
+        IMP_SINGLE_GLAZED_PERCENTAGE = #{impSingleGlazedPercentage,jdbcType=INTEGER},
+      </if>
+      <if test="commUnitTable != null" >
+        COMM_UNIT_TABLE = #{commUnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="mgUnitTable != null" >
+        MG_UNIT_TABLE = #{mgUnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="eleSdUnitTable != null" >
+        ELE_SD_UNIT_TABLE = #{eleSdUnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="eleSd24UnitTable != null" >
+        ELE_SD24_UNIT_TABLE = #{eleSd24UnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="eleHUnitTable != null" >
+        ELE_H_UNIT_TABLE = #{eleHUnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="eleLUnitTable != null" >
+        ELE_L_UNIT_TABLE = #{eleLUnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="commUnitInput != null" >
+        COMM_UNIT_INPUT = #{commUnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="mgUnitInput != null" >
+        MG_UNIT_INPUT = #{mgUnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="eleSdUnitInput != null" >
+        ELE_SD_UNIT_INPUT = #{eleSdUnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="eleSd24UnitInput != null" >
+        ELE_SD24_UNIT_INPUT = #{eleSd24UnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="eleHUnitInput != null" >
+        ELE_H_UNIT_INPUT = #{eleHUnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="eleLUnitInput != null" >
+        ELE_L_UNIT_INPUT = #{eleLUnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="eleSd24Cost != null" >
+        ELE_SD24_COST = #{eleSd24Cost,jdbcType=REAL},
+      </if>
+      <if test="eleSd24Use != null" >
+        ELE_SD24_USE = #{eleSd24Use,jdbcType=REAL},
+      </if>
+      <if test="eleSd24ScInput != null" >
+        ELE_SD24_SC_INPUT = #{eleSd24ScInput,jdbcType=REAL},
+      </if>
+      <if test="eleSd24ScTable != null" >
+        ELE_SD24_SC_TABLE = #{eleSd24ScTable,jdbcType=REAL},
+      </if>
+      <if test="eleSd24UpInput != null" >
+        ELE_SD24_UP_INPUT = #{eleSd24UpInput,jdbcType=REAL},
+      </if>
+      <if test="eleSd24UpTable != null" >
+        ELE_SD24_UP_TABLE = #{eleSd24UpTable,jdbcType=REAL},
+      </if>
+      <if test="eleSt24FuelCode != null" >
+        ELE_ST24_FUEL_CODE = #{eleSt24FuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="commChpEnergyCost != null" >
+        COMM_CHP_ENERGY_COST = #{commChpEnergyCost,jdbcType=REAL},
+      </if>
+      <if test="commChpEnergyUse != null" >
+        COMM_CHP_ENERGY_USE = #{commChpEnergyUse,jdbcType=REAL},
+      </if>
+      <if test="commChpEnergyScInput != null" >
+        COMM_CHP_ENERGY_SC_INPUT = #{commChpEnergyScInput,jdbcType=REAL},
+      </if>
+      <if test="commChpEnergyScTable != null" >
+        COMM_CHP_ENERGY_SC_TABLE = #{commChpEnergyScTable,jdbcType=REAL},
+      </if>
+      <if test="commChpEnergyUpInput != null" >
+        COMM_CHP_ENERGY_UP_INPUT = #{commChpEnergyUpInput,jdbcType=REAL},
+      </if>
+      <if test="commChpEnergyUpTable != null" >
+        COMM_CHP_ENERGY_UP_TABLE = #{commChpEnergyUpTable,jdbcType=REAL},
+      </if>
+      <if test="commChpUnitInput != null" >
+        COMM_CHP_UNIT_INPUT = #{commChpUnitInput,jdbcType=INTEGER},
+      </if>
+      <if test="commChpUnitTable != null" >
+        COMM_CHP_UNIT_TABLE = #{commChpUnitTable,jdbcType=INTEGER},
+      </if>
+      <if test="commChpFuelCode != null" >
+        COMM_CHP_FUEL_CODE = #{commChpFuelCode,jdbcType=INTEGER},
+      </if>
+    </set>
+    where CAL_RESULT_ID = #{calResultId,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionCalResult" >
+    update gdsap_eval_solution_cal_result
+    set ACTUAL_HOUSEHOLD = #{actualHousehold,jdbcType=REAL},
+      TYPICAL_HOUSEHOLD = #{typicalHousehold,jdbcType=REAL},
+      ELECTRICITY_SAVINGS = #{electricitySavings,jdbcType=REAL},
+      GAS_SAVINGS = #{gasSavings,jdbcType=REAL},
+      OTHER_FUEL_SAVINGS = #{otherFuelSavings,jdbcType=REAL},
+      PERCENT_HEATING = #{percentHeating,jdbcType=REAL},
+      PERCENT_HOT_WATER = #{percentHotWater,jdbcType=REAL},
+      COST_REDUCTION = #{costReduction,jdbcType=REAL},
+      COMM_ENERGY_COST = #{commEnergyCost,jdbcType=REAL},
+      COMM_ENERGY_USE = #{commEnergyUse,jdbcType=REAL},
+      COMM_ENERGY_SC_INPUT = #{commEnergyScInput,jdbcType=REAL},
+      COMM_ENERGY_SC_TABLE = #{commEnergyScTable,jdbcType=REAL},
+      COMM_ENERGY_UP_INPUT = #{commEnergyUpInput,jdbcType=REAL},
+      COMM_ENERGY_UP_TABLE = #{commEnergyUpTable,jdbcType=REAL},
+      ELE_SD_COST = #{eleSdCost,jdbcType=REAL},
+      ELE_SD_USE = #{eleSdUse,jdbcType=REAL},
+      ELE_SD_SC_INPUT = #{eleSdScInput,jdbcType=REAL},
+      ELE_SD_SC_TABLE = #{eleSdScTable,jdbcType=REAL},
+      ELE_SD_UP_INPUT = #{eleSdUpInput,jdbcType=REAL},
+      ELE_SD_UP_TABLE = #{eleSdUpTable,jdbcType=REAL},
+      ELE_OP_COST_HIGHRATE = #{eleOpCostHighrate,jdbcType=REAL},
+      ELE_OP_USE_HIGHRATE = #{eleOpUseHighrate,jdbcType=REAL},
+      ELE_OP_SC_INPUT_HIGHRATE = #{eleOpScInputHighrate,jdbcType=REAL},
+      ELE_OP_SC_TABLE_HIGHRATE = #{eleOpScTableHighrate,jdbcType=REAL},
+      ELE_OP_UP_INPUT_HIGHRATE = #{eleOpUpInputHighrate,jdbcType=REAL},
+      ELE_OP_UP_TABLE_HIGHRATE = #{eleOpUpTableHighrate,jdbcType=REAL},
+      ELE_COST_LOWRATE = #{eleCostLowrate,jdbcType=REAL},
+      ELE_USE_LOWRATE = #{eleUseLowrate,jdbcType=REAL},
+      ELE_SC_INPUT_LOWRATE = #{eleScInputLowrate,jdbcType=REAL},
+      ELE_SC_TABLE_LOWRATE = #{eleScTableLowrate,jdbcType=REAL},
+      ELE_UP_INPUT_LOWRATE = #{eleUpInputLowrate,jdbcType=REAL},
+      ELE_UP_TABLE_LOWRATE = #{eleUpTableLowrate,jdbcType=REAL},
+      MAINS_GAS_COST = #{mainsGasCost,jdbcType=REAL},
+      MAINS_GAS_USE = #{mainsGasUse,jdbcType=REAL},
+      MAINS_GAS_SC_INPUT = #{mainsGasScInput,jdbcType=REAL},
+      MAINS_GAS_SC_TABLE = #{mainsGasScTable,jdbcType=REAL},
+      MAINS_GAS_UP_INPUT = #{mainsGasUpInput,jdbcType=REAL},
+      MAINS_GAS_UP_TABLE = #{mainsGasUpTable,jdbcType=REAL},
+      SPACE_HEATING = #{spaceHeating,jdbcType=REAL},
+      WATER_HEATING = #{waterHeating,jdbcType=REAL},
+      ENERGY_TOTAL = #{energyTotal,jdbcType=REAL},
+      ST_OCCUPANTS = #{stOccupants,jdbcType=INTEGER},
+      ST_AVERAGE_HOURS = #{stAverageHours,jdbcType=VARCHAR},
+      ST_THERMOSTAT_SETTING = #{stThermostatSetting,jdbcType=INTEGER},
+      ST_UNHEATED_ROOMS = #{stUnheatedRooms,jdbcType=INTEGER},
+      ST_RECOMMEND_SHOWERSABLE = #{stRecommendShowersable,jdbcType=INTEGER},
+      ST_RECOMMEND_OUTSIDEABLE = #{stRecommendOutsideable,jdbcType=INTEGER},
+      AC_OCCUPANTS = #{acOccupants,jdbcType=INTEGER},
+      AC_AVERAGE_HOURS = #{acAverageHours,jdbcType=VARCHAR},
+      AC_THERMOSTAT_SETTING = #{acThermostatSetting,jdbcType=INTEGER},
+      AC_UNHEATED_ROOMS = #{acUnheatedRooms,jdbcType=INTEGER},
+      AC_RECOMMEND_SHOWERSABLE = #{acRecommendShowersable,jdbcType=INTEGER},
+      AC_RECOMMEND_OUTSIDEABLE = #{acRecommendOutsideable,jdbcType=INTEGER},
+      COMM_FUEL_CODE = #{commFuelCode,jdbcType=INTEGER},
+      MG_FUEL_CODE = #{mgFuelCode,jdbcType=INTEGER},
+      ELE_ST_FUEL_CODE = #{eleStFuelCode,jdbcType=INTEGER},
+      ELE_H_FUEL_CODE = #{eleHFuelCode,jdbcType=INTEGER},
+      ELE_L_FUEL_CODE = #{eleLFuelCode,jdbcType=INTEGER},
+      TOTAL_ELE_SAVING = #{totalEleSaving,jdbcType=REAL},
+      TOTAL_GAS_SAVING = #{totalGasSaving,jdbcType=REAL},
+      TOTAL_OTHER_FUEL_SAVING = #{totalOtherFuelSaving,jdbcType=REAL},
+      IMP_BOILER_FUEL = #{impBoilerFuel,jdbcType=INTEGER},
+      IMP_SINGLE_GLAZED_PERCENTAGE = #{impSingleGlazedPercentage,jdbcType=INTEGER},
+      COMM_UNIT_TABLE = #{commUnitTable,jdbcType=INTEGER},
+      MG_UNIT_TABLE = #{mgUnitTable,jdbcType=INTEGER},
+      ELE_SD_UNIT_TABLE = #{eleSdUnitTable,jdbcType=INTEGER},
+      ELE_SD24_UNIT_TABLE = #{eleSd24UnitTable,jdbcType=INTEGER},
+      ELE_H_UNIT_TABLE = #{eleHUnitTable,jdbcType=INTEGER},
+      ELE_L_UNIT_TABLE = #{eleLUnitTable,jdbcType=INTEGER},
+      COMM_UNIT_INPUT = #{commUnitInput,jdbcType=INTEGER},
+      MG_UNIT_INPUT = #{mgUnitInput,jdbcType=INTEGER},
+      ELE_SD_UNIT_INPUT = #{eleSdUnitInput,jdbcType=INTEGER},
+      ELE_SD24_UNIT_INPUT = #{eleSd24UnitInput,jdbcType=INTEGER},
+      ELE_H_UNIT_INPUT = #{eleHUnitInput,jdbcType=INTEGER},
+      ELE_L_UNIT_INPUT = #{eleLUnitInput,jdbcType=INTEGER},
+      ELE_SD24_COST = #{eleSd24Cost,jdbcType=REAL},
+      ELE_SD24_USE = #{eleSd24Use,jdbcType=REAL},
+      ELE_SD24_SC_INPUT = #{eleSd24ScInput,jdbcType=REAL},
+      ELE_SD24_SC_TABLE = #{eleSd24ScTable,jdbcType=REAL},
+      ELE_SD24_UP_INPUT = #{eleSd24UpInput,jdbcType=REAL},
+      ELE_SD24_UP_TABLE = #{eleSd24UpTable,jdbcType=REAL},
+      ELE_ST24_FUEL_CODE = #{eleSt24FuelCode,jdbcType=INTEGER},
+      COMM_CHP_ENERGY_COST = #{commChpEnergyCost,jdbcType=REAL},
+      COMM_CHP_ENERGY_USE = #{commChpEnergyUse,jdbcType=REAL},
+      COMM_CHP_ENERGY_SC_INPUT = #{commChpEnergyScInput,jdbcType=REAL},
+      COMM_CHP_ENERGY_SC_TABLE = #{commChpEnergyScTable,jdbcType=REAL},
+      COMM_CHP_ENERGY_UP_INPUT = #{commChpEnergyUpInput,jdbcType=REAL},
+      COMM_CHP_ENERGY_UP_TABLE = #{commChpEnergyUpTable,jdbcType=REAL},
+      COMM_CHP_UNIT_INPUT = #{commChpUnitInput,jdbcType=INTEGER},
+      COMM_CHP_UNIT_TABLE = #{commChpUnitTable,jdbcType=INTEGER},
+      COMM_CHP_FUEL_CODE = #{commChpFuelCode,jdbcType=INTEGER}
+    where CAL_RESULT_ID = #{calResultId,jdbcType=BIGINT}
+  </update>
+</mapper>

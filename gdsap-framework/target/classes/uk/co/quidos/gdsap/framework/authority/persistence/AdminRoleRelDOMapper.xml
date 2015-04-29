@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.framework.authority.persistence.AdminRoleRelDOMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminRoleRelDOKey" >
+    <id column="ADMIN_ID" property="adminId" jdbcType="INTEGER" />
+    <id column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminRoleRelDOKey" >
+    delete from erf_auth_admin_role_rel
+    where ADMIN_ID = #{adminId,jdbcType=INTEGER}
+      and ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminRoleRelDOKey" >
+    insert into erf_auth_admin_role_rel (ADMIN_ID, ROLE_ID)
+    values (#{adminId,jdbcType=INTEGER}, #{roleId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminRoleRelDOKey" >
+    insert into erf_auth_admin_role_rel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adminId != null" >
+        ADMIN_ID,
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adminId != null" >
+        #{adminId,jdbcType=INTEGER},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <delete id="deleteByAdminId" parameterType="java.lang.Integer">
+  	 delete from erf_auth_admin_role_rel 
+  	 where ADMIN_ID = #{adminId,jdbcType=INTEGER}
+  </delete>
+  <select id="findRoleIdsByAdminId" parameterType="java.lang.Integer" resultType="java.lang.String">
+  	select ROLE_ID from erf_auth_admin_role_rel 
+  	where ADMIN_ID = #{adminId,jdbcType=INTEGER} 
+  </select>
+  <select id="findAdminIdByRoleId" parameterType="map" resultType="java.lang.Integer">
+  	<choose>
+  	<when test="roleId != null">
+  		select ADMIN_ID from erf_auth_admin_role_rel 
+  		inner join gdsap_usr_admin 
+	  	on 
+	  	erf_auth_admin_role_rel.ADMIN_ID=gdsap_usr_admin.ID 
+	  	<where> 
+	  	<if test="userName != null"> 
+	  		(USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%" 
+	  		 or FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%" 
+	  		 or SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%") 
+	  	</if>
+	  	<if test="userStatus != null">
+	  		and USER_STATUS = #{userStatus,jdbcType=VARCHAR} 
+	  	</if>
+	  		and ROLE_ID = #{roleId,jdbcType=VARCHAR} 
+	  	</where>
+  	</when>
+  	<otherwise>
+  		select DISTINCT ADMIN_ID from erf_auth_admin_role_rel 
+  		inner join gdsap_usr_admin 
+	  	on 
+	  	erf_auth_admin_role_rel.ADMIN_ID=gdsap_usr_admin.ID 
+	  	<where>
+	  	<if test="userName != null">
+	  		(USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%" 
+	  		 or FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%" 
+	  		 or SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%") 
+	  	</if>
+	  	<if test="userStatus != null">
+	  		and USER_STATUS = #{userStatus,jdbcType=VARCHAR} 
+	  	</if>
+	  	</where>
+  	</otherwise>
+  	</choose>
+  </select>
+  <select id="getAdminNumByRoleId" parameterType="map" resultType="java.lang.Integer">
+  	<choose>
+  	<when test="roleId != null">
+  		select count(0) AS c from erf_auth_admin_role_rel 
+  		inner join gdsap_usr_admin 
+	  	on 
+	  	erf_auth_admin_role_rel.ADMIN_ID=gdsap_usr_admin.ID 
+	  	<where>
+	  	<if test="userName != null">
+	  		(USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%" 
+	  		 or FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%" 
+	  		 or SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%") 
+	  	</if>
+	  	<if test="userStatus != null">
+	  		and USER_STATUS = #{userStatus,jdbcType=VARCHAR} 
+	  	</if>
+	  		and ROLE_ID = #{roleId,jdbcType=VARCHAR} 
+	  	</where>
+  	</when>
+  	<otherwise>
+  		select count(distinct ADMIN_ID) as c from erf_auth_admin_role_rel 
+  		inner join gdsap_usr_admin 
+	  	on 
+	  	erf_auth_admin_role_rel.ADMIN_ID=gdsap_usr_admin.ID 
+	  	<where>
+	  	<if test="userName != null">
+	  		(USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%" 
+	  		 or FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%" 
+	  		 or SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%") 
+	  	</if>
+	  	<if test="userStatus != null">
+	  		and USER_STATUS = #{userStatus,jdbcType=VARCHAR} 
+	  	</if>
+	  	</where>
+  	</otherwise>
+  	</choose>
+  </select>
+</mapper>

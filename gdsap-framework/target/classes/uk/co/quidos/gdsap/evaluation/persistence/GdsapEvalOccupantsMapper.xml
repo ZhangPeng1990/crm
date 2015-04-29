@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalOccupantsMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOccupants" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="OCCUPANTS_NUMBER" property="occupantsNumber" jdbcType="INTEGER" />
+    <result column="SHOWER_TYPE" property="showerType" jdbcType="INTEGER" />
+    <result column="SHOWERS_PERABLE" property="showersPerable" jdbcType="INTEGER" />
+    <result column="SHOWERS_PER_DAY" property="showersPerDay" jdbcType="REAL" />
+    <result column="BATHS_PERABLE" property="bathsPerable" jdbcType="INTEGER" />
+    <result column="BATHS_PER_DAY" property="bathsPerDay" jdbcType="REAL" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    REPORT_ID, OCCUPANTS_NUMBER, SHOWER_TYPE, SHOWERS_PERABLE, SHOWERS_PER_DAY, 
+    BATHS_PERABLE, BATHS_PER_DAY
+  </sql>
+  
+  <select id="load" resultMap="rm" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from GDSAP_EVAL_OCCUPANTS
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_OCCUPANTS
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOccupants" >
+    insert into GDSAP_EVAL_OCCUPANTS (REPORT_ID, OCCUPANTS_NUMBER, 
+      SHOWER_TYPE, SHOWERS_PERABLE, SHOWERS_PER_DAY, 
+      BATHS_PERABLE, BATHS_PER_DAY)
+    values (#{reportId,jdbcType=BIGINT}, #{occupantsNumber,jdbcType=INTEGER},
+      #{showerType,jdbcType=INTEGER}, #{showersPerable,jdbcType=INTEGER}, #{showersPerDay,jdbcType=REAL}, 
+      #{bathsPerable,jdbcType=INTEGER}, #{bathsPerDay,jdbcType=REAL})
+  </insert>
+  
+  <select id="countAll" resultType="java.lang.Integer" >
+    select count(*) from GDSAP_EVAL_OCCUPANTS
+  </select>
+  
+  <select id="findAll" resultMap="rm" >
+    select 
+	<include refid="Base_Column_List" /> 
+	from GDSAP_EVAL_OCCUPANTS
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOccupants" >
+    update GDSAP_EVAL_OCCUPANTS
+    <set >
+      <if test="occupantsNumber != null" >
+        OCCUPANTS_NUMBER = #{occupantsNumber,jdbcType=INTEGER},
+      </if>
+      <if test="showerType != null" >
+        SHOWER_TYPE = #{showerType,jdbcType=INTEGER},
+      </if>
+      <if test="showersPerable != null" >
+        SHOWERS_PERABLE = #{showersPerable,jdbcType=INTEGER},
+      </if>
+      <if test="showersPerDay != null" >
+        SHOWERS_PER_DAY = #{showersPerDay,jdbcType=REAL},
+      </if>
+      <if test="bathsPerable != null" >
+        BATHS_PERABLE = #{bathsPerable,jdbcType=INTEGER},
+      </if>
+      <if test="bathsPerDay != null" >
+        BATHS_PER_DAY = #{bathsPerDay,jdbcType=REAL}
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalOccupants" >
+    update GDSAP_EVAL_OCCUPANTS
+    set OCCUPANTS_NUMBER = #{occupantsNumber,jdbcType=INTEGER},
+      SHOWER_TYPE = #{showerType,jdbcType=INTEGER},
+      SHOWERS_PERABLE = #{showersPerable,jdbcType=INTEGER},
+      SHOWERS_PER_DAY = #{showersPerDay,jdbcType=REAL},
+      BATHS_PERABLE = #{bathsPerable,jdbcType=INTEGER},
+      BATHS_PER_DAY = #{bathsPerDay,jdbcType=REAL}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+</mapper>

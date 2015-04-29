@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalHeatingSystemMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingSystem" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="KNOWNABLE" property="knownable" jdbcType="INTEGER" />
+    <result column="TEMPERATURE" property="temperature" jdbcType="REAL" />
+    <result column="M_HS" property="mHs" jdbcType="INTEGER" />
+    <result column="M_HF" property="mHf" jdbcType="INTEGER" />
+    <result column="M_HT" property="mHt" jdbcType="INTEGER" />
+    <result column="SM_HS" property="smHs" jdbcType="INTEGER" />
+    <result column="SM_HF" property="smHf" jdbcType="INTEGER" />
+    <result column="SM_HT" property="smHt" jdbcType="INTEGER" />
+    <result column="S_HS" property="sHs" jdbcType="INTEGER" />
+    <result column="S_HF" property="sHf" jdbcType="INTEGER" />
+    <result column="S_HT" property="sHt" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    REPORT_ID, KNOWNABLE, TEMPERATURE, M_HS, M_HF, M_HT, SM_HS, SM_HF, SM_HT, S_HS, S_HF, 
+    S_HT
+  </sql>
+  
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from GDSAP_EVAL_HEATING_SYSTEM
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_HEATING_SYSTEM
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingSystem" >
+    insert into GDSAP_EVAL_HEATING_SYSTEM (REPORT_ID, KNOWNABLE, TEMPERATURE, 
+      M_HS, M_HF, M_HT, SM_HS, 
+      SM_HF, SM_HT, S_HS, S_HF, 
+      S_HT)
+    values (#{reportId,jdbcType=BIGINT}, #{knownable,jdbcType=INTEGER}, #{temperature,jdbcType=REAL}, 
+      #{mHs,jdbcType=INTEGER}, #{mHf,jdbcType=INTEGER}, #{mHt,jdbcType=INTEGER}, #{smHs,jdbcType=INTEGER}, 
+      #{smHf,jdbcType=INTEGER}, #{smHt,jdbcType=INTEGER}, #{sHs,jdbcType=INTEGER}, #{sHf,jdbcType=INTEGER}, 
+      #{sHt,jdbcType=INTEGER})
+  </insert>
+  
+  <select id="countAll"  resultType="java.lang.Integer" >
+    select count(*) from GDSAP_EVAL_HEATING_SYSTEM
+  </select>
+  
+  <select id="findAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from GDSAP_EVAL_HEATING_SYSTEM
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingSystem" >
+    update GDSAP_EVAL_HEATING_SYSTEM
+    <set >
+      <if test="knownable != null" >
+        KNOWNABLE = #{knownable,jdbcType=INTEGER},
+      </if>
+      <if test="temperature != null" >
+        TEMPERATURE = #{temperature,jdbcType=REAL},
+      </if>
+      <if test="mHs != null" >
+        M_HS = #{mHs,jdbcType=INTEGER},
+      </if>
+      <if test="mHf != null" >
+        M_HF = #{mHf,jdbcType=INTEGER},
+      </if>
+      <if test="mHt != null" >
+        M_HT = #{mHt,jdbcType=INTEGER},
+      </if>
+      <if test="smHs != null" >
+        SM_HS = #{smHs,jdbcType=INTEGER},
+      </if>
+      <if test="smHf != null" >
+        SM_HF = #{smHf,jdbcType=INTEGER},
+      </if>
+      <if test="smHt != null" >
+        SM_HT = #{smHt,jdbcType=INTEGER},
+      </if>
+      <if test="sHs != null" >
+        S_HS = #{sHs,jdbcType=INTEGER},
+      </if>
+      <if test="sHf != null" >
+        S_HF = #{sHf,jdbcType=INTEGER},
+      </if>
+      <if test="sHt != null" >
+        S_HT = #{sHt,jdbcType=INTEGER},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingSystem" >
+    update GDSAP_EVAL_HEATING_SYSTEM
+    set KNOWNABLE = #{knownable,jdbcType=INTEGER},
+      TEMPERATURE = #{temperature,jdbcType=REAL},
+      M_HS = #{mHs,jdbcType=INTEGER},
+      M_HF = #{mHf,jdbcType=INTEGER},
+      M_HT = #{mHt,jdbcType=INTEGER},
+      SM_HS = #{smHs,jdbcType=INTEGER},
+      SM_HF = #{smHf,jdbcType=INTEGER},
+      SM_HT = #{smHt,jdbcType=INTEGER},
+      S_HS = #{sHs,jdbcType=INTEGER},
+      S_HF = #{sHf,jdbcType=INTEGER},
+      S_HT = #{sHt,jdbcType=INTEGER}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingSystem" >
+    update GDSAP_EVAL_HEATING_SYSTEM
+    set KNOWNABLE = #{knownable,jdbcType=INTEGER},
+      TEMPERATURE = #{temperature,jdbcType=REAL},
+      M_HS = #{mHs,jdbcType=INTEGER},
+      M_HF = #{mHf,jdbcType=INTEGER},
+      M_HT = #{mHt,jdbcType=INTEGER},
+      SM_HS = #{smHs,jdbcType=INTEGER},
+      SM_HF = #{smHf,jdbcType=INTEGER},
+      SM_HT = #{smHt,jdbcType=INTEGER},
+      S_HS = #{sHs,jdbcType=INTEGER},
+      S_HF = #{sHf,jdbcType=INTEGER},
+      S_HT = #{sHt,jdbcType=INTEGER}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalHeatingPatternMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingPattern" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="N1_ON" property="n1On" jdbcType="VARCHAR" />
+    <result column="N1_OFF" property="n1Off" jdbcType="VARCHAR" />
+    <result column="A1_ON" property="a1On" jdbcType="VARCHAR" />
+    <result column="A1_OFF" property="a1Off" jdbcType="VARCHAR" />
+    <result column="N2_ON" property="n2On" jdbcType="VARCHAR" />
+    <result column="N2_OFF" property="n2Off" jdbcType="VARCHAR" />
+    <result column="A2_ON" property="a2On" jdbcType="VARCHAR" />
+    <result column="A2_OFF" property="a2Off" jdbcType="VARCHAR" />
+    <result column="N3_ON" property="n3On" jdbcType="VARCHAR" />
+    <result column="N3_OFF" property="n3Off" jdbcType="VARCHAR" />
+    <result column="A3_ON" property="a3On" jdbcType="VARCHAR" />
+    <result column="A3_OFF" property="a3Off" jdbcType="VARCHAR" />
+    <result column="N4_ON" property="n4On" jdbcType="VARCHAR" />
+    <result column="N4_OFF" property="n4Off" jdbcType="VARCHAR" />
+    <result column="A4_ON" property="a4On" jdbcType="VARCHAR" />
+    <result column="A4_OFF" property="a4Off" jdbcType="VARCHAR" />
+    <result column="DAYS" property="days" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    REPORT_ID, N1_ON, N1_OFF, A1_ON, A1_OFF, N2_ON, N2_OFF, A2_ON, A2_OFF, N3_ON, N3_OFF, 
+    A3_ON, A3_OFF, N4_ON, N4_OFF, A4_ON, A4_OFF, DAYS
+  </sql>
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from GDSAP_EVAL_HEATING_PATTERN
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_HEATING_PATTERN
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingPattern" >
+    insert into GDSAP_EVAL_HEATING_PATTERN (REPORT_ID, N1_ON, N1_OFF, 
+      A1_ON, A1_OFF, N2_ON, 
+      N2_OFF, A2_ON, A2_OFF, 
+      N3_ON, N3_OFF, A3_ON, 
+      A3_OFF, N4_ON, N4_OFF, 
+      A4_ON, A4_OFF, DAYS)
+    values (#{reportId,jdbcType=BIGINT}, #{n1On,jdbcType=VARCHAR}, #{n1Off,jdbcType=VARCHAR}, 
+      #{a1On,jdbcType=VARCHAR}, #{a1Off,jdbcType=VARCHAR}, #{n2On,jdbcType=VARCHAR}, 
+      #{n2Off,jdbcType=VARCHAR}, #{a2On,jdbcType=VARCHAR}, #{a2Off,jdbcType=VARCHAR}, 
+      #{n3On,jdbcType=VARCHAR}, #{n3Off,jdbcType=VARCHAR}, #{a3On,jdbcType=VARCHAR}, 
+      #{a3Off,jdbcType=VARCHAR}, #{n4On,jdbcType=VARCHAR}, #{n4Off,jdbcType=VARCHAR}, 
+      #{a4On,jdbcType=VARCHAR}, #{a4Off,jdbcType=VARCHAR}, #{days,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingPattern" >
+    insert into GDSAP_EVAL_HEATING_PATTERN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="reportId != null" >
+        REPORT_ID,
+      </if>
+      <if test="n1On != null" >
+        N1_ON,
+      </if>
+      <if test="n1Off != null" >
+        N1_OFF,
+      </if>
+      <if test="a1On != null" >
+        A1_ON,
+      </if>
+      <if test="a1Off != null" >
+        A1_OFF,
+      </if>
+      <if test="n2On != null" >
+        N2_ON,
+      </if>
+      <if test="n2Off != null" >
+        N2_OFF,
+      </if>
+      <if test="a2On != null" >
+        A2_ON,
+      </if>
+      <if test="a2Off != null" >
+        A2_OFF,
+      </if>
+      <if test="n3On != null" >
+        N3_ON,
+      </if>
+      <if test="n3Off != null" >
+        N3_OFF,
+      </if>
+      <if test="a3On != null" >
+        A3_ON,
+      </if>
+      <if test="a3Off != null" >
+        A3_OFF,
+      </if>
+      <if test="n4On != null" >
+        N4_ON,
+      </if>
+      <if test="n4Off != null" >
+        N4_OFF,
+      </if>
+      <if test="a4On != null" >
+        A4_ON,
+      </if>
+      <if test="a4Off != null" >
+        A4_OFF,
+      </if>
+      <if test="days != null" >
+        DAYS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="reportId != null" >
+        #{reportId,jdbcType=BIGINT},
+      </if>
+      <if test="n1On != null" >
+        #{n1On,jdbcType=VARCHAR},
+      </if>
+      <if test="n1Off != null" >
+        #{n1Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a1On != null" >
+        #{a1On,jdbcType=VARCHAR},
+      </if>
+      <if test="a1Off != null" >
+        #{a1Off,jdbcType=VARCHAR},
+      </if>
+      <if test="n2On != null" >
+        #{n2On,jdbcType=VARCHAR},
+      </if>
+      <if test="n2Off != null" >
+        #{n2Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a2On != null" >
+        #{a2On,jdbcType=VARCHAR},
+      </if>
+      <if test="a2Off != null" >
+        #{a2Off,jdbcType=VARCHAR},
+      </if>
+      <if test="n3On != null" >
+        #{n3On,jdbcType=VARCHAR},
+      </if>
+      <if test="n3Off != null" >
+        #{n3Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a3On != null" >
+        #{a3On,jdbcType=VARCHAR},
+      </if>
+      <if test="a3Off != null" >
+        #{a3Off,jdbcType=VARCHAR},
+      </if>
+      <if test="n4On != null" >
+        #{n4On,jdbcType=VARCHAR},
+      </if>
+      <if test="n4Off != null" >
+        #{n4Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a4On != null" >
+        #{a4On,jdbcType=VARCHAR},
+      </if>
+      <if test="a4Off != null" >
+        #{a4Off,jdbcType=VARCHAR},
+      </if>
+      <if test="days != null" >
+        #{days,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingPattern" >
+    update GDSAP_EVAL_HEATING_PATTERN
+    <set >
+      <if test="n1On != null" >
+        N1_ON = #{n1On,jdbcType=VARCHAR},
+      </if>
+      <if test="n1Off != null" >
+        N1_OFF = #{n1Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a1On != null" >
+        A1_ON = #{a1On,jdbcType=VARCHAR},
+      </if>
+      <if test="a1Off != null" >
+        A1_OFF = #{a1Off,jdbcType=VARCHAR},
+      </if>
+      <if test="n2On != null" >
+        N2_ON = #{n2On,jdbcType=VARCHAR},
+      </if>
+      <if test="n2Off != null" >
+        N2_OFF = #{n2Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a2On != null" >
+        A2_ON = #{a2On,jdbcType=VARCHAR},
+      </if>
+      <if test="a2Off != null" >
+        A2_OFF = #{a2Off,jdbcType=VARCHAR},
+      </if>
+      <if test="n3On != null" >
+        N3_ON = #{n3On,jdbcType=VARCHAR},
+      </if>
+      <if test="n3Off != null" >
+        N3_OFF = #{n3Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a3On != null" >
+        A3_ON = #{a3On,jdbcType=VARCHAR},
+      </if>
+      <if test="a3Off != null" >
+        A3_OFF = #{a3Off,jdbcType=VARCHAR},
+      </if>
+      <if test="n4On != null" >
+        N4_ON = #{n4On,jdbcType=VARCHAR},
+      </if>
+      <if test="n4Off != null" >
+        N4_OFF = #{n4Off,jdbcType=VARCHAR},
+      </if>
+      <if test="a4On != null" >
+        A4_ON = #{a4On,jdbcType=VARCHAR},
+      </if>
+      <if test="a4Off != null" >
+        A4_OFF = #{a4Off,jdbcType=VARCHAR},
+      </if>
+      <if test="days != null" >
+        DAYS = #{days,jdbcType=INTEGER},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalHeatingPattern" >
+    update GDSAP_EVAL_HEATING_PATTERN
+    set N1_ON = #{n1On,jdbcType=VARCHAR},
+      N1_OFF = #{n1Off,jdbcType=VARCHAR},
+      A1_ON = #{a1On,jdbcType=VARCHAR},
+      A1_OFF = #{a1Off,jdbcType=VARCHAR},
+      N2_ON = #{n2On,jdbcType=VARCHAR},
+      N2_OFF = #{n2Off,jdbcType=VARCHAR},
+      A2_ON = #{a2On,jdbcType=VARCHAR},
+      A2_OFF = #{a2Off,jdbcType=VARCHAR},
+      N3_ON = #{n3On,jdbcType=VARCHAR},
+      N3_OFF = #{n3Off,jdbcType=VARCHAR},
+      A3_ON = #{a3On,jdbcType=VARCHAR},
+      A3_OFF = #{a3Off,jdbcType=VARCHAR},
+      N4_ON = #{n4On,jdbcType=VARCHAR},
+      N4_OFF = #{n4Off,jdbcType=VARCHAR},
+      A4_ON = #{a4On,jdbcType=VARCHAR},
+      A4_OFF = #{a4Off,jdbcType=VARCHAR},
+      DAYS = #{days,jdbcType=INTEGER}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+</mapper>

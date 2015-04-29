@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalEpcEaDetailMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEpcEaDetail" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="FULL_NAME" property="fullName" jdbcType="VARCHAR" />
+    <result column="NOTIFY_LODGEMENT" property="notifyLodgement" jdbcType="VARCHAR" />
+    <result column="CONTACT_ADDRESS1" property="contactAddress1" jdbcType="VARCHAR" />
+    <result column="CONTACT_ADDRESS2" property="contactAddress2" jdbcType="VARCHAR" />
+    <result column="CONTACT_ADDRESS3" property="contactAddress3" jdbcType="VARCHAR" />
+    <result column="POSTTOWN" property="posttown" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="FAX" property="fax" jdbcType="VARCHAR" />
+    <result column="TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="SCHEME_NAME" property="schemeName" jdbcType="VARCHAR" />
+    <result column="SCHEME_WEB_SITE" property="schemeWebSite" jdbcType="VARCHAR" />
+    <result column="CERTIFICATE_NUMBER" property="certificateNumber" jdbcType="VARCHAR" />
+    <result column="INSURER" property="insurer" jdbcType="VARCHAR" />
+    <result column="POLICY_NO" property="policyNo" jdbcType="VARCHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+    <result column="EXPIRY_DATE" property="expiryDate" jdbcType="TIMESTAMP" />
+    <result column="PI_LIMIT" property="piLimit" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    REPORT_ID, FULL_NAME, NOTIFY_LODGEMENT, CONTACT_ADDRESS1, CONTACT_ADDRESS2, CONTACT_ADDRESS3, 
+    POSTTOWN, POSTCODE, WEBSITE, EMAIL, FAX, TELEPHONE, COMPANY_NAME, SCHEME_NAME, SCHEME_WEB_SITE, 
+    CERTIFICATE_NUMBER, INSURER, POLICY_NO, EFFECTIVE_DATE, EXPIRY_DATE, PI_LIMIT
+  </sql>
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gdsap_eval_epc_ea_detail
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from gdsap_eval_epc_ea_detail
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEpcEaDetail" >
+    insert into gdsap_eval_epc_ea_detail (REPORT_ID, FULL_NAME, NOTIFY_LODGEMENT, 
+      CONTACT_ADDRESS1, CONTACT_ADDRESS2, CONTACT_ADDRESS3, 
+      POSTTOWN, POSTCODE, WEBSITE, 
+      EMAIL, FAX, TELEPHONE, 
+      COMPANY_NAME, SCHEME_NAME, SCHEME_WEB_SITE, 
+      CERTIFICATE_NUMBER, INSURER, POLICY_NO, 
+      EFFECTIVE_DATE, EXPIRY_DATE, PI_LIMIT
+      )
+    values (#{reportId,jdbcType=BIGINT}, #{fullName,jdbcType=VARCHAR}, #{notifyLodgement,jdbcType=VARCHAR}, 
+      #{contactAddress1,jdbcType=VARCHAR}, #{contactAddress2,jdbcType=VARCHAR}, #{contactAddress3,jdbcType=VARCHAR}, 
+      #{posttown,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, 
+      #{companyName,jdbcType=VARCHAR}, #{schemeName,jdbcType=VARCHAR}, #{schemeWebSite,jdbcType=VARCHAR}, 
+      #{certificateNumber,jdbcType=VARCHAR}, #{insurer,jdbcType=VARCHAR}, #{policyNo,jdbcType=VARCHAR}, 
+      #{effectiveDate,jdbcType=TIMESTAMP}, #{expiryDate,jdbcType=TIMESTAMP}, #{piLimit,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEpcEaDetail" >
+    update gdsap_eval_epc_ea_detail
+    <set >
+      <if test="fullName != null" >
+        FULL_NAME = #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyLodgement != null" >
+        NOTIFY_LODGEMENT = #{notifyLodgement,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress1 != null" >
+        CONTACT_ADDRESS1 = #{contactAddress1,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress2 != null" >
+        CONTACT_ADDRESS2 = #{contactAddress2,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress3 != null" >
+        CONTACT_ADDRESS3 = #{contactAddress3,jdbcType=VARCHAR},
+      </if>
+      <if test="posttown != null" >
+        POSTTOWN = #{posttown,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        WEBSITE = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeName != null" >
+        SCHEME_NAME = #{schemeName,jdbcType=VARCHAR},
+      </if>
+      <if test="schemeWebSite != null" >
+        SCHEME_WEB_SITE = #{schemeWebSite,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateNumber != null" >
+        CERTIFICATE_NUMBER = #{certificateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="insurer != null" >
+        INSURER = #{insurer,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNo != null" >
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiryDate != null" >
+        EXPIRY_DATE = #{expiryDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="piLimit != null" >
+        PI_LIMIT = #{piLimit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalEpcEaDetail" >
+    update gdsap_eval_epc_ea_detail
+    set FULL_NAME = #{fullName,jdbcType=VARCHAR},
+      NOTIFY_LODGEMENT = #{notifyLodgement,jdbcType=VARCHAR},
+      CONTACT_ADDRESS1 = #{contactAddress1,jdbcType=VARCHAR},
+      CONTACT_ADDRESS2 = #{contactAddress2,jdbcType=VARCHAR},
+      CONTACT_ADDRESS3 = #{contactAddress3,jdbcType=VARCHAR},
+      POSTTOWN = #{posttown,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      WEBSITE = #{website,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      SCHEME_NAME = #{schemeName,jdbcType=VARCHAR},
+      SCHEME_WEB_SITE = #{schemeWebSite,jdbcType=VARCHAR},
+      CERTIFICATE_NUMBER = #{certificateNumber,jdbcType=VARCHAR},
+      INSURER = #{insurer,jdbcType=VARCHAR},
+      POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+      EXPIRY_DATE = #{expiryDate,jdbcType=TIMESTAMP},
+      PI_LIMIT = #{piLimit,jdbcType=VARCHAR}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+</mapper>

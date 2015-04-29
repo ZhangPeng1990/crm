@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="uk.co.quidos.gdsap.framework.authority.persistence.AdminDOMapper">
+	<resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminDO">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="USER_PWD" property="userPwd" jdbcType="VARCHAR" />
+		<result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="USER_STATUS" property="userStatus" jdbcType="INTEGER" />
+		<result column="FIRST_NAME" property="firstName" jdbcType="VARCHAR" />
+		<result column="SUR_NAME" property="surName" jdbcType="VARCHAR" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="REGISTER_CODE" property="registerCode" jdbcType="VARCHAR" />
+		<result column="ACCESS_LEVEL" property="accessLevel" jdbcType="INTEGER" />
+		<result column="ORGANISATION" property="organisation" jdbcType="VARCHAR" />
+		<result column="ORGANISATION_WEB_SITE" property="organisationWebSite" jdbcType="VARCHAR" />
+		<result column="ORGANISATION_CERTIFICATION_NUMBER" property="organisationCertificationNumber" jdbcType="VARCHAR" />
+		<result column="ADDRESS1" property="address1" jdbcType="VARCHAR" />
+		<result column="ADDRESS2" property="address2" jdbcType="VARCHAR" />
+		<result column="ADDRESS3" property="address3" jdbcType="VARCHAR" />
+		<result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+		<result column="POSTTOWN" property="posttown" jdbcType="VARCHAR" />
+		<result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+		<result column="FAX" property="fax" jdbcType="VARCHAR" />
+		<result column="TEL" property="tel" jdbcType="VARCHAR" />
+		<result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, USER_NAME, USER_PWD, INSERT_TIME, UPDATE_TIME,
+		USER_STATUS,
+		FIRST_NAME, SUR_NAME,
+		EMAIL, REGISTER_CODE, ACCESS_LEVEL,
+		ORGANISATION, ORGANISATION_WEB_SITE,
+		ORGANISATION_CERTIFICATION_NUMBER,
+		ADDRESS1, ADDRESS2, ADDRESS3,
+		POSTCODE, POSTTOWN, WEBSITE, FAX, TEL,
+		COMPANY_NAME
+	</sql>
+	<select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from gdsap_usr_admin
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from gdsap_usr_admin
+		where ID = #{id,jdbcType=BIGINT}
+  </delete>
+	<insert id="insert" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminDO"  useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="int" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+		insert into gdsap_usr_admin (ID, USER_NAME, USER_PWD,
+		INSERT_TIME, UPDATE_TIME, USER_STATUS,
+		FIRST_NAME, SUR_NAME, EMAIL,
+		REGISTER_CODE, ACCESS_LEVEL, ORGANISATION,
+		ORGANISATION_WEB_SITE,
+		ORGANISATION_CERTIFICATION_NUMBER,
+		ADDRESS1, ADDRESS2, ADDRESS3,
+		POSTCODE, POSTTOWN, WEBSITE,
+		FAX, TEL, COMPANY_NAME
+		)
+		values
+		(#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR},
+		#{userPwd,jdbcType=VARCHAR},
+		#{insertTime,jdbcType=TIMESTAMP},
+		#{updateTime,jdbcType=TIMESTAMP}, #{userStatus,jdbcType=INTEGER},
+		#{firstName,jdbcType=VARCHAR}, #{surName,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{registerCode,jdbcType=VARCHAR},
+		#{accessLevel,jdbcType=INTEGER}, #{organisation,jdbcType=VARCHAR},
+		#{organisationWebSite,jdbcType=VARCHAR},
+		#{organisationCertificationNumber,jdbcType=VARCHAR},
+		#{address1,jdbcType=VARCHAR}, #{address2,jdbcType=VARCHAR},
+		#{address3,jdbcType=VARCHAR},
+		#{postcode,jdbcType=VARCHAR},
+		#{posttown,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR},
+		#{fax,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+		#{companyName,jdbcType=VARCHAR}
+		)
+  </insert>
+
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminDO">
+		update gdsap_usr_admin
+		<set>
+			<if test="userName != null">
+				USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+			<if test="userPwd != null">
+				USER_PWD = #{userPwd,jdbcType=VARCHAR},
+      </if>
+			<if test="insertTime != null">
+				INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+			<if test="updateTime != null">
+				UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+			<if test="userStatus != null">
+				USER_STATUS = #{userStatus,jdbcType=INTEGER},
+      </if>
+			<if test="firstName != null">
+				FIRST_NAME = #{firstName,jdbcType=VARCHAR},
+      </if>
+			<if test="surName != null">
+				SUR_NAME = #{surName,jdbcType=VARCHAR},
+      </if>
+			<if test="email != null">
+				EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+			<if test="registerCode != null">
+				REGISTER_CODE = #{registerCode,jdbcType=VARCHAR},
+      </if>
+			<if test="accessLevel != null">
+				ACCESS_LEVEL = #{accessLevel,jdbcType=INTEGER},
+      </if>
+			<if test="organisation != null">
+				ORGANISATION = #{organisation,jdbcType=VARCHAR},
+      </if>
+			<if test="organisationWebSite != null">
+				ORGANISATION_WEB_SITE =
+				#{organisationWebSite,jdbcType=VARCHAR},
+      </if>
+			<if test="organisationCertificationNumber != null">
+				ORGANISATION_CERTIFICATION_NUMBER =
+				#{organisationCertificationNumber,jdbcType=VARCHAR},
+      </if>
+			<if test="address1 != null">
+				ADDRESS1 = #{address1,jdbcType=VARCHAR},
+      </if>
+			<if test="address2 != null">
+				ADDRESS2 = #{address2,jdbcType=VARCHAR},
+      </if>
+			<if test="address3 != null">
+				ADDRESS3 = #{address3,jdbcType=VARCHAR},
+      </if>
+			<if test="postcode != null">
+				POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+			<if test="posttown != null">
+				POSTTOWN = #{posttown,jdbcType=VARCHAR},
+      </if>
+			<if test="website != null">
+				WEBSITE = #{website,jdbcType=VARCHAR},
+      </if>
+			<if test="fax != null">
+				FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+			<if test="tel != null">
+				TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+			<if test="companyName != null">
+				COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+		</set>
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AdminDO">
+		update gdsap_usr_admin
+		set USER_NAME =
+		#{userName,jdbcType=VARCHAR},
+		USER_PWD = #{userPwd,jdbcType=VARCHAR},
+		INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+		UPDATE_TIME =
+		#{updateTime,jdbcType=TIMESTAMP},
+		USER_STATUS =
+		#{userStatus,jdbcType=INTEGER},
+		FIRST_NAME =
+		#{firstName,jdbcType=VARCHAR},
+		SUR_NAME = #{surName,jdbcType=VARCHAR},
+		EMAIL = #{email,jdbcType=VARCHAR},
+		REGISTER_CODE =
+		#{registerCode,jdbcType=VARCHAR},
+		ACCESS_LEVEL =
+		#{accessLevel,jdbcType=INTEGER},
+		ORGANISATION =
+		#{organisation,jdbcType=VARCHAR},
+		ORGANISATION_WEB_SITE =
+		#{organisationWebSite,jdbcType=VARCHAR},
+		ORGANISATION_CERTIFICATION_NUMBER =
+		#{organisationCertificationNumber,jdbcType=VARCHAR},
+		ADDRESS1 =
+		#{address1,jdbcType=VARCHAR},
+		ADDRESS2 = #{address2,jdbcType=VARCHAR},
+		ADDRESS3 = #{address3,jdbcType=VARCHAR},
+		POSTCODE =
+		#{postcode,jdbcType=VARCHAR},
+		POSTTOWN = #{posttown,jdbcType=VARCHAR},
+		WEBSITE = #{website,jdbcType=VARCHAR},
+		FAX = #{fax,jdbcType=VARCHAR},
+		TEL = #{tel,jdbcType=VARCHAR},
+		COMPANY_NAME =
+		#{companyName,jdbcType=VARCHAR} 
+		where ID = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="countAll" resultType="java.lang.Integer">
+		select count(*) from
+		gdsap_usr_admin
+  </select>
+
+	<select id="findAll" resultMap="BaseResultMap">
+		select * from gdsap_usr_admin
+	</select>
+
+	<select id="findAllIds" resultType="java.lang.Long">
+		select ID from gdsap_usr_admin
+	</select>
+
+	<select id="findUserByName" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		* from gdsap_usr_admin where USER_NAME =
+		#{userName,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findUserByEmail" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select * from
+		gdsap_usr_admin where EMAIL = #{email,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findPageBreakByCondition" resultMap="BaseResultMap"
+		parameterType="map">
+		select * from gdsap_usr_admin
+		<where>
+			<if test="userName != null">
+				and USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%"
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &gt;=
+				#{startInsertTime,jdbcType=TIMESTAMP} and
+				INSERT_TIME &lt;=
+				#{endInsertTime,jdbcType=TIMESTAMP}  
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+				and INSERT_TIME &gt;=
+				#{startInsertTime,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="userStatus != null">
+				and USER_STATUS = #{userStatus,jdbcType=INTEGER} 
+      		</if>
+			<if test="firstName != null">
+				and FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%"
+			</if>
+			<if test="surName != null">
+				and SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%" 
+      		</if>
+			<if test="email != null">
+				and EMAIL LIKE "%"#{email,jdbcType=VARCHAR}"%" 
+      		</if>
+			<if test="accessLevel != null">
+				and ACCESS_LEVEL = #{accessLevel,jdbcType=INTEGER} 
+      		</if>
+			order by INSERT_TIME DESC
+		</where>
+	</select>
+
+	<select id="findByUsernameAndPwd" resultMap="BaseResultMap" parameterType="map">
+		select *
+		from gdsap_usr_admin where USER_NAME =
+		#{username,jdbcType=VARCHAR}
+		and
+		USER_PWD = #{userPwd,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findNumberByCondition" resultType="java.lang.Integer"
+		parameterType="map">
+		select count(0) as a from gdsap_usr_admin
+		<where>
+			<if test="userName != null">
+				and USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%"
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &gt;=
+				#{startInsertTime,jdbcType=TIMESTAMP} and
+				INSERT_TIME &lt;=
+				#{endInsertTime,jdbcType=TIMESTAMP}  
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+				and INSERT_TIME &gt;=
+				#{startInsertTime,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="userStatus != null">
+				and USER_STATUS = #{userStatus,jdbcType=INTEGER} 
+      		</if>
+			<if test="firstName != null">
+				and FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%"
+			</if>
+			<if test="surName != null">
+				and SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%" 
+      		</if>
+			<if test="email != null">
+				and EMAIL LIKE "%"#{email,jdbcType=VARCHAR}"%" 
+      		</if>
+			<if test="accessLevel != null">
+				and ACCESS_LEVEL = #{accessLevel,jdbcType=INTEGER} 
+      		</if>
+		</where>
+	</select>
+
+</mapper>

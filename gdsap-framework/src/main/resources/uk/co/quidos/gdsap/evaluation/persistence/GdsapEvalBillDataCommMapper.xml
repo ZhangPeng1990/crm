@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalBillDataCommMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataComm" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="CH_FUEL_CODE" property="chFuelCode" jdbcType="INTEGER" />
+    <result column="CH_RELIABLITY_LEVEL" property="chReliablityLevel" jdbcType="INTEGER" />
+    <result column="CH_ENERGY_USED" property="chEnergyUsed" jdbcType="REAL" />
+    <result column="CH_PERIOD_SELECT" property="chPeriodSelect" jdbcType="INTEGER" />
+    <result column="CH_PERIOD" property="chPeriod" jdbcType="REAL" />
+    <result column="CH_FIXED_COST" property="chFixedCost" jdbcType="REAL" />
+    <result column="CH_FIXED_COST_SELECTED" property="chFixedCostSelected" jdbcType="INTEGER" />
+    <result column="CH_UNIT_PRICE" property="chUnitPrice" jdbcType="REAL" />
+    <result column="CH_UNUSUAL_ENERGY_USINGABLE" property="chUnusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="VATABLE" property="vatable" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <resultMap id="ResultMapWithBLOBs" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataComm" extends="BaseResultMap" >
+    <result column="CH_UNUSUAL_ENERGY_USINGABLE_DES" property="chUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    REPORT_ID, CH_FUEL_CODE, CH_RELIABLITY_LEVEL, CH_ENERGY_USED, CH_PERIOD_SELECT, CH_PERIOD, 
+    CH_FIXED_COST, CH_FIXED_COST_SELECTED, CH_UNIT_PRICE, CH_UNUSUAL_ENERGY_USINGABLE, 
+    VATABLE
+  </sql>
+  <sql id="Blob_Column_List" >
+    CH_UNUSUAL_ENERGY_USINGABLE_DES
+  </sql>
+  <select id="load" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from GDSAP_EVAL_BILL_DATA_COMM
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_BILL_DATA_COMM
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataComm" >
+    insert into GDSAP_EVAL_BILL_DATA_COMM (REPORT_ID, CH_FUEL_CODE, CH_RELIABLITY_LEVEL, 
+      CH_ENERGY_USED, CH_PERIOD_SELECT, CH_PERIOD, 
+      CH_FIXED_COST, CH_FIXED_COST_SELECTED, CH_UNIT_PRICE, 
+      CH_UNUSUAL_ENERGY_USINGABLE, VATABLE, CH_UNUSUAL_ENERGY_USINGABLE_DES
+      )
+    values (#{reportId,jdbcType=BIGINT}, #{chFuelCode,jdbcType=INTEGER}, #{chReliablityLevel,jdbcType=INTEGER}, 
+      #{chEnergyUsed,jdbcType=REAL}, #{chPeriodSelect,jdbcType=INTEGER}, #{chPeriod,jdbcType=REAL}, 
+      #{chFixedCost,jdbcType=REAL}, #{chFixedCostSelected,jdbcType=INTEGER}, #{chUnitPrice,jdbcType=REAL}, 
+      #{chUnusualEnergyUsingable,jdbcType=INTEGER}, #{vatable,jdbcType=INTEGER}, #{chUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataComm" >
+    update GDSAP_EVAL_BILL_DATA_COMM
+    <set >
+      <if test="chFuelCode != null" >
+        CH_FUEL_CODE = #{chFuelCode,jdbcType=INTEGER},
+      </if>
+      <if test="chReliablityLevel != null" >
+        CH_RELIABLITY_LEVEL = #{chReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="chEnergyUsed != null" >
+        CH_ENERGY_USED = #{chEnergyUsed,jdbcType=REAL},
+      </if>
+      <if test="chPeriodSelect != null" >
+        CH_PERIOD_SELECT = #{chPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="chPeriod != null" >
+        CH_PERIOD = #{chPeriod,jdbcType=REAL},
+      </if>
+      <if test="chFixedCost != null" >
+        CH_FIXED_COST = #{chFixedCost,jdbcType=REAL},
+      </if>
+      <if test="chFixedCostSelected != null" >
+        CH_FIXED_COST_SELECTED = #{chFixedCostSelected,jdbcType=INTEGER},
+      </if>
+      <if test="chUnitPrice != null" >
+        CH_UNIT_PRICE = #{chUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="chUnusualEnergyUsingable != null" >
+        CH_UNUSUAL_ENERGY_USINGABLE = #{chUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="vatable != null" >
+        VATABLE = #{vatable,jdbcType=INTEGER},
+      </if>
+      <if test="chUnusualEnergyUsingableDes != null" >
+        CH_UNUSUAL_ENERGY_USINGABLE_DES = #{chUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataComm" >
+    update GDSAP_EVAL_BILL_DATA_COMM
+    set CH_FUEL_CODE = #{chFuelCode,jdbcType=INTEGER},
+      CH_RELIABLITY_LEVEL = #{chReliablityLevel,jdbcType=INTEGER},
+      CH_ENERGY_USED = #{chEnergyUsed,jdbcType=REAL},
+      CH_PERIOD_SELECT = #{chPeriodSelect,jdbcType=INTEGER},
+      CH_PERIOD = #{chPeriod,jdbcType=REAL},
+      CH_FIXED_COST = #{chFixedCost,jdbcType=REAL},
+      CH_FIXED_COST_SELECTED = #{chFixedCostSelected,jdbcType=INTEGER},
+      CH_UNIT_PRICE = #{chUnitPrice,jdbcType=REAL},
+      CH_UNUSUAL_ENERGY_USINGABLE = #{chUnusualEnergyUsingable,jdbcType=INTEGER},
+      VATABLE = #{vatable,jdbcType=INTEGER},
+      CH_UNUSUAL_ENERGY_USINGABLE_DES = #{chUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findAll" resultMap="ResultMapWithBLOBs">
+  	select * from GDSAP_EVAL_BILL_DATA_COMM
+  </select>
+  
+  <select id="countAll" resultType="java.lang.Integer">
+  	select count(0) as c from GDSAP_EVAL_BILL_DATA_COMM
+  </select>
+</mapper>

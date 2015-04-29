@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionIssueMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionIssue" >
+    <id column="SOLUTION_ID" property="solutionId" jdbcType="BIGINT" />
+    <result column="STONE_WALLS" property="stoneWalls" jdbcType="INTEGER" />
+    <result column="SYSTEM_BUILD" property="systemBuild" jdbcType="INTEGER" />
+    <result column="ACCESS_ISSUES" property="accessIssues" jdbcType="INTEGER" />
+    <result column="HIGH_EXPOSURE" property="highExposure" jdbcType="INTEGER" />
+    <result column="NARROW_CAVITIES" property="narrowCavities" jdbcType="INTEGER" />
+    <result column="CAVITY_FILL_UNKNOWN" property="cavityFillUnknown" jdbcType="INTEGER" />
+    <result column="SOLID_WALL_INSULATION_UNKNOWN" property="solidWallInsulationUnknown" jdbcType="INTEGER" />
+    <result column="NO_LOFT_ACCESS" property="noLoftAccess" jdbcType="INTEGER" />
+    <result column="FLAT_ROOF_INSULATION_UNKNOWN" property="flatRoofInsulationUnknown" jdbcType="INTEGER" />
+    <result column="ROOF_ROOM_INSULATION_UNKNOWN" property="roofRoomInsulationUnknown" jdbcType="INTEGER" />
+    <result column="FLOOR_INSULATION_UNKNOWN" property="floorInsulationUnknown" jdbcType="INTEGER" />
+    <result column="NO_CYLINDER_ACCESS" property="noCylinderAccess" jdbcType="INTEGER" />
+    <result column="MAINS_GAS_NEEDED" property="mainsGasNeeded" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SOLUTION_ID, STONE_WALLS, SYSTEM_BUILD, ACCESS_ISSUES, HIGH_EXPOSURE, NARROW_CAVITIES, 
+    CAVITY_FILL_UNKNOWN, SOLID_WALL_INSULATION_UNKNOWN, NO_LOFT_ACCESS, FLAT_ROOF_INSULATION_UNKNOWN, 
+    ROOF_ROOM_INSULATION_UNKNOWN, FLOOR_INSULATION_UNKNOWN, NO_CYLINDER_ACCESS, MAINS_GAS_NEEDED
+  </sql>
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gdsap_eval_solution_issue
+    where SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from gdsap_eval_solution_issue
+    where SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionIssue" >
+    insert into gdsap_eval_solution_issue (SOLUTION_ID, STONE_WALLS, SYSTEM_BUILD, 
+      ACCESS_ISSUES, HIGH_EXPOSURE, NARROW_CAVITIES, 
+      CAVITY_FILL_UNKNOWN, SOLID_WALL_INSULATION_UNKNOWN, 
+      NO_LOFT_ACCESS, FLAT_ROOF_INSULATION_UNKNOWN, 
+      ROOF_ROOM_INSULATION_UNKNOWN, FLOOR_INSULATION_UNKNOWN, 
+      NO_CYLINDER_ACCESS, MAINS_GAS_NEEDED)
+    values (#{solutionId,jdbcType=BIGINT}, #{stoneWalls,jdbcType=INTEGER}, #{systemBuild,jdbcType=INTEGER}, 
+      #{accessIssues,jdbcType=INTEGER}, #{highExposure,jdbcType=INTEGER}, #{narrowCavities,jdbcType=INTEGER}, 
+      #{cavityFillUnknown,jdbcType=INTEGER}, #{solidWallInsulationUnknown,jdbcType=INTEGER}, 
+      #{noLoftAccess,jdbcType=INTEGER}, #{flatRoofInsulationUnknown,jdbcType=INTEGER}, 
+      #{roofRoomInsulationUnknown,jdbcType=INTEGER}, #{floorInsulationUnknown,jdbcType=INTEGER}, 
+      #{noCylinderAccess,jdbcType=INTEGER}, #{mainsGasNeeded,jdbcType=INTEGER})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionIssue" >
+    update gdsap_eval_solution_issue
+    <set >
+      <if test="stoneWalls != null" >
+        STONE_WALLS = #{stoneWalls,jdbcType=INTEGER},
+      </if>
+      <if test="systemBuild != null" >
+        SYSTEM_BUILD = #{systemBuild,jdbcType=INTEGER},
+      </if>
+      <if test="accessIssues != null" >
+        ACCESS_ISSUES = #{accessIssues,jdbcType=INTEGER},
+      </if>
+      <if test="highExposure != null" >
+        HIGH_EXPOSURE = #{highExposure,jdbcType=INTEGER},
+      </if>
+      <if test="narrowCavities != null" >
+        NARROW_CAVITIES = #{narrowCavities,jdbcType=INTEGER},
+      </if>
+      <if test="cavityFillUnknown != null" >
+        CAVITY_FILL_UNKNOWN = #{cavityFillUnknown,jdbcType=INTEGER},
+      </if>
+      <if test="solidWallInsulationUnknown != null" >
+        SOLID_WALL_INSULATION_UNKNOWN = #{solidWallInsulationUnknown,jdbcType=INTEGER},
+      </if>
+      <if test="noLoftAccess != null" >
+        NO_LOFT_ACCESS = #{noLoftAccess,jdbcType=INTEGER},
+      </if>
+      <if test="flatRoofInsulationUnknown != null" >
+        FLAT_ROOF_INSULATION_UNKNOWN = #{flatRoofInsulationUnknown,jdbcType=INTEGER},
+      </if>
+      <if test="roofRoomInsulationUnknown != null" >
+        ROOF_ROOM_INSULATION_UNKNOWN = #{roofRoomInsulationUnknown,jdbcType=INTEGER},
+      </if>
+      <if test="floorInsulationUnknown != null" >
+        FLOOR_INSULATION_UNKNOWN = #{floorInsulationUnknown,jdbcType=INTEGER},
+      </if>
+      <if test="noCylinderAccess != null" >
+        NO_CYLINDER_ACCESS = #{noCylinderAccess,jdbcType=INTEGER},
+      </if>
+      <if test="mainsGasNeeded != null" >
+        MAINS_GAS_NEEDED = #{mainsGasNeeded,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </update>
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionIssue" >
+    update gdsap_eval_solution_issue
+    set STONE_WALLS = #{stoneWalls,jdbcType=INTEGER},
+      SYSTEM_BUILD = #{systemBuild,jdbcType=INTEGER},
+      ACCESS_ISSUES = #{accessIssues,jdbcType=INTEGER},
+      HIGH_EXPOSURE = #{highExposure,jdbcType=INTEGER},
+      NARROW_CAVITIES = #{narrowCavities,jdbcType=INTEGER},
+      CAVITY_FILL_UNKNOWN = #{cavityFillUnknown,jdbcType=INTEGER},
+      SOLID_WALL_INSULATION_UNKNOWN = #{solidWallInsulationUnknown,jdbcType=INTEGER},
+      NO_LOFT_ACCESS = #{noLoftAccess,jdbcType=INTEGER},
+      FLAT_ROOF_INSULATION_UNKNOWN = #{flatRoofInsulationUnknown,jdbcType=INTEGER},
+      ROOF_ROOM_INSULATION_UNKNOWN = #{roofRoomInsulationUnknown,jdbcType=INTEGER},
+      FLOOR_INSULATION_UNKNOWN = #{floorInsulationUnknown,jdbcType=INTEGER},
+      NO_CYLINDER_ACCESS = #{noCylinderAccess,jdbcType=INTEGER},
+      MAINS_GAS_NEEDED = #{mainsGasNeeded,jdbcType=INTEGER}
+    where SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+  </update>
+</mapper>

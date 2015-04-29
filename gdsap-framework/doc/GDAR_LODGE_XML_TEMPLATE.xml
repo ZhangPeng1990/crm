@@ -1,0 +1,533 @@
+<#setting number_format="#.###">
+<#if report.reportLocation.code == 'EAW' || report.reportLocation.code == 'NIR'><?xml version="1.0" encoding="UTF-8"?></#if><#if report.reportLocation.code == 'SCT'><?xml version="1.0" encoding="UTF-8"?></#if>
+<Occupancy-Assessment xsi:schemaLocation="http://www.oaregister.com OA-Report.xsd" xmlns="http://www.oaregister.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Schema-Version>OA-2.0</Schema-Version>
+	<SAP-Version>9.92</SAP-Version>
+	<OA-Version>Mar 2014</OA-Version>
+	<Calculation-Software-Name>iQ-Engine</Calculation-Software-Name>
+	<Calculation-Software-Version>v92.0.0.3</Calculation-Software-Version>
+	<User-Interface-Name>Qube</User-Interface-Name><#-- for 992 new add -->
+	<User-Interface-Version>v2.0.0.1</User-Interface-Version><#-- for 992 new add -->
+	<PCDF-Revision-Number>365</PCDF-Revision-Number>
+	<ExternalDefinitions-Revision-Number>5.0</ExternalDefinitions-Revision-Number>
+	
+	<Report-Header>
+		<EPC-RRN>${report.rrn?if_exists}</EPC-RRN>
+		<OA-RRN>${report.oaRrn?if_exists}</OA-RRN>
+		<Inspection-Date><#if report.inspectionDate?exists>${report.inspectionDate?string("yyyy-MM-dd")}</#if></Inspection-Date>
+		<Report-Type>5</Report-Type>
+		<Completion-Date><#if report.completionDate?exists>${report.completionDate?string("yyyy-MM-dd")}</#if></Completion-Date>
+		<Registration-Date><#if registrationDate?exists>${registrationDate?string("yyyy-MM-dd")}</#if></Registration-Date>
+		<Status>entered</Status>
+		<Language-Code>${report.languageCode.code?if_exists}</Language-Code>
+		<Green-Deal-Advisor>
+			<#if user?exists><Name>${user.firstName} ${user.surName}</Name></#if>
+			<Notify-Lodgement>Y</Notify-Lodgement>
+			<Contact-Address>
+				<#if user.address1?exists><Address-Line-1>${user.address1?if_exists?xml}</Address-Line-1></#if>
+				<#if user.address2?exists && user.address2 != ''><Address-Line-2>${user.address2?if_exists?xml}</Address-Line-2></#if>
+				<#if user.address3?exists && user.address3 != ''><Address-Line-3>${user.address3?if_exists?xml}</Address-Line-3></#if>
+				<#if user.posttown?exists><Post-Town>${user.posttown}</Post-Town></#if>
+				<#if user.postcode?exists><Postcode>${user.postcode}</Postcode></#if>
+			</Contact-Address>
+			<#if user.website?exists && user.website != ''><Web-Site>${user.website?if_exists?xml}</Web-Site></#if>
+			<#if user.email?exists && user.email != '' ><E-Mail>${user.email}</E-Mail></#if>
+			<#if user.fax?exists && user.fax != ''><Fax>${user.fax}</Fax></#if>
+			<#if user.tel?exists && user.tel != ''><Telephone>${user.tel}</Telephone></#if>
+			<#if user.companyName?exists><Company-Name>${user.companyName?if_exists?xml}</Company-Name></#if>
+            <Assessor-Organisation>${organisation?if_exists?xml}</Assessor-Organisation>
+            <Assessor-Organisation-Certification-Number>${organisationCertificationNumber?if_exists}</Assessor-Organisation-Certification-Number>
+            <Assessor-Organisation-Web-Site>${organisationWebSite?if_exists}</Assessor-Organisation-Web-Site>
+			<Identification-Number>
+				<#if user?exists>
+					<#if report.reportLocation?exists>
+						<#if report.reportLocation.code == 'EAW'  || report.reportLocation.code == 'NIR'>
+							<Certificate-Number>${user.assessorID?if_exists?xml}</Certificate-Number>
+						<#else>
+							<Membership-Number>
+							<#if user.sctAdviserId?exists>
+								${user.sctAdviserId?if_exists?xml}
+							<#else>
+								${user.userName?if_exists?xml}
+							</#if>
+							</Membership-Number>
+						</#if>
+					</#if>
+				</#if>
+			</Identification-Number>
+			<Certification-Scheme-Name>Quidos Ltd</Certification-Scheme-Name><#-- for 992 new add -->
+			<Certification-Scheme-Web-Site>www.quidos.co.uk</Certification-Scheme-Web-Site><#-- for 992 new add -->
+			<Certification-Scheme-Telephone>030 5555 1234</Certification-Scheme-Telephone><#-- for 992 new add -->
+		</Green-Deal-Advisor>
+		<Property>
+			<Address>
+				<#if report.address1?exists><Address-Line-1>${report.address1?if_exists?xml}</Address-Line-1></#if>
+				<#if report.address2?exists><Address-Line-2>${report.address2?if_exists?xml}</Address-Line-2></#if>
+				<#if report.address3?exists><Address-Line-3>${report.address3?if_exists?xml}</Address-Line-3></#if>
+				<#if report.posttown?exists><Post-Town>${report.posttown?if_exists?xml}</Post-Town></#if>
+				<#if report.postcode?exists><Postcode>${report.postcode?if_exists?xml}</Postcode></#if>
+			</Address>
+			<UPRN>${report.uprn?if_exists}</UPRN>
+		</Property>
+		<#if report.relatedPartyDisclosure?exists><Related-Party-Disclosure-Number>${report.relatedPartyDisclosure.id}</Related-Party-Disclosure-Number></#if>
+	</Report-Header>
+	<WaitingReplacement></WaitingReplacement>
+	<#if report.unoccupiedPropertyable?exists && report.unoccupiedPropertyable.code == 1><#--空置房产-->
+	<Unoccupied-Property>true</Unoccupied-Property>
+	<#else>
+	<OA-Data>
+		<Number-Of-Occupants>${occupants.occupantsNumber}</Number-Of-Occupants>
+		<Cooking-Appliance>
+		    <#if appCooking.cookerType.calCode == 1>
+		     <Cooker-Type-Normal>
+				<Fuel>${appCooking.cookingFuel.lodgeCode?if_exists}</Fuel>
+			 </Cooker-Type-Normal>
+		    </#if>
+			<#if appCooking.cookerType.calCode == 2>
+		     <Cooker-Type-Large>
+				<Fuel>${appCooking.cookingFuel.lodgeCode?if_exists}</Fuel>
+			 </Cooker-Type-Large>
+		    </#if>
+		    <#if appCooking.cookerType.calCode == 3>
+		     <Cooker-Type-Range-All-Year>
+				<Fuel>${appCooking.cookingFuel.lodgeCode?if_exists}</Fuel>
+			 </Cooker-Type-Range-All-Year>
+		    </#if>
+		    <#if appCooking.cookerType.calCode == 4>
+		     <Cooker-Type-Range-Winter>
+				<Fuel>${appCooking.cookingFuel.lodgeCode?if_exists}</Fuel>
+			 </Cooker-Type-Range-Winter>
+		    </#if>
+		</Cooking-Appliance>
+		<Baths-And-Showers>
+			<Shower-Type>${occupants.showerType.lodgeCode?if_exists}</Shower-Type>
+			<Baths-Per-Day><#if occupants.bathsPerable.code != 1>-1<#else>${occupants.bathsPerDay}</#if></Baths-Per-Day>
+			<Showers-Per-Day><#if occupants.showerType.lodgeCode == '1'>0</#if><#if occupants.showerType.lodgeCode != '1'><#if occupants.showersPerable.code != 1>-1<#else>${occupants.showersPerDay}</#if></#if></Showers-Per-Day>
+		</Baths-And-Showers>
+		<Electrical-Appliances>
+			<Number-Of-Refrigerators>${appCooking.fridgesNumber}</Number-Of-Refrigerators>
+			<Number-Of-Freezers>${appCooking.freezersNumber}</Number-Of-Freezers>
+			<Number-Of-Fridge-Freezers>${appCooking.fridgeFreezersNumber}</Number-Of-Fridge-Freezers>
+			<Percent-Drying-In-Tumble-Dryer>${appCooking.dryProportion}</Percent-Drying-In-Tumble-Dryer>
+		</Electrical-Appliances>
+		<Main-Heating-1>
+			<Heater-Selection>${heatingSystem.mhsXmlCode?if_exists}</Heater-Selection>
+			<Heating-Fuel><#if heatingSystem.mHf?exists>${heatingSystem.mHf.lodgeCode?if_exists}<#else>0</#if></Heating-Fuel>
+			<Heating-Type><#if heatingSystem.mHt?exists>${heatingSystem.mHt.lodgeCode?if_exists}<#else>0</#if></Heating-Type>
+		</Main-Heating-1>
+		<Main-Heating-2>
+			<Heater-Selection>${heatingSystem.smhsXmlCode?if_exists}</Heater-Selection>
+			<Heating-Fuel><#if heatingSystem.smHf?exists>${heatingSystem.smHf.lodgeCode?if_exists}<#else>0</#if></Heating-Fuel>
+			<Heating-Type><#if heatingSystem.smHt?exists>${heatingSystem.smHt.lodgeCode?if_exists}<#else>0</#if></Heating-Type>
+		</Main-Heating-2>
+		<Secondary-Heating>
+			<Heater-Selection>${heatingSystem.shtXmlCode?if_exists}</Heater-Selection>
+			<Heating-Fuel><#if heatingSystem.sHf?exists>${heatingSystem.sHf.lodgeCode?if_exists}<#else>0</#if></Heating-Fuel>
+			<Heating-Type><#if heatingSystem.sHt?exists>${heatingSystem.sHt.lodgeCode?if_exists}<#else>0</#if></Heating-Type>
+		</Secondary-Heating>
+		<Habitable-Room-Count><#if report.habitableRoomCount?exists>
+							  ${report.habitableRoomCount}
+							  <#else>
+							  	<#if (heatProportions?size>0)>
+							  	${heatProportions?size}
+							  	<#else>
+							  	0
+							  	</#if>
+							  </#if>
+		</Habitable-Room-Count>
+		<#list heatProportions?if_exists as item >
+		<Room-Heating>
+			<Room-Number>${item_index + 1}</Room-Number>
+			<Main-Heating-1><#if item.main1.code == 1>true<#else>false</#if></Main-Heating-1>
+			<Main-Heating-2><#if item.main2.code == 1>true<#else>false</#if></Main-Heating-2>
+			<Secondary-Heating><#if item.secondary.code == 1>true<#else>false</#if></Secondary-Heating>
+			<Partially-Heated><#if item.heatedPartially.code == 1>true<#else>false</#if></Partially-Heated>
+			<Not-Heated><#if item.notable.code == 1>true<#else>false</#if></Not-Heated>
+		</Room-Heating>
+		</#list>
+		<Living-Room-Temperature><#if heatingSystem.knownable.code == 1>${heatingSystem.temperature}<#else>0</#if></Living-Room-Temperature>
+		<Heating-Pattern>
+		    <#if heatingPattern.n1On != "">
+			<Normal-Heating-Day>
+				<Heating-On>${heatingPattern.n1On}</Heating-On>
+				<Heating-Off>${heatingPattern.n1Off}</Heating-Off>
+			</Normal-Heating-Day>
+			</#if>
+			<#if heatingPattern.n2On != "">
+			<Normal-Heating-Day>
+				<Heating-On>${heatingPattern.n2On}</Heating-On>
+				<Heating-Off>${heatingPattern.n2Off}</Heating-Off>
+			</Normal-Heating-Day>
+			</#if>
+			<#if heatingPattern.n3On != "">
+			<Normal-Heating-Day>
+				<Heating-On>${heatingPattern.n3On}</Heating-On>
+				<Heating-Off>${heatingPattern.n3Off}</Heating-Off>
+			</Normal-Heating-Day>
+			</#if>
+			<#if heatingPattern.n4On != "">
+			<Normal-Heating-Day>
+				<Heating-On>${heatingPattern.n4On}</Heating-On>
+				<Heating-Off>${heatingPattern.n4Off}</Heating-Off>
+			</Normal-Heating-Day>
+			</#if>
+			<#if heatingPattern.a1On != "">
+			<Alternative-Heating-Day>
+				<Heating-On>${heatingPattern.a1On}</Heating-On>
+				<Heating-Off>${heatingPattern.a1Off}</Heating-Off>
+			</Alternative-Heating-Day>
+			</#if>
+			<#if heatingPattern.a2On != "">
+			<Alternative-Heating-Day>
+				<Heating-On>${heatingPattern.a2On}</Heating-On>
+				<Heating-Off>${heatingPattern.a2Off}</Heating-Off>
+			</Alternative-Heating-Day>
+			</#if>
+			<#if heatingPattern.a3On != "">
+			<Alternative-Heating-Day>
+				<Heating-On>${heatingPattern.a3On}</Heating-On>
+				<Heating-Off>${heatingPattern.a3Off}</Heating-Off>
+			</Alternative-Heating-Day>
+			</#if>
+			<#if heatingPattern.a4On != "">
+			<Alternative-Heating-Day>
+				<Heating-On>${heatingPattern.a4On}</Heating-On>
+				<Heating-Off>${heatingPattern.a4Off}</Heating-Off>
+			</Alternative-Heating-Day>
+			</#if>
+			<Alternative-Days-Per-Week>${heatingPattern.days}</Alternative-Days-Per-Week>
+		</Heating-Pattern>
+		
+		<Fuel-Bill-Data>
+			<#if billDataMg?exists>
+			<#if billDataMg.mgReliablityLevel.lodgeCode != '0'>
+			<Fuel-Bill><#-- mains gas 26 -->
+				<Fuel>26</Fuel>
+				<Data-Source>${billDataMg.mgReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataMg.mgReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataMg.mgGasUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataMg.mgPeriod}</Billing-Period>
+				</#if>
+				
+				<#if billDataMg.mgChargingBasis.calCode == 1>
+				<Standing-Charge-And-Unit-Price>
+					<Standing-Charge>${billDataMg.mgStAmount?if_exists}</Standing-Charge>
+					<Unit-For-Standing-Charge>${billDataMg.mgStAmountSelect.lodgeCode}</Unit-For-Standing-Charge>
+					<Unit-Price>${billDataMg.mgStUnitPrice?if_exists}</Unit-Price>
+				</Standing-Charge-And-Unit-Price>
+				</#if>
+				<#if billDataMg.mgChargingBasis.calCode == 2>
+				<Two-Unit-Prices>
+					<Initial-Unit-Price>${billDataMg.mgTwInitialUnit?if_exists}</Initial-Unit-Price>
+					<Units-At-Initial-Price>${billDataMg.mgTwUnits?if_exists}</Units-At-Initial-Price>
+					<Period-For-Initial-Units>${billDataMg.mgTwUnitsSelected.lodgeCode}</Period-For-Initial-Units>
+					<Follow-On-Unit-Price>${billDataMg.mgTwFollowOn?if_exists}</Follow-On-Unit-Price>
+				</Two-Unit-Prices>
+				</#if>
+				
+				<Prices-Include-VAT><#if billDataMg.mgVatAble?exists><#if billDataMg.mgVatAble.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				<#if billDataMg.mgUnusualEnergyUsingable?exists><#if billDataMg.mgUnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataMg.mgUnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#if>
+			
+			<#if billDataComm?exists>
+			<#if billDataComm.chReliablityLevel.lodgeCode != '0'>
+			<Fuel-Bill><#-- comm 38 -->
+				<Fuel>38</Fuel>
+				<Data-Source>${billDataComm.chReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataComm.chReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataComm.chEnergyUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataComm.chPeriod}</Billing-Period>
+				</#if>
+				
+				<Cost-Per-Unit>
+					<Fixed-Charge>${billDataComm.chFixedCost?if_exists}</Fixed-Charge>
+					<Unit-Price>${billDataComm.chUnitPrice}</Unit-Price>
+				</Cost-Per-Unit>
+				
+				<Prices-Include-VAT><#if billDataComm.vatable?exists><#if billDataComm.vatable.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				<#if billDataComm.chUnusualEnergyUsingable?exists>
+				<#if billDataComm.chUnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataComm.chUnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#if>
+			
+			<#-- ele st 39ST-->
+			<#if billDataEle?exists && (billDataEle.etElectricityTariff.calCode == 1 || billDataEle.etElectricityTariff.calCode==3)><#-- stand ET -->
+			<#if billDataEle.etStReliablityLevel.calCode != 0>
+			<Fuel-Bill>
+				<Fuel>39</Fuel>
+				<Data-Source>${billDataEle.etStReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataEle.etStReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataEle.etStElectricityUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataEle.etStPeriod}</Billing-Period>
+				</#if>
+				
+				<#if billDataEle.etStChargingBasis.calCode == 1>
+				<Standing-Charge-And-Unit-Price>
+					<Standing-Charge>${billDataEle.etStStandingChargeAmount?if_exists}</Standing-Charge>
+					<Unit-For-Standing-Charge>${billDataEle.etStStandingChargeAmountSelect.lodgeCode}</Unit-For-Standing-Charge>
+					<Unit-Price>${billDataEle.etStUnitPrice?if_exists}</Unit-Price>
+				</Standing-Charge-And-Unit-Price>
+				</#if>
+				<#if billDataEle.etStChargingBasis.calCode == 2>
+				<Two-Unit-Prices>
+					<Initial-Unit-Price>${billDataEle.etStInitialUnitPrice?if_exists}</Initial-Unit-Price>
+					<Units-At-Initial-Price>${billDataEle.etStUnitsAtThisPrice?if_exists}</Units-At-Initial-Price>
+					<Period-For-Initial-Units>${billDataEle.etStUnitsAtThisPriceSelect.lodgeCode}</Period-For-Initial-Units>
+					<Follow-On-Unit-Price>${billDataEle.etStFollowonUnitPrice?if_exists}</Follow-On-Unit-Price>
+				</Two-Unit-Prices>
+				</#if>
+				
+				<Prices-Include-VAT><#if billDataEle.etStVatable?exists><#if billDataEle.etStVatable.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				
+				<#if billDataEle.etPvable?exists><#if billDataEle.etPvable.code==1><Electricity-Generation-PVs>${billDataEle.etPvAmount}</Electricity-Generation-PVs></#if></#if>
+				<#if billDataEle.etWindable?exists><#if billDataEle.etWindable.code==1><Electricity-Generation-Wind>${billDataEle.etWindAmount}</Electricity-Generation-Wind></#if></#if>
+				<#if billDataEle.etMicroable?exists><#if billDataEle.etMicroable.code==1><Electricity-Generation-Micro-CHP>${billDataEle.etMicroableAmount}</Electricity-Generation-Micro-CHP></#if></#if>
+				
+				<#if billDataEle.etStUnusualEnergyUsingable?exists><#if billDataEle.etStUnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataEle.etStUnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#if>
+			
+			<#-- 24 hour -->
+			<#if billDataEle?exists && billDataEle.etElectricityTariff.calCode==3><#-- 24 hour -->
+			<#if billDataEle.et24ReliablityLevel.calCode != 0>
+			<Fuel-Bill>
+				<#-- Unknown Fuel Code -->
+				<Fuel>42</Fuel>
+				<Data-Source>${billDataEle.et24ReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataEle.et24ReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataEle.et24ElectricityUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataEle.et24Period}</Billing-Period>
+				</#if>
+				
+				<#if billDataEle.et24ChargingBasis.calCode == 1>
+				<Standing-Charge-And-Unit-Price>
+					<Standing-Charge>${billDataEle.et24StandingChargeAmount?if_exists}</Standing-Charge>
+					<Unit-For-Standing-Charge>${billDataEle.et24StandingChargeAmountSelect.lodgeCode}</Unit-For-Standing-Charge>
+					<Unit-Price>${billDataEle.et24UnitPrice?if_exists}</Unit-Price>
+				</Standing-Charge-And-Unit-Price>
+				</#if>
+				<#if billDataEle.et24ChargingBasis.calCode == 2>
+				<Two-Unit-Prices>
+					<Initial-Unit-Price>${billDataEle.et24InitialUnitPrice?if_exists}</Initial-Unit-Price>
+					<Units-At-Initial-Price>${billDataEle.et24UnitsAtThisPrice?if_exists}</Units-At-Initial-Price>
+					<Period-For-Initial-Units>${billDataEle.et24UnitsAtThisPriceSelect.lodgeCode}</Period-For-Initial-Units>
+					<Follow-On-Unit-Price>${billDataEle.et24FollowonUnitPrice?if_exists}</Follow-On-Unit-Price>
+				</Two-Unit-Prices>
+				</#if>
+				
+				<Prices-Include-VAT><#if billDataEle.et24Vatable?exists><#if billDataEle.et24Vatable.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				
+				<#if billDataEle.etPvable?exists><#if billDataEle.etPvable.code==1><Electricity-Generation-PVs>${billDataEle.etPvAmount}</Electricity-Generation-PVs></#if></#if>
+				<#if billDataEle.etWindable?exists><#if billDataEle.etWindable.code==1><Electricity-Generation-Wind>${billDataEle.etWindAmount}</Electricity-Generation-Wind></#if></#if>
+				<#if billDataEle.etMicroable?exists><#if billDataEle.etMicroable.code==1><Electricity-Generation-Micro-CHP>${billDataEle.etMicroableAmount}</Electricity-Generation-Micro-CHP></#if></#if>
+				
+				<#if billDataEle.et24UnusualEnergyUsingable?exists>
+				<#if billDataEle.et24UnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataEle.et24UnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#if>
+			
+			<#-- ele off h 40 -->
+			<#if billDataEle.etElectricityTariff.calCode = 2>
+			<#if billDataEle.etOffHReliablityLevel.calCode !=0>
+			<Fuel-Bill><#-- high ET -->
+				<Fuel><#if billDataEle.offPeakType?exists><#if billDataEle.offPeakType.code==2>40</#if><#if billDataEle.offPeakType.code==3>44</#if></#if></Fuel>
+				<Data-Source>${billDataEle.etOffHReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataEle.etOffHReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataEle.etOffHElectricityUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataEle.etOffHPeriod}</Billing-Period>
+				</#if>
+				
+				<#if billDataEle.etOffHChargingBasis.calCode == 1>
+				<Standing-Charge-And-Unit-Price>
+					<Standing-Charge>${billDataEle.etOffHStandingChargeAmount?if_exists}</Standing-Charge>
+					<Unit-For-Standing-Charge>${billDataEle.etOffHStandingChargeAmountSelect.lodgeCode}</Unit-For-Standing-Charge>
+					<Unit-Price>${billDataEle.etOffHUnitPrice?if_exists}</Unit-Price>
+				</Standing-Charge-And-Unit-Price>
+				</#if>
+				<#if billDataEle.etOffHChargingBasis.calCode == 2>
+				<Two-Unit-Prices>
+					<Initial-Unit-Price>${billDataEle.etOffHInitialUnitAmount?if_exists}</Initial-Unit-Price>
+					<Units-At-Initial-Price>${billDataEle.etOffHUnitsAtThisPrice?if_exists}</Units-At-Initial-Price>
+					<Period-For-Initial-Units>${billDataEle.etOffHUnitsAtThisPriceSelect.lodgeCode}</Period-For-Initial-Units>
+					<Follow-On-Unit-Price>${billDataEle.etOffHFollow?if_exists}</Follow-On-Unit-Price>
+				</Two-Unit-Prices>
+				</#if>
+				
+				<Prices-Include-VAT><#if billDataEle.etOffHVatable?exists><#if billDataEle.etOffHVatable.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				
+				<#if billDataEle.etPvable?exists><#if billDataEle.etPvable.code==1><Electricity-Generation-PVs>${billDataEle.etPvAmount}</Electricity-Generation-PVs></#if></#if>
+				<#if billDataEle.etWindable?exists><#if billDataEle.etWindable.code==1><Electricity-Generation-Wind>${billDataEle.etWindAmount}</Electricity-Generation-Wind></#if></#if>
+				<#if billDataEle.etMicroable?exists><#if billDataEle.etMicroable.code==1><Electricity-Generation-Micro-CHP>${billDataEle.etMicroableAmount}</Electricity-Generation-Micro-CHP></#if></#if>
+				
+				<#if billDataEle.etOffHUnusualEnergyUsingable?exists>
+				<#if billDataEle.etOffHUnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataEle.etOffHUnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			<#-- ele off l 41 -->
+			<#if billDataEle.etOffLReliablityLevel.calCode != 0>
+			<Fuel-Bill><#-- low ET -->
+				<Fuel><#if billDataEle.offPeakType?exists><#if billDataEle.offPeakType.code==2>41</#if><#if billDataEle.offPeakType.code==3>45</#if></#if></Fuel>
+				<Data-Source>${billDataEle.etOffLReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataEle.etOffLReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataEle.etOffLElectricityUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataEle.etOffLPeriod}</Billing-Period>
+				</#if>
+				
+				<#if billDataEle.etOffLChargingBasis.calCode == 1>
+				<Standing-Charge-And-Unit-Price>
+					<Standing-Charge>${billDataEle.etOffLStandingChargeAmount?if_exists}</Standing-Charge>
+					<Unit-For-Standing-Charge>${billDataEle.etOffLStandingChargeAmountSelect.lodgeCode}</Unit-For-Standing-Charge>
+					<Unit-Price>${billDataEle.etOffLUnitPrice?if_exists}</Unit-Price>
+				</Standing-Charge-And-Unit-Price>
+				</#if>
+				
+				<#if billDataEle.etOffLChargingBasis.calCode == 2>
+				<Two-Unit-Prices>
+					<Initial-Unit-Price>${billDataEle.etOffLInitialUnitAmount?if_exists}</Initial-Unit-Price>
+					<Units-At-Initial-Price>${billDataEle.etOffLUnitsAtThisPrice?if_exists}</Units-At-Initial-Price>
+					<Period-For-Initial-Units>${billDataEle.etOffLUnitsAtThisPriceSelect.lodgeCode}</Period-For-Initial-Units>
+					<Follow-On-Unit-Price>${billDataEle.etOffLFollow?if_exists}</Follow-On-Unit-Price>
+				</Two-Unit-Prices>
+				</#if>
+				
+				<Prices-Include-VAT><#if billDataEle.etOffLVatable?exists><#if billDataEle.etOffLVatable.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				
+				<#if billDataEle.etPvable?exists><#if billDataEle.etPvable.code==1><Electricity-Generation-PVs>${billDataEle.etPvAmount}</Electricity-Generation-PVs></#if></#if>
+				<#if billDataEle.etWindable?exists><#if billDataEle.etWindable.code==1><Electricity-Generation-Wind>${billDataEle.etWindAmount}</Electricity-Generation-Wind></#if></#if>
+				<#if billDataEle.etMicroable?exists><#if billDataEle.etMicroable.code==1><Electricity-Generation-Micro-CHP>${billDataEle.etMicroableAmount}</Electricity-Generation-Micro-CHP></#if></#if>
+				
+				<#if billDataEle.etOffLUnusualEnergyUsingable?exists>
+				<#if billDataEle.etOffLUnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataEle.etOffLUnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#if>
+			<#if billDataLPG?exists>
+			<#if billDataLPG.lpgReliablityLevel.lodgeCode != '0'>
+			<Fuel-Bill>
+				<Fuel>17</Fuel>
+				<Data-Source>${billDataLPG.lpgReliablityLevel.lodgeCode}</Data-Source>
+				<Billing-Unit>1</Billing-Unit>
+				<#if billDataLPG.lpgReliablityLevel.lodgeCode != '0'>
+				<Units-Supplied>${billDataLPG.lpgGasUsed?if_exists}</Units-Supplied>
+				<Billing-Period>${billDataLPG.lpgPeriod}</Billing-Period>
+				</#if>
+				
+				<#if billDataLPG.lpgChargingBasis.calCode == 1>
+				<Standing-Charge-And-Unit-Price>
+					<Standing-Charge>${billDataLPG.lpgStAmount?if_exists}</Standing-Charge>
+					<Unit-For-Standing-Charge>${billDataLPG.lpgStAmountSelect.lodgeCode}</Unit-For-Standing-Charge>
+					<Unit-Price>${billDataLPG.lpgStUnitPrice?if_exists}</Unit-Price>
+				</Standing-Charge-And-Unit-Price>
+				</#if>
+				<#if billDataLPG.lpgChargingBasis.calCode == 2>
+				<Two-Unit-Prices>
+					<Initial-Unit-Price>${billDataLPG.lpgTwInitialUnit?if_exists}</Initial-Unit-Price>
+					<Units-At-Initial-Price>${billDataLPG.lpgTwUnits?if_exists}</Units-At-Initial-Price>
+					<Period-For-Initial-Units>${billDataLPG.lpgTwUnitsSelected.lodgeCode}</Period-For-Initial-Units>
+					<Follow-On-Unit-Price>${billDataLPG.lpgTwFollowOn?if_exists}</Follow-On-Unit-Price>
+				</Two-Unit-Prices>
+				</#if>
+				
+				<Prices-Include-VAT><#if billDataLPG.lpgVatAble?exists><#if billDataLPG.lpgVatAble.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				<#if billDataLPG.lpgUnusualEnergyUsingable?exists><#if billDataLPG.lpgUnusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${billDataLPG.lpgUnusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#if>
+			
+			<#list otherFuel?if_exists as item >
+			<#if item.reliablityLevel.calCode !=0>
+			<Fuel-Bill>
+				<Fuel><#if item.fuelCode?exists><#if item.fuelCode == 9>33<#else>${item.fuelCode?if_exists}</#if></#if></Fuel>
+				<Data-Source><#if item.reliablityLevel?exists>${item.reliablityLevel.lodgeCode?if_exists}</#if></Data-Source>
+				<Billing-Unit><#if item.unitOfSale?exists>${item.unitOfSale.lodgeCode?if_exists}</#if></Billing-Unit><#-- otherFuel -->
+				<Units-Supplied>${item.unitsPurchasedNumber?if_exists}</Units-Supplied>
+				<Billing-Period>${item.period?if_exists}</Billing-Period>
+				<#if item.unitPrice != 0>
+					<Cost-Per-Unit>
+						<Fixed-Charge>${item.fixedCost?if_exists}</Fixed-Charge>
+						<Unit-Price>${item.unitPrice?if_exists}</Unit-Price>
+					</Cost-Per-Unit>
+				<#elseif item.totalCost != 0>
+					<Total-Cost>
+					    <Fixed-Charge>${item.fixedCost?if_exists}</Fixed-Charge>
+					    <Total-Cost>${item.totalCost?if_exists}</Total-Cost>
+					</Total-Cost>
+				</#if>
+				<Prices-Include-VAT><#if item.vatable?exists><#if item.vatable.code == 1>true<#else>false</#if><#else>false</#if></Prices-Include-VAT>
+				
+				<#if item.unusualEnergyUsingable?exists>
+				<#if item.unusualEnergyUsingable.code == 1>
+				<Unusual-Energy-Using-Item-Description>${item.unusualEnergyUsingableDes?if_exists?xml}</Unusual-Energy-Using-Item-Description>
+				</#if>
+				<#else>
+				<Unusual-Energy-Using-Item>false</Unusual-Energy-Using-Item>
+				</#if>
+			</Fuel-Bill>
+			</#if>
+			</#list>
+		</Fuel-Bill-Data>
+	</OA-Data>
+	</#if>
+	<Insurance-Details>
+		<#if user.insurer?exists>
+		<Insurer>${user.insurer?if_exists?xml}</Insurer>
+		<#else>
+		<Insurer/>
+		</#if>
+		
+		<#if user.policyNo?exists>
+		<Policy-No>${user.policyNo?if_exists?xml}</Policy-No>
+		<#else>
+		<Policy-No/>
+		</#if>
+		<Effective-Date><#if user.effectiveDate?exists>${user.effectiveDate?string("yyyy-MM-dd")}</#if></Effective-Date>
+		<Expiry-Date><#if user.expiryDate?exists>${user.expiryDate?string("yyyy-MM-dd")}</#if></Expiry-Date>
+		<PI-Limit>${user.piLimit?if_exists}</PI-Limit>
+	</Insurance-Details>
+</Occupancy-Assessment>

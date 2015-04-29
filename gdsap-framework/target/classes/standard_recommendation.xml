@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GDOA:ExternalDefinitions xmlns:GDOA="GDOA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="EPC ExternalDefinitions.xsd">
+    
+    <Recommendation><!-- Excel-line:9 -->
+		<Improvement-Number>5</Improvement-Number>
+		<Improvement-Item>A</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Loft insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Loft-Insulation-Thickness" name="Loft Insulation thickness">
+				<li code="7" name="150mm" desc="150mm"/>
+				<li code="8" name="200mm" desc="200mm"/>
+				<li code="9" name="250mm" desc="250mm"/>
+				<li code="13" name="270mm" desc="270mm"/>
+				<li code="14" name="300mm" desc="300mm"/>
+				<li code="15" name="350mm" desc="350mm"/>
+				<li code="16" name="400mm" desc="400mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:10 -->
+		<Improvement-Number>45</Improvement-Number>
+		<Improvement-Item>A2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Flat roof insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="6" name="100mm" desc="100mm"/>
+				<li code="7" name="150mm" desc="150mm"/>
+				<li code="8" name="200mm" desc="200mm"/>
+				<li code="9" name="250mm" desc="250mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:11 -->
+		<Improvement-Number>46</Improvement-Number>
+		<Improvement-Item>A3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Room-in-roof insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="6" name="100mm" desc="100mm"/>
+				<li code="7" name="150mm" desc="150mm"/>
+				<li code="8" name="200mm" desc="200mm"/>
+				<li code="9" name="250mm" desc="250mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:12 -->
+		<Improvement-Number>6</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Group-Name>Insulation measures</Group-Name>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:13 -->
+		<Improvement-Number>55</Improvement-Number>
+		<Improvement-Item>Q2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>External insulation with cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:63 -->
+		<Improvement-Number>155</Improvement-Number>
+		<Improvement-Item>Q2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>External insulation with cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Cavity wall, cavity fill unknown</Improvement-Situation>
+		<Improvement-Conditions>Aborescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:15 -->
+		<Improvement-Number>7</Improvement-Number>
+		<Improvement-Item>Q</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="1" name="1" desc="external"/>
+				<li code="2" name="2" desc="internal"/>
+			</ul>
+		   <ul code="Insulation-Thickness" name="Insulation thickness (Internal or External wall)">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Percentage of wall to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:15 -->
+		<Improvement-Number>156</Improvement-Number>
+		<Improvement-Item>Q1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="1" name="1" desc="external"/>
+				<li code="2" name="2" desc="internal"/>
+			</ul>
+		   <ul code="Insulation-Thickness" name="Insulation thickness (Internal or External wall)">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Percentage of wall to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:16 -->
+		<Improvement-Number>47</Improvement-Number>
+		<Improvement-Item>W</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+				<li code="5" name="200mm" desc="200mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:17 -->
+		<Improvement-Number>10</Improvement-Number>
+		<Improvement-Item>D</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Draught proofing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:19 -->
+		<Improvement-Number>1</Improvement-Number>
+		<Improvement-Item>C</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Hot water cylinder insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	
+	<Recommendation><!-- Excel-line:21 -->
+		<Improvement-Number>4</Improvement-Number>
+		<Improvement-Item>F</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cylinder thermostat</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:22 -->
+		<Improvement-Number>11</Improvement-Number>
+		<Improvement-Item>G</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Heating controls for wet central heating system</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Heating-Controls" name="Heating Controls">
+				<li code="2106" name="1" desc="Programmer, room thermostat and TRVs"/>
+				<li code="2110" name="2" desc="Time and temperature zone control"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:22 -->
+		<Improvement-Number>1111</Improvement-Number>
+		<Improvement-Item>G</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Heating controls for wet central heating system</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:23 -->
+		<Improvement-Number>17</Improvement-Number>
+		<Improvement-Item>H</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Heating controls for warm air system</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:24 -->
+		<Improvement-Number>20</Improvement-Number>
+		<Improvement-Item>I</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2011</Improvement-Number>
+		<Improvement-Item>I</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:25 -->
+		<Improvement-Number>120</Improvement-Number>	
+		<Improvement-Item>I+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel, and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1201</Improvement-Number>	
+		<Improvement-Item>I+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Upgrade boiler, same fuel, and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:26 -->
+		<Improvement-Number>40</Improvement-Number>
+		<Improvement-Item>S</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (no fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>4011</Improvement-Number>
+		<Improvement-Item>S</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (no fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:27 -->
+		<Improvement-Number>140</Improvement-Number>
+		<Improvement-Item>S+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to gas condensing boiler (no fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1401</Improvement-Number>
+		<Improvement-Item>S+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to gas condensing boiler (no fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:28 -->
+		<Improvement-Number>29</Improvement-Number>
+		<Improvement-Item>T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2911</Improvement-Number>
+		<Improvement-Item>T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:29 -->
+		<Improvement-Number>50</Improvement-Number>
+		<Improvement-Item>T+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:30 -->
+		<Improvement-Number>28</Improvement-Number>
+		<Improvement-Item>R</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Condensing oil boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2811</Improvement-Number>
+		<Improvement-Item>R</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Condensing oil boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:31 -->
+		<Improvement-Number>22</Improvement-Number>
+		<Improvement-Item>J</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood logs boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2211</Improvement-Number>
+		<Improvement-Item>J</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood logs boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:32 -->
+		<Improvement-Number>23</Improvement-Number>
+		<Improvement-Item>K</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood pellets room heater with boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2311</Improvement-Number>
+		<Improvement-Item>K</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Biomass wood pellets room heater with boiler</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:33 -->
+		<Improvement-Number>24</Improvement-Number>
+		<Improvement-Item>L</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>New or replacement storage heaters</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2411</Improvement-Number>
+		<Improvement-Item>L</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>New or replacement storage heaters</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:34 -->
+		<Improvement-Number>26</Improvement-Number>
+		<Improvement-Item>M</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Replacement warm-air unit</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>2611</Improvement-Number>
+		<Improvement-Item>M</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Replacement warm-air unit</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:35 -->
+		<Improvement-Number>51</Improvement-Number>
+		<Improvement-Item>Z1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Air source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>5111</Improvement-Number>
+		<Improvement-Item>Z1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Air source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:36 -->
+		<Improvement-Number>151</Improvement-Number>
+		<Improvement-Item>Z4</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Ground source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1511</Improvement-Number>
+		<Improvement-Item>Z4</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Ground source heat pump with radiators</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:37 -->
+		<Improvement-Number>52</Improvement-Number>
+		<Improvement-Item>Z2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Air source heat pump with underfloor heating</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>5211</Improvement-Number>
+		<Improvement-Item>Z2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Air source heat pump with underfloor heating</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:38 -->
+		<Improvement-Number>152</Improvement-Number>
+		<Improvement-Item>Z5</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Ground source heat pump with underfloor heating</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1521</Improvement-Number>
+		<Improvement-Item>Z5</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Ground source heat pump with underfloor heating</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:39 -->
+		<Improvement-Number>53</Improvement-Number>
+		<Improvement-Item>Z3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Micro-CHP</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>5311</Improvement-Number>
+		<Improvement-Item>Z3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Micro-CHP</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:40 -->
+		<Improvement-Number>19</Improvement-Number>
+		<Improvement-Item>N</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Solar water heating</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Solar-Panel-Area" name="Panel aperture area(m2)">
+				<li code="1" name="3" desc="3"/>
+				<li code="2" name="6" desc="6"/>
+			</ul>
+			<ul code="Orientation" name="Roof orientation">
+				<li code="1" name="5" desc="South"/>
+				<li code="2" name="4" desc="South East"/>
+				<li code="3" name="3" desc="East"/>
+				<li code="4" name="2" desc="North East"/>
+				<li code="5" name="1" desc="North"/>
+				<li code="6" name="8" desc="North West"/>
+				<li code="7" name="7" desc="West"/>
+				<li code="8" name="6" desc="South West"/>
+				<li code="9" name="ND" desc="Horizontal"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:41 -->
+		<Improvement-Number>49</Improvement-Number>
+		<Improvement-Item>Y</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Waste water heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:43 -->
+		<Improvement-Number>8</Improvement-Number>
+		<Improvement-Item>O</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Double glazing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:44 -->
+		<Improvement-Number>108</Improvement-Number>
+		<Improvement-Item>O2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Triple glazing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:45 -->
+		<Improvement-Number>9</Improvement-Number>
+		<Improvement-Item>P</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Secondary glazing</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+		<Improvement-Options>
+			<ul code="Percent-Coverage" name="Percentage of windows to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:46 -->
+		<Improvement-Number>48</Improvement-Number>
+		<Improvement-Item>X</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Insulated doors</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Windows_Doors</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:48 -->
+		<Improvement-Number>34</Improvement-Number>
+		<Improvement-Item>U</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Photovoltaics</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Electricity_Generation</Improvement-Group>
+		<Improvement-Options>
+			<ul code="kW-peak" name="kWp">
+				<li code="1" name="1.5" desc="1.5"/>
+				<li code="2" name="2.5" desc="2.5"/>
+				<li code="3" name="3.5" desc="3.5"/>
+			</ul>
+			<ul code="Orientation" name="Roof orientation">
+				<li code="1" name="5" desc="South"/>
+				<li code="2" name="4" desc="South East"/>
+				<li code="3" name="3" desc="East"/>
+				<li code="4" name="2" desc="North East"/>
+				<li code="5" name="1" desc="North"/>
+				<li code="6" name="8" desc="North West"/>
+				<li code="7" name="7" desc="West"/>
+				<li code="8" name="6" desc="South West"/>
+				<li code="9" name="ND" desc="Horizontal"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:49 -->
+		<Improvement-Number>44</Improvement-Number>
+		<Improvement-Item>V</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Wind turbine (roof mounted)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Electricity_Generation</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:50 -->
+		<Improvement-Number>144</Improvement-Number>
+		<Improvement-Item>V2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Wind turbine (on mast)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Electricity_Generation</Improvement-Group>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:53 -->
+		<Improvement-Number>105</Improvement-Number>
+		<Improvement-Item>A</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Loft insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Pitched roof, no access to loft</Improvement-Situation>
+		<Improvement-Conditions>Access to loft is needed to establish existing loft insulation.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Loft-Insulation-Thickness" name="Loft Insulation thickness">
+				<li code="7" name="150mm" desc="150mm"/>
+				<li code="8" name="200mm" desc="200mm"/>
+				<li code="9" name="250mm" desc="250mm"/>
+				<li code="13" name="270mm" desc="270mm"/>
+				<li code="14" name="300mm" desc="300mm"/>
+				<li code="15" name="350mm" desc="350mm"/>
+				<li code="16" name="400mm" desc="400mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:54 -->
+		<Improvement-Number>145</Improvement-Number>
+		<Improvement-Item>A2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Flat roof insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Flat roof, insulation unknown</Improvement-Situation>
+		<Improvement-Conditions>Flat roof insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="6" name="100mm" desc="100mm"/>
+				<li code="7" name="150mm" desc="150mm"/>
+				<li code="8" name="200mm" desc="200mm"/>
+				<li code="9" name="250mm" desc="250mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:55 -->
+		<Improvement-Number>146</Improvement-Number>
+		<Improvement-Item>A3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Roof room insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Room rooms, insulation unknown for some or all</Improvement-Situation>
+		<Improvement-Conditions>Roof room insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="6" name="100mm" desc="100mm"/>
+				<li code="7" name="150mm" desc="150mm"/>
+				<li code="8" name="200mm" desc="200mm"/>
+				<li code="9" name="250mm" desc="250mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:56 -->
+		<Improvement-Number>106</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Cavity wall, cavity fill unknown</Improvement-Situation>
+		<Improvement-Conditions>Aborescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:57 -->
+		<Improvement-Number>114</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Cavity wall, age band G or H</Improvement-Situation>
+		<Improvement-Conditions>Aborescope examination is needed to establish whether cavity insulation is already present.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:58 -->
+		<Improvement-Number>109</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>System build</Improvement-Situation>
+		<Improvement-Conditions>Some of the walls are system built or of non-conventional construction. It needs to be established that these walls are suitable for cavity insulation.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:59 -->
+		<Improvement-Number>110</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Stone walls not insulated</Improvement-Situation>
+		<Improvement-Conditions>It should be established whether stone walls are of cavity construction and suitable for cavity fill.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:60 -->
+		<Improvement-Number>111</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Cavity wall, fill selected but narrow cavities indicated in EPC addendum </Improvement-Situation>
+		<Improvement-Conditions>The walls may have narrow cavities. This should be checked to establish a suitable type of cavity wall insulation.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:61 -->
+		<Improvement-Number>112</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Loft insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Pitched roof, no access to loft</Improvement-Situation>
+		<Improvement-Conditions>Access to loft is needed to establish existing loft insulation.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:62 -->
+		<Improvement-Number>113</Improvement-Number>
+		<Improvement-Item>B</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cavity wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Cavity wall, fill selected but possible high exposure indicated in EPC addendum</Improvement-Situation>
+		<Improvement-Conditions>Suitability for cavity fill should be checked in relation to local exposure conditions and wall construction </Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:64 -->
+		<Improvement-Number>107</Improvement-Number>
+		<Improvement-Item>Q</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Solid wall insulation unknow</Improvement-Situation>
+		<Improvement-Conditions>It needs to be established whether the solid walls are insulated.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="1" name="1" desc="external"/>
+				<li code="2" name="2" desc="internal"/>
+			</ul>
+		   <ul code="Insulation-Thickness" name="Insulation thickness (Internal or External wall)">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Percentage of wall to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:65 -->
+		<Improvement-Number>101</Improvement-Number>
+		<Improvement-Item>C</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Hot water cylinder insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation>Hot water cylinder present but inaccessible</Improvement-Situation>
+		<Improvement-Conditions>The existing cylinder insulation is not known. Access to the cylinder is needed to establish this.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:66 -->
+		<Improvement-Number>104</Improvement-Number>
+		<Improvement-Item>F</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Cylinder thermostat</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation>Hot water cylinder present but inaccessible</Improvement-Situation>
+		<Improvement-Conditions>It is not known whether a cylinder thermostat is present. Access to the cylinder is needed to establish this.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:67 -->
+		<Improvement-Number>147</Improvement-Number>
+		<Improvement-Item>W</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Floor insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Floor insulation unknown</Improvement-Situation>
+		<Improvement-Conditions>Floor insulation improvement requires that the existing insulation is ascertained.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Insulation-Thickness" name="Insulation thickness">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+				<li code="5" name="200mm" desc="200mm"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:68 -->
+		<Improvement-Number>129</Improvement-Number>
+		<Improvement-Item>T</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch)</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Group-Name>Heating and hot water</Group-Name>
+		<Improvement-Situation>Mains gas not available</Improvement-Situation>
+		<Improvement-Conditions>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:69 -->
+		<Improvement-Number>150</Improvement-Number>
+		<Improvement-Item>T+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation>Hot water cylinder present but inaccessible</Improvement-Situation>
+		<Improvement-Conditions>It is not known whether a cylinder thermostat is present. Access to the cylinder is needed to establish this.</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation>
+		<Improvement-Number>1501</Improvement-Number>
+		<Improvement-Item>T+T2</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Change heating to condensing gas condensing boiler (fuel switch), and flue gas heat recovery</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation>Hot water cylinder present but inaccessible</Improvement-Situation>
+		<Improvement-Conditions>It is not known whether a cylinder thermostat is present. Access to the cylinder is needed to establish this.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Both-Heating-Systems" name="Both Heating Systems">
+			    <li code="0" name="false" desc="false"/>
+				<li code="1" name="true" desc="true"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:70 -->
+		<Improvement-Number>153</Improvement-Number>
+		<Improvement-Item>Z3</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Micro-CHP</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Heating_Hot_Water</Improvement-Group>
+		<Improvement-Situation>Mains gas not available</Improvement-Situation>
+		<Improvement-Conditions>Assumes that mains gas can be made available to the property. The cost of providing the gas supply needs to be ascertained</Improvement-Conditions>
+	</Recommendation>
+	
+	<Recommendation><!-- Excel-line:15 -->
+		<Improvement-Number>157</Improvement-Number>
+		<Improvement-Item>Q1</Improvement-Item>
+		<Improvement-Summary/>
+		<Improvement-Heading>Internal or external wall insulation</Improvement-Heading>
+		<Improvement-Description/>
+		<Improvement-Group>Insulation_Measures</Improvement-Group>
+		<Improvement-Situation>Solid wall insulation unknown</Improvement-Situation>
+		<Improvement-Conditions>It needs to be established whether the solid walls are insulated.</Improvement-Conditions>
+		<Improvement-Options>
+			<ul code="Wall-Insulation-Location" name="Insulation location">
+				<li code="1" name="1" desc="external"/>
+				<li code="2" name="2" desc="internal"/>
+			</ul>
+		   <ul code="Insulation-Thickness" name="Insulation thickness (Internal or External wall)">
+				<li code="2" name="50mm" desc="50mm"/>
+				<li code="3" name="100mm" desc="100mm"/>
+				<li code="4" name="150mm" desc="150mm"/>
+			</ul>
+			<ul code="Percent-Coverage" name="Percentage of wall to be improved">
+				<li code="1" name="100" desc="100%"/>
+				<li code="2" name="90" desc="90%"/>
+				<li code="3" name="80" desc="80%"/>
+				<li code="4" name="70" desc="70%"/>
+				<li code="5" name="60" desc="60%"/>
+				<li code="6" name="50" desc="50%"/>
+				<li code="7" name="40" desc="40%"/>
+				<li code="8" name="30" desc="30%"/>
+				<li code="9" name="20" desc="20%"/>
+				<li code="10" name="10" desc="10%"/>
+			</ul>
+		</Improvement-Options>
+	</Recommendation>
+	
+    <!-- end -->
+	
+</GDOA:ExternalDefinitions>

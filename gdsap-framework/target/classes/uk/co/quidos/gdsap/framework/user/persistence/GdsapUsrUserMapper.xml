@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="uk.co.quidos.gdsap.framework.user.persistence.GdsapUsrUserMapper">
+	<resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.framework.user.persistence.object.GdsapUsrUser">
+		<id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="ASSESSOR_ID" property="assessorID" jdbcType="VARCHAR" />
+		<result column="USER_PWD" property="userPwd" jdbcType="VARCHAR" />
+		<result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="USER_TYPE" property="userType" jdbcType="INTEGER" />
+		<result column="USER_STATUS" property="userStatus" jdbcType="INTEGER" />
+		<result column="FIRST_NAME" property="firstName" jdbcType="VARCHAR" />
+		<result column="SUR_NAME" property="surName" jdbcType="VARCHAR" />
+		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
+		<result column="REGISTER_CODE" property="registerCode"
+			jdbcType="VARCHAR" />
+		<result column="ACCESS_LEVEL" property="accessLevel" jdbcType="INTEGER" />
+		<result column="ORGANISATION" property="organisation" jdbcType="VARCHAR" />
+		<result column="ORGANISATION_WEB_SITE" property="organisationWebSite"
+			jdbcType="VARCHAR" />
+		<result column="ORGANISATION_CERTIFICATION_NUMBER" property="organisationCertificationNumber"
+			jdbcType="VARCHAR" />
+		<result column="ADDRESS1" property="address1" jdbcType="VARCHAR" />
+		<result column="ADDRESS2" property="address2" jdbcType="VARCHAR" />
+		<result column="ADDRESS3" property="address3" jdbcType="VARCHAR" />
+		<result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+		<result column="POSTTOWN" property="posttown" jdbcType="VARCHAR" />
+		<result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+		<result column="FAX" property="fax" jdbcType="VARCHAR" />
+		<result column="TEL" property="tel" jdbcType="VARCHAR" />
+		<result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+		<result column="AUTH_USERNAME" property="authUsername" jdbcType="VARCHAR" />
+		<result column="AUTH_PASSWORD" property="authPassword" jdbcType="VARCHAR" />
+
+		<result column="INSURER" property="insurer" jdbcType="VARCHAR" />
+		<result column="POLICY_NO" property="policyNo" jdbcType="VARCHAR" />
+		<result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="TIMESTAMP" />
+		<result column="EXPIRY_DATE" property="expiryDate" jdbcType="TIMESTAMP" />
+		<result column="PI_LIMIT" property="piLimit" jdbcType="REAL" />
+		
+		<result column="SCT_AUTHORIZATION_USERNAME" property="sctAuthorizationUsername" jdbcType="VARCHAR" />
+		<result column="SCT_AUTHORIZATION_PASSWORD" property="sctAuthorizationPassword" jdbcType="VARCHAR" />
+		<result column="SCT_ASSESSORORGANISATIONID" property="sctAssessorOrganisationid" jdbcType="VARCHAR" />
+		<result column="SCT_ADVISERID" property="sctAdviserId" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, USER_NAME,ASSESSOR_ID, USER_PWD, INSERT_TIME, UPDATE_TIME,
+		USER_TYPE, USER_STATUS,
+		FIRST_NAME, SUR_NAME,
+		EMAIL, REGISTER_CODE, ACCESS_LEVEL,
+		ORGANISATION, ORGANISATION_WEB_SITE,
+		ORGANISATION_CERTIFICATION_NUMBER,
+		ADDRESS1, ADDRESS2, ADDRESS3,
+		POSTCODE, POSTTOWN, WEBSITE, FAX, TEL,
+		COMPANY_NAME,AUTH_USERNAME,AUTH_PASSWORD,INSURER,POLICY_NO,EFFECTIVE_DATE,EXPIRY_DATE,PI_LIMIT,
+		SCT_AUTHORIZATION_USERNAME,SCT_AUTHORIZATION_PASSWORD,SCT_ASSESSORORGANISATIONID,SCT_ADVISERID
+	</sql>
+	<select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from gdsap_usr_user
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from gdsap_usr_user
+		where ID = #{id,jdbcType=BIGINT}
+  </delete>
+	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.framework.user.persistence.object.GdsapUsrUser"  useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+		insert into gdsap_usr_user (ID, USER_NAME,ASSESSOR_ID, USER_PWD,
+		INSERT_TIME, UPDATE_TIME, USER_TYPE, USER_STATUS,
+		FIRST_NAME, SUR_NAME, EMAIL,
+		REGISTER_CODE, ACCESS_LEVEL, ORGANISATION,
+		ORGANISATION_WEB_SITE,
+		ORGANISATION_CERTIFICATION_NUMBER,
+		ADDRESS1, ADDRESS2, ADDRESS3,
+		POSTCODE, POSTTOWN, WEBSITE,
+		FAX, TEL, COMPANY_NAME,
+		AUTH_USERNAME, AUTH_PASSWORD,
+		INSURER, POLICY_NO, EFFECTIVE_DATE,
+		EXPIRY_DATE, PI_LIMIT, 
+		SCT_AUTHORIZATION_USERNAME, SCT_AUTHORIZATION_PASSWORD, 
+		SCT_ASSESSORORGANISATIONID, SCT_ADVISERID 
+		)
+		values
+		(#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR},
+		#{assessorID,jdbcType=VARCHAR},#{userPwd,jdbcType=VARCHAR},
+		#{insertTime,jdbcType=TIMESTAMP},
+		#{updateTime,jdbcType=TIMESTAMP},
+		#{userType,jdbcType=INTEGER}, 
+		#{userStatus,jdbcType=INTEGER},
+		#{firstName,jdbcType=VARCHAR}, #{surName,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{registerCode,jdbcType=VARCHAR},
+		#{accessLevel,jdbcType=INTEGER}, #{organisation,jdbcType=VARCHAR},
+		#{organisationWebSite,jdbcType=VARCHAR},
+		#{organisationCertificationNumber,jdbcType=VARCHAR},
+		#{address1,jdbcType=VARCHAR}, #{address2,jdbcType=VARCHAR},
+		#{address3,jdbcType=VARCHAR},
+		#{postcode,jdbcType=VARCHAR},
+		#{posttown,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR},
+		#{fax,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR},
+		#{companyName,jdbcType=VARCHAR},
+		#{authUsername,jdbcType=VARCHAR},
+		#{authPassword,jdbcType=VARCHAR},
+		#{insurer,jdbcType=VARCHAR},
+		#{policyNo,jdbcType=VARCHAR},
+		#{effectiveDate,jdbcType=TIMESTAMP},
+		#{expiryDate,jdbcType=TIMESTAMP},
+		#{piLimit,jdbcType=REAL},
+		#{sctAuthorizationUsername,jdbcType=VARCHAR},
+		#{sctAuthorizationPassword,jdbcType=VARCHAR},
+		#{sctAssessorOrganisationid,jdbcType=VARCHAR},
+		#{sctAdviserId,jdbcType=VARCHAR}
+		)
+  </insert>
+
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.framework.user.persistence.object.GdsapUsrUser">
+		update gdsap_usr_user
+		<set>
+			<if test="userName != null">
+				USER_NAME = #{userName,jdbcType=VARCHAR},
+      		</if>
+      		<if test="assessorID != null">
+				ASSESSOR_ID = #{assessorID,jdbcType=VARCHAR},
+      		</if>
+			<if test="userPwd != null">
+				USER_PWD = #{userPwd,jdbcType=VARCHAR},
+      		</if>
+			<if test="insertTime != null">
+				INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      		</if>
+			<if test="updateTime != null">
+				UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      		</if>
+      		<if test="userType != null">
+				USER_TYPE = #{userType,jdbcType=INTEGER},
+      		</if>
+			<if test="userStatus != null">
+				USER_STATUS = #{userStatus,jdbcType=INTEGER},
+      		</if>
+			<if test="firstName != null">
+				FIRST_NAME = #{firstName,jdbcType=VARCHAR},
+      		</if>
+			<if test="surName != null">
+				SUR_NAME = #{surName,jdbcType=VARCHAR},
+      		</if>
+			<if test="email != null">
+				EMAIL = #{email,jdbcType=VARCHAR},
+     		</if>
+			<if test="registerCode != null">
+				REGISTER_CODE = #{registerCode,jdbcType=VARCHAR},
+      		</if>
+			<if test="accessLevel != null">
+				ACCESS_LEVEL = #{accessLevel,jdbcType=INTEGER},
+      		</if>
+			<if test="organisation != null">
+				ORGANISATION = #{organisation,jdbcType=VARCHAR},
+      		</if>
+			<if test="organisationWebSite != null">
+				ORGANISATION_WEB_SITE =
+				#{organisationWebSite,jdbcType=VARCHAR},
+      		</if>
+			<if test="organisationCertificationNumber != null">
+				ORGANISATION_CERTIFICATION_NUMBER =
+				#{organisationCertificationNumber,jdbcType=VARCHAR},
+      		</if>
+			<if test="address1 != null">
+				ADDRESS1 = #{address1,jdbcType=VARCHAR},
+      		</if>
+			<if test="address2 != null">
+				ADDRESS2 = #{address2,jdbcType=VARCHAR},
+      		</if>
+			<if test="address3 != null">
+				ADDRESS3 = #{address3,jdbcType=VARCHAR},
+      		</if>
+			<if test="postcode != null">
+				POSTCODE = #{postcode,jdbcType=VARCHAR},
+      		</if>
+			<if test="posttown != null">
+				POSTTOWN = #{posttown,jdbcType=VARCHAR},
+      		</if>
+			<if test="website != null">
+				WEBSITE = #{website,jdbcType=VARCHAR},
+      		</if>
+			<if test="fax != null">
+				FAX = #{fax,jdbcType=VARCHAR},
+      		</if>
+			<if test="tel != null">
+				TEL = #{tel,jdbcType=VARCHAR},
+      		</if>
+			<if test="companyName != null">
+				COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      		</if>
+      		<if test="authUsername != null">
+				AUTH_USERNAME = #{authUsername,jdbcType=VARCHAR},
+      		</if>
+     		<if test="authPassword != null">
+				AUTH_PASSWORD = #{authPassword,jdbcType=VARCHAR},
+      		</if>
+			<if test="insurer != null">
+				INSURER = #{insurer,jdbcType=VARCHAR},
+      		</if>
+			<if test="policyNo != null">
+				POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      		</if>
+			<if test="effectiveDate != null">
+				EFFECTIVE_DATE = #{effectiveDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="companyName != null">
+				EXPIRY_DATE = #{expiryDate,jdbcType=TIMESTAMP},
+      		</if>
+			<if test="piLimit != null">
+				PI_LIMIT = #{piLimit,jdbcType=REAL},
+      		</if>
+	      	<if test="sctAuthorizationUsername != null">
+				SCT_AUTHORIZATION_USERNAME = #{sctAuthorizationUsername,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="sctAuthorizationPassword != null">
+				SCT_AUTHORIZATION_PASSWORD = #{sctAuthorizationPassword,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="sctAssessorOrganisationid != null">
+				SCT_ASSESSORORGANISATIONID = #{sctAssessorOrganisationid,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="sctAdviserId != null">
+				SCT_ADVISERID = #{sctAdviserId,jdbcType=VARCHAR},
+	     	</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.framework.user.persistence.object.GdsapUsrUser">
+		update gdsap_usr_user
+		set USER_NAME =
+		#{userName,jdbcType=VARCHAR},
+		ASSESSOR_ID = #{assessorID,jdbcType=VARCHAR},
+		USER_PWD = #{userPwd,jdbcType=VARCHAR},
+		INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+		UPDATE_TIME =
+		#{updateTime,jdbcType=TIMESTAMP},
+		USER_TYPE =
+		#{userType,jdbcType=INTEGER},
+		USER_STATUS =
+		#{userStatus,jdbcType=INTEGER},
+		FIRST_NAME =
+		#{firstName,jdbcType=VARCHAR},
+		SUR_NAME = #{surName,jdbcType=VARCHAR},
+		EMAIL = #{email,jdbcType=VARCHAR},
+		REGISTER_CODE =
+		#{registerCode,jdbcType=VARCHAR},
+		ACCESS_LEVEL =
+		#{accessLevel,jdbcType=INTEGER},
+		ORGANISATION =
+		#{organisation,jdbcType=VARCHAR},
+		ORGANISATION_WEB_SITE =
+		#{organisationWebSite,jdbcType=VARCHAR},
+		ORGANISATION_CERTIFICATION_NUMBER =
+		#{organisationCertificationNumber,jdbcType=VARCHAR},
+		ADDRESS1 =
+		#{address1,jdbcType=VARCHAR},
+		ADDRESS2 = #{address2,jdbcType=VARCHAR},
+		ADDRESS3 = #{address3,jdbcType=VARCHAR},
+		POSTCODE =
+		#{postcode,jdbcType=VARCHAR},
+		POSTTOWN = #{posttown,jdbcType=VARCHAR},
+		WEBSITE = #{website,jdbcType=VARCHAR},
+		FAX = #{fax,jdbcType=VARCHAR},
+		TEL = #{tel,jdbcType=VARCHAR},
+		COMPANY_NAME =
+		#{companyName,jdbcType=VARCHAR},
+		AUTH_USERNAME = #{authUsername,jdbcType=VARCHAR},
+		AUTH_PASSWORD = #{authPassword,jdbcType=VARCHAR},
+		INSURER = #{insurer,jdbcType=VARCHAR},
+		POLICY_NO =
+		#{policyNo,jdbcType=VARCHAR},
+		EFFECTIVE_DATE =
+		#{effectiveDate,jdbcType=TIMESTAMP},
+		EXPIRY_DATE =
+		#{expiryDate,jdbcType=TIMESTAMP},
+		PI_LIMIT = #{piLimit,jdbcType=REAL}, 
+		SCT_AUTHORIZATION_USERNAME = #{sctAuthorizationUsername,jdbcType=VARCHAR}, 
+		SCT_AUTHORIZATION_PASSWORD = #{sctAuthorizationPassword,jdbcType=VARCHAR}, 
+		SCT_ASSESSORORGANISATIONID = #{sctAssessorOrganisationid,jdbcType=VARCHAR}, 
+		SCT_ADVISERID = #{sctAdviserId,jdbcType=VARCHAR} 
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<select id="countAll" resultType="java.lang.Integer">
+		select count(*) from
+		GDSAP_USR_USER
+  </select>
+
+	<select id="findAll" resultMap="BaseResultMap">
+		select * from GDSAP_USR_USER
+	</select>
+
+	<select id="findAllIds" resultType="java.lang.Long">
+		select ID from GDSAP_USR_USER
+	</select>
+
+	<select id="findUserByName" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		* from GDSAP_USR_USER where USER_NAME =
+		#{userName,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findUserByEmail" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select * from
+		GDSAP_USR_USER where EMAIL = #{email,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findPageBreakByCondition" resultMap="BaseResultMap" parameterType="map">
+		select * from GDSAP_USR_USER 
+		<where>
+			<if test="userName != null">
+				(USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%" 
+				 or ASSESSOR_ID LIKE "%"#{assessorID,jdbcType=VARCHAR}"%" 
+		  		 or FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%" 
+		  		 or SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%" 
+		  		 or EMAIL LIKE "%"#{email,jdbcType=VARCHAR}"%" ) 
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} and
+				INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}  
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+				and INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="userStatus != null">
+				and USER_STATUS = #{userStatus,jdbcType=INTEGER} 
+      		</if>
+      		<if test="userType != null">
+				and USER_TYPE = #{userType,jdbcType=INTEGER} 
+      		</if>
+			<if test="accessLevel != null">
+				and ACCESS_LEVEL = #{accessLevel,jdbcType=INTEGER} 
+      		</if>
+		</where> 
+		order by ${orderField} ${orderDirection} 
+	</select>
+
+	<select id="findUserList" resultMap="BaseResultMap"
+		parameterType="map">
+		select *
+		from GDSAP_USR_USER where USER_NAME =
+		#{userName,jdbcType=VARCHAR}
+		and
+		USER_PWD = #{userPwd,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findNumberByCondition" resultType="java.lang.Integer"
+		parameterType="map">
+		select count(0) as a from GDSAP_USR_USER
+		<where>
+			<if test="userName != null">
+				(USER_NAME LIKE "%"#{userName,jdbcType=VARCHAR}"%" 
+				 or ASSESSOR_ID LIKE "%"#{assessorID,jdbcType=VARCHAR}"%" 
+		  		 or FIRST_NAME LIKE "%"#{firstName,jdbcType=VARCHAR}"%" 
+		  		 or SUR_NAME LIKE "%"#{surName,jdbcType=VARCHAR}"%" 
+		  		 or EMAIL LIKE "%"#{email,jdbcType=VARCHAR}"%" ) 
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &gt;=
+				#{startInsertTime,jdbcType=TIMESTAMP} and
+				INSERT_TIME &lt;=
+				#{endInsertTime,jdbcType=TIMESTAMP}  
+			</if>
+			<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+				and INSERT_TIME &gt;=
+				#{startInsertTime,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+				and INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="userStatus != null">
+				and USER_STATUS = #{userStatus,jdbcType=INTEGER} 
+      		</if>
+      		<if test="userType != null">
+				and USER_TYPE = #{userType,jdbcType=INTEGER} 
+      		</if>
+			<if test="accessLevel != null">
+				and ACCESS_LEVEL = #{accessLevel,jdbcType=INTEGER} 
+      		</if>
+		</where>
+	</select>
+
+</mapper>

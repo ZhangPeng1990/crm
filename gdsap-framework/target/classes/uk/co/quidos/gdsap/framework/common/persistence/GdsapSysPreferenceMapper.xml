@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="uk.co.quidos.gdsap.framework.common.persistence.GdsapSysPreferenceMapper">
+  <resultMap id="rm" type="uk.co.quidos.gdsap.framework.common.persistence.object.GdsapSysPreference">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="PRE_TYPE" jdbcType="INTEGER" property="preType" />
+    <result column="INSERT_TIME" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="INPUT_TYPE" jdbcType="INTEGER" property="inputType" />
+    <result column="CONTROL_TYPE" jdbcType="INTEGER" property="controlType" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  
+  <select id="load" parameterType="java.lang.String" resultMap="rm">
+    select 
+    *
+    from GDSAP_SYS_PREFERENCE
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.String">
+    delete from GDSAP_SYS_PREFERENCE
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+ 
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.framework.common.persistence.object.GdsapSysPreference">
+    insert into GDSAP_SYS_PREFERENCE (ID, TITLE, PRE_TYPE, 
+      INSERT_TIME, UPDATE_TIME, INPUT_TYPE, 
+      CONTROL_TYPE, CONTENT)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{preType,jdbcType=INTEGER}, 
+      #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{inputType,jdbcType=INTEGER}, 
+      #{controlType,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  
+  <select id="countAll" resultType="java.lang.Integer">
+    select count(*) from GDSAP_SYS_PREFERENCE
+  </select>
+  
+  <select id="findAll" resultMap="rm">
+    select * from GDSAP_SYS_PREFERENCE
+  </select>
+  
+  <select id="findAllIds" resultType="java.lang.String">
+    select ID from GDSAP_SYS_PREFERENCE
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.framework.common.persistence.object.GdsapSysPreference">
+    update GDSAP_SYS_PREFERENCE
+    <set>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="preType != null">
+        PRE_TYPE = #{preType,jdbcType=INTEGER},
+      </if>
+      <if test="insertTime != null">
+        INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inputType != null">
+        INPUT_TYPE = #{inputType,jdbcType=INTEGER},
+      </if>
+      <if test="controlType != null">
+        CONTROL_TYPE = #{controlType,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.framework.common.persistence.object.GdsapSysPreference">
+    update GDSAP_SYS_PREFERENCE
+    set TITLE = #{title,jdbcType=VARCHAR},
+      PRE_TYPE = #{preType,jdbcType=INTEGER},
+      INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      INPUT_TYPE = #{inputType,jdbcType=INTEGER},
+      CONTROL_TYPE = #{controlType,jdbcType=INTEGER},
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="findPageBreakIdsByPreType" parameterType="map" resultType="java.lang.String">
+  	select ID from GDSAP_SYS_PREFERENCE 
+  	<where>
+  		<if test="#{preType != null}">
+  		PRE_TYPE = #{preType,jdbcType=INTEGER}
+  		</if>
+  	</where>
+  </select>
+  
+  <select id="findNumberByPreType" parameterType="map" resultType="java.lang.Integer">
+  	select count(ID) as c from GDSAP_SYS_PREFERENCE 
+  	<where>
+  		<if test="#{preType != null}">
+  		PRE_TYPE = #{preType,jdbcType=INTEGER}
+  		</if>
+  	</where>
+  </select>
+</mapper>

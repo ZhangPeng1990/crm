@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.framework.authority.persistence.AclDOMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="ACL_GROUP" property="aclGroup" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" extends="BaseResultMap" >
+    <result column="DES" property="des" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TITLE, ACL_GROUP
+  </sql>
+  <sql id="Blob_Column_List" >
+    DES
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from erf_auth_acl
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from erf_auth_acl
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" >
+    insert into erf_auth_acl (ID, TITLE, ACL_GROUP, 
+      DES)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{aclGroup,jdbcType=VARCHAR}, 
+      #{des,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" >
+    insert into erf_auth_acl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="aclGroup != null" >
+        ACL_GROUP,
+      </if>
+      <if test="des != null" >
+        DES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="aclGroup != null" >
+        #{aclGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" >
+    update erf_auth_acl
+    <set >
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="aclGroup != null" >
+        ACL_GROUP = #{aclGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        DES = #{des,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" >
+    update erf_auth_acl
+    set TITLE = #{title,jdbcType=VARCHAR},
+      ACL_GROUP = #{aclGroup,jdbcType=VARCHAR},
+      DES = #{des,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.AclDO" >
+    update erf_auth_acl
+    set TITLE = #{title,jdbcType=VARCHAR},
+      ACL_GROUP = #{aclGroup,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="findAll" resultMap="ResultMapWithBLOBs">
+  	select <include refid="Base_Column_List"/>,<include refid="Blob_Column_List"/> 
+  	from erf_auth_acl
+  	order by ACL_GROUP 
+  </select>
+  <select id="findByAdminId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  	SELECT ERF_AUTH_ACL.* FROM 
+	ERF_AUTH_ACL INNER JOIN ERF_AUTH_ROLE_ACL_REL ON 
+	ERF_AUTH_ACL.ID = ERF_AUTH_ROLE_ACL_REL.ACL_ID
+	INNER JOIN ERF_AUTH_ROLE ON 
+	ERF_AUTH_ROLE_ACL_REL.ROLE_ID=ERF_AUTH_ROLE.ID 
+	INNER JOIN ERF_AUTH_ADMIN_ROLE_REL ON
+	ERF_AUTH_ROLE.ID = ERF_AUTH_ADMIN_ROLE_REL.ROLE_ID 
+	WHERE 
+	ERF_AUTH_ADMIN_ROLE_REL.ADMIN_ID=#{adminId,jdbcType=INTEGER}
+  </select>
+  <select id="findByRoleId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  	select erf_auth_acl.* from 
+  	erf_auth_acl inner join erf_auth_role_acl_rel on 
+  	erf_auth_acl.ID = erf_auth_role_acl_rel.ACL_ID 
+  	where erf_auth_role_acl_rel.ROLE_ID= #{roleId,jdbcType=VARCHAR}
+  </select>
+</mapper>

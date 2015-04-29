@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.framework.authority.persistence.RolePageTagRelDOMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.framework.authority.persistence.object.RolePageTagRelDOKey" >
+    <id column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <id column="PAGETAG_ID" property="pagetagId" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RolePageTagRelDOKey" >
+    delete from erf_auth_role_pagetag_rel
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+      and PAGETAG_ID = #{pagetagId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RolePageTagRelDOKey" >
+    insert into erf_auth_role_pagetag_rel (ROLE_ID, PAGETAG_ID)
+    values (#{roleId,jdbcType=VARCHAR}, #{pagetagId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RolePageTagRelDOKey" >
+    insert into erf_auth_role_pagetag_rel
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+      <if test="pagetagId != null" >
+        PAGETAG_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="pagetagId != null" >
+        #{pagetagId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <delete id="deleteByRoleId" parameterType="java.lang.String">
+  	delete from erf_auth_role_pagetag_rel 
+  	where 
+  	ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByPageTagId" parameterType="java.lang.String">
+  	delete from erf_auth_role_pagetag_rel 
+  	where 
+  	PAGETAG_ID = #{pageTagId,jdbcType=VARCHAR}
+  </delete>
+</mapper>

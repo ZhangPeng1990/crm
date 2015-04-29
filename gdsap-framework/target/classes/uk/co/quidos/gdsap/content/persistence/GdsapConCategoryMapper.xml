@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.content.persistence.GdsapConCategoryMapper" >
+
+  <resultMap id="rm" type="uk.co.quidos.gdsap.content.persistence.object.GdsapConCategory" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CATEGORY_TYPE" property="categoryType" jdbcType="INTEGER" />
+    <result column="COMMENTABLE" property="commentable" jdbcType="INTEGER" />
+    <result column="SORT" property="sort" jdbcType="INTEGER" />
+    <result column="DES" property="des" jdbcType="LONGVARCHAR" />
+  </resultMap>
+
+  <select id="load" resultMap="rm" parameterType="java.lang.Long" >
+    select 
+    *
+    from GDSAP_CON_CATEGORY
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_CON_CATEGORY
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+
+  	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.content.persistence.object.GdsapConCategory" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+		insert into GDSAP_CON_CATEGORY (ID, TITLE, CATEGORY_TYPE,
+		COMMENTABLE, SORT, DES)
+		values 
+		(
+		#{id,jdbcType=BIGINT}, 
+		#{title,jdbcType=VARCHAR},
+		#{categoryType,jdbcType=INTEGER},
+		#{commentable,jdbcType=INTEGER}, 
+		#{sort,jdbcType=INTEGER}, 
+		#{des,jdbcType=LONGVARCHAR}
+		)
+	</insert>
+  
+  <select id="countAll" resultType="java.lang.Integer" >
+    select count(*) from GDSAP_CON_CATEGORY
+  </select>
+  
+  <select id="findAll" resultMap="rm" >
+    select * from GDSAP_CON_CATEGORY
+  </select>
+  
+  <select id="findAllIds" resultType="java.lang.Long" >
+    select ID from GDSAP_CON_CATEGORY
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.content.persistence.object.GdsapConCategory" >
+    update GDSAP_CON_CATEGORY
+    <set >
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryType != null" >
+        CATEGORY_TYPE = #{categoryType,jdbcType=INTEGER},
+      </if>
+      <if test="commentable != null" >
+        COMMENTABLE = #{commentable,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        SORT = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="desc != null" >
+        DES = #{des,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.content.persistence.object.GdsapConCategory" >
+    update GDSAP_CON_CATEGORY
+    set TITLE = #{title,jdbcType=VARCHAR},
+      CATEGORY_TYPE = #{categoryType,jdbcType=INTEGER},
+      COMMENTABLE = #{commentable,jdbcType=INTEGER},
+      SORT = #{sort,jdbcType=INTEGER},
+      DES = #{des,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

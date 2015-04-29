@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.framework.log.persistence.GdsapAltLogMapper" >
+	<resultMap id="rm" type="uk.co.quidos.gdsap.framework.log.persistence.object.GdsapAltLog" >
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+		<result column="LEVEL" property="level" jdbcType="INTEGER" />
+		<result column="IP_ADDRESS" property="ipAddress" jdbcType="VARCHAR" />
+		<result column="USER_TYPE" property="userType" jdbcType="INTEGER" />
+		<result column="USER_ID" property="userId" jdbcType="BIGINT" />
+		<result column="TYPE_ID" property="typeId" jdbcType="VARCHAR" />
+		<result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+	</resultMap>
+  
+	<select id="load" resultMap="rm" parameterType="java.lang.String" >
+    select 
+    *
+    from GDSAP_ALT_LOG
+    where ID = #{id,jdbcType=VARCHAR}
+	</select>
+  
+	<delete id="delete" parameterType="java.lang.String" >
+    delete from GDSAP_ALT_LOG
+    where ID = #{id,jdbcType=VARCHAR}
+	</delete>
+  
+	<insert id="insert" parameterType="uk.co.quidos.gdsap.framework.log.persistence.object.GdsapAltLog" >
+    insert into GDSAP_ALT_LOG (ID, INSERT_TIME, LEVEL, 
+      IP_ADDRESS, USER_TYPE, USER_ID, 
+      TYPE_ID, CONTENT)
+    values (#{id,jdbcType=VARCHAR}, #{insertTime,jdbcType=TIMESTAMP}, #{level,jdbcType=INTEGER}, 
+      #{ipAddress,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, 
+      #{typeId,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+	</insert>
+  
+	<select id="countAll" resultType="java.lang.Integer" >
+    select count(*) from GDSAP_ALT_LOG
+	</select>
+  
+	<select id="findAll" resultMap="map" >
+    select * from GDSAP_ALT_LOG
+	</select>
+  
+	<select id="findAllIds" resultType="java.lang.String" >
+    select * from GDSAP_ALT_LOG
+	</select>
+  
+	<update id="updateSelective" parameterType="uk.co.quidos.gdsap.framework.log.persistence.object.GdsapAltLog" >
+    update GDSAP_ALT_LOG
+		<set >
+			<if test="insertTime != null" >
+        INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="level != null" >
+        LEVEL = #{level,jdbcType=INTEGER},
+			</if>
+			<if test="ipAddress != null" >
+        IP_ADDRESS = #{ipAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="userType != null" >
+        USER_TYPE = #{userType,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null" >
+        USER_ID = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="typeId != null" >
+        TYPE_ID = #{typeId,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null" >
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+    where ID = #{id,jdbcType=VARCHAR}
+	</update>
+  
+	<update id="updaate" parameterType="uk.co.quidos.gdsap.framework.log.persistence.object.GdsapAltLog" >
+    update GDSAP_ALT_LOG
+    set INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      LEVEL = #{level,jdbcType=INTEGER},
+      IP_ADDRESS = #{ipAddress,jdbcType=VARCHAR},
+      USER_TYPE = #{userType,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      TYPE_ID = #{typeId,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="deleteByInsertTimeRange" parameterType="map">
+	delete from GDSAP_ALT_LOG 
+	<where>
+	<if test="startInsertTime != null &amp;&amp; endInsertTime != null">
+	INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP} and  INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}
+	</if>
+	<if test="startInsertTime == null &amp;&amp; endInsertTime != null">
+	INSERT_TIME &lt;= #{endInsertTime,jdbcType=TIMESTAMP}
+	</if>
+	<if test="startInsertTime != null &amp;&amp; endInsertTime == null">
+	INSERT_TIME &gt;= #{startInsertTime,jdbcType=TIMESTAMP}
+	</if>
+	</where>
+	</delete>
+	
+	<select id="findPageBreakByCondition" parameterType="map" resultMap="rm">
+	
+	</select>
+</mapper>

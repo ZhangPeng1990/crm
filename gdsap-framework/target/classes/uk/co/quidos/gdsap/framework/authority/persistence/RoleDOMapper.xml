@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.framework.authority.persistence.RoleDOMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ROLENAME" property="rolename" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" extends="BaseResultMap" >
+    <result column="DES" property="des" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ROLENAME
+  </sql>
+  <sql id="Blob_Column_List" >
+    DES
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from erf_auth_role
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from erf_auth_role
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" >
+    insert into erf_auth_role (ID, ROLENAME, DES
+      )
+    values (#{id,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, #{des,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" >
+    insert into erf_auth_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="rolename != null" >
+        ROLENAME,
+      </if>
+      <if test="des != null" >
+        DES,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null" >
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" >
+    update erf_auth_role
+    <set >
+      <if test="rolename != null" >
+        ROLENAME = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        DES = #{des,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" >
+    update erf_auth_role
+    set ROLENAME = #{rolename,jdbcType=VARCHAR},
+      DES = #{des,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="uk.co.quidos.gdsap.framework.authority.persistence.object.RoleDO" >
+    update erf_auth_role
+    set ROLENAME = #{rolename,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="findAllIds" resultType="java.lang.String">
+  	select ID 
+  	from 
+  	erf_auth_role 
+  </select>
+</mapper>

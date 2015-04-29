@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalAppCookingMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalAppCooking" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="DRY_PROPORTION" property="dryProportion" jdbcType="REAL" />
+    <result column="DRYING_CLOTHES_SPACABLE" property="dryingClothesSpacable" jdbcType="INTEGER" />
+    <result column="FRIDGE_FREEZERS_NUMBER" property="fridgeFreezersNumber" jdbcType="INTEGER" />
+    <result column="FRIDGES_NUMBER" property="fridgesNumber" jdbcType="INTEGER" />
+    <result column="FREEZERS_NUMBER" property="freezersNumber" jdbcType="INTEGER" />
+    <result column="COOKER_TYPE" property="cookerType" jdbcType="INTEGER" />
+    <result column="COOKING_FUEL" property="cookingFuel" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="load" resultMap="rm" parameterType="java.lang.Long" >
+    select 
+    *
+    from GDSAP_EVAL_APP_COOKING
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_APP_COOKING
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalAppCooking" >
+    insert into GDSAP_EVAL_APP_COOKING (REPORT_ID, DRY_PROPORTION, DRYING_CLOTHES_SPACABLE, FRIDGE_FREEZERS_NUMBER, 
+      FRIDGES_NUMBER, FREEZERS_NUMBER, COOKER_TYPE, 
+      COOKING_FUEL)
+    values (#{reportId,jdbcType=BIGINT}, #{dryProportion,jdbcType=REAL}, #{dryingClothesSpacable,jdcbType=INTEGER}, #{fridgeFreezersNumber,jdbcType=INTEGER}, 
+      #{fridgesNumber,jdbcType=INTEGER}, #{freezersNumber,jdbcType=INTEGER}, #{cookerType,jdbcType=INTEGER}, 
+      #{cookingFuel,jdbcType=INTEGER})
+  </insert>
+  
+  <select id="countAll" resultType="java.lang.Integer" >
+    select count(*) from GDSAP_EVAL_APP_COOKING
+  </select>
+  
+  <select id="findAll" resultMap="rm" >
+    select * from GDSAP_EVAL_APP_COOKING
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalAppCooking" >
+    update GDSAP_EVAL_APP_COOKING
+    <set >
+      <if test="dryProportion != null" >
+        DRY_PROPORTION = #{dryProportion,jdbcType=REAL},
+      </if>
+      <if test="DRYING_CLOTHES_SPACABLE != null">
+      	DRYING_CLOTHES_SPACABLE = #{dryingClothesSpacable,jdcbType=INTEGER},
+      </if>
+      <if test="fridgeFreezersNumber != null" >
+        FRIDGE_FREEZERS_NUMBER = #{fridgeFreezersNumber,jdbcType=INTEGER},
+      </if>
+      <if test="fridgesNumber != null" >
+        FRIDGES_NUMBER = #{fridgesNumber,jdbcType=INTEGER},
+      </if>
+      <if test="freezersNumber != null" >
+        FREEZERS_NUMBER = #{freezersNumber,jdbcType=INTEGER},
+      </if>
+      <if test="cookerType != null" >
+        COOKER_TYPE = #{cookerType,jdbcType=INTEGER},
+      </if>
+      <if test="cookingFuel != null" >
+        COOKING_FUEL = #{cookingFuel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalAppCooking" >
+    update GDSAP_EVAL_APP_COOKING
+    set DRY_PROPORTION = #{dryProportion,jdbcType=REAL},
+      FRIDGE_FREEZERS_NUMBER = #{fridgeFreezersNumber,jdbcType=INTEGER},
+      DRYING_CLOTHES_SPACABLE = #{dryingClothesSpacable,jdcbType=INTEGER},
+      FRIDGES_NUMBER = #{fridgesNumber,jdbcType=INTEGER},
+      FREEZERS_NUMBER = #{freezersNumber,jdbcType=INTEGER},
+      COOKER_TYPE = #{cookerType,jdbcType=INTEGER},
+      COOKING_FUEL = #{cookingFuel,jdbcType=INTEGER}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+</mapper>

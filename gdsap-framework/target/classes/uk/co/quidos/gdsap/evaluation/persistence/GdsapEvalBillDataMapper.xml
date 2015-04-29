@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalBillDataMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillData" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="CH_FUEL_CODE" property="chFuelCode" jdbcType="INTEGER" />
+    <result column="CH_RELIABLITY_LEVEL" property="chReliablityLevel" jdbcType="INTEGER" />
+    <result column="CH_ENERGY_USED" property="chEnergyUsed" jdbcType="REAL" />
+    <result column="CH_PERIOD_SELECT" property="chPeriodSelect" jdbcType="INTEGER" />
+    <result column="CH_PERIOD" property="chPeriod" jdbcType="REAL" />
+    <result column="CH_FIXED_COST" property="chFixedCost" jdbcType="REAL" />
+    <result column="CH_UNIT_PRICE" property="chUnitPrice" jdbcType="REAL" />
+    <result column="VATABLE" property="vatable" jdbcType="INTEGER" />
+    <result column="MG_RELIABLITY_LEVEL" property="mgReliablityLevel" jdbcType="INTEGER" />
+    <result column="MG_GAS_USED" property="mgGasUsed" jdbcType="REAL" />
+    <result column="MG_PERIOD_SELECT" property="mgPeriodSelect" jdbcType="INTEGER" />
+    <result column="MG_PERIOD" property="mgPeriod" jdbcType="REAL" />
+    <result column="MG_CHARGING_BASIS" property="mgChargingBasis" jdbcType="INTEGER" />
+    <result column="MG_ST_AMOUNT_SELECT" property="mgStAmountSelect" jdbcType="INTEGER" />
+    <result column="MG_ST_AMOUNT" property="mgStAmount" jdbcType="REAL" />
+    <result column="MG_ST_UNIT_PRICE" property="mgStUnitPrice" jdbcType="REAL" />
+    <result column="MG_TW_INITIAL_UNIT" property="mgTwInitialUnit" jdbcType="REAL" />
+    <result column="MG_TW_UNITS" property="mgTwUnits" jdbcType="REAL" />
+    <result column="MG_TW_UNITS_SELECTED" property="mgTwUnitsSelected" jdbcType="INTEGER" />
+    <result column="MG_TW_FOLLOW_ON" property="mgTwFollowOn" jdbcType="REAL" />
+    <result column="MG_VAT_ABLE" property="mgVatAble" jdbcType="INTEGER" />
+    <result column="ET_ELECTRICITY_TARIFF" property="etElectricityTariff" jdbcType="INTEGER" />
+    <result column="ET_ST_RELIABLITY_LEVEL" property="etStReliablityLevel" jdbcType="INTEGER" />
+    <result column="ET_ST_ELECTRICITY_USED" property="etStElectricityUsed" jdbcType="REAL" />
+    <result column="ET_ST_PERIOD" property="etStPeriod" jdbcType="REAL" />
+    <result column="ET_ST_PERIOD_SELECT" property="etStPeriodSelect" jdbcType="INTEGER" />
+    <result column="ET_ST_VATABLE" property="etStVatable" jdbcType="INTEGER" />
+    <result column="ET_ST_CHARGING_BASIS" property="etStChargingBasis" jdbcType="INTEGER" />
+    <result column="ET_ST_STANDING_CHARGE_AMOUNT" property="etStStandingChargeAmount" jdbcType="REAL" />
+    <result column="ET_ST_STANDING_CHARGE_AMOUNT_SELECT" property="etStStandingChargeAmountSelect" jdbcType="INTEGER" />
+    <result column="ET_ST_UNIT_PRICE" property="etStUnitPrice" jdbcType="REAL" />
+    <result column="ET_ST_INITIAL_UNIT_PRICE" property="etStInitialUnitPrice" jdbcType="REAL" />
+    <result column="ET_ST_UNITS_AT_THIS_PRICE" property="etStUnitsAtThisPrice" jdbcType="REAL" />
+    <result column="ET_ST_UNITS_AT_THIS_PRICE_SELECT" property="etStUnitsAtThisPriceSelect" jdbcType="INTEGER" />
+    <result column="ET_ST_FOLLOWON_UNIT_PRICE" property="etStFollowonUnitPrice" jdbcType="REAL" />
+    <result column="ET_OFF_H_RELIABLITY_LEVEL" property="etOffHReliablityLevel" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_ELECTRICITY_USED" property="etOffHElectricityUsed" jdbcType="REAL" />
+    <result column="ET_OFF_H_PERIOD" property="etOffHPeriod" jdbcType="REAL" />
+    <result column="ET_OFF_H_PERIOD_SELECT" property="etOffHPeriodSelect" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_VATABLE" property="etOffHVatable" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_CHARGING_BASIS" property="etOffHChargingBasis" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_STANDING_CHARGE_AMOUNT" property="etOffHStandingChargeAmount" jdbcType="REAL" />
+    <result column="ET_OFF_H_STANDING_CHARGE_AMOUNT_SELECT" property="etOffHStandingChargeAmountSelect" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_UNIT_PRICE" property="etOffHUnitPrice" jdbcType="REAL" />
+    <result column="ET_OFF_H_INITIAL_UNIT_AMOUNT" property="etOffHInitialUnitAmount" jdbcType="REAL" />
+    <result column="ET_OFF_H_UNITS_AT_THIS_PRICE" property="etOffHUnitsAtThisPrice" jdbcType="REAL" />
+    <result column="ET_OFF_H_UNITS_AT_THIS_PRICE_SELECT" property="etOffHUnitsAtThisPriceSelect" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_FOLLOW" property="etOffHFollow" jdbcType="REAL" />
+    <result column="ET_OFF_L_RELIABLITY_LEVEL" property="etOffLReliablityLevel" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_ELECTRICITY_USED" property="etOffLElectricityUsed" jdbcType="REAL" />
+    <result column="ET_OFF_L_PERIOD" property="etOffLPeriod" jdbcType="REAL" />
+    <result column="ET_OFF_L_PERIOD_SELECT" property="etOffLPeriodSelect" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_VATABLE" property="etOffLVatable" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_CHARGING_BASIS" property="etOffLChargingBasis" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_STANDING_CHARGE_AMOUNT" property="etOffLStandingChargeAmount" jdbcType="REAL" />
+    <result column="ET_OFF_L_STANDING_CHARGE_AMOUNT_SELECT" property="etOffLStandingChargeAmountSelect" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_UNIT_PRICE" property="etOffLUnitPrice" jdbcType="REAL" />
+    <result column="ET_OFF_L_INITIAL_UNIT_AMOUNT" property="etOffLInitialUnitAmount" jdbcType="REAL" />
+    <result column="ET_OFF_L_UNITS_AT_THIS_PRICE" property="etOffLUnitsAtThisPrice" jdbcType="REAL" />
+    <result column="ET_OFF_L_UNITS_AT_THIS_PRICE_SELECT" property="etOffLUnitsAtThisPriceSelect" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_FOLLOW" property="etOffLFollow" jdbcType="REAL" />
+    <result column="ET_PVABLE" property="etPvable" jdbcType="INTEGER" />
+    <result column="ET_PV_AMOUNT" property="etPvAmount" jdbcType="REAL" />
+    <result column="ET_PV_PERIOD" property="etPvPeriod" jdbcType="REAL" />
+    <result column="ET_PV_PERIOD_SELECT" property="etPvPeriodSelect" jdbcType="INTEGER" />
+    <result column="ET_WINDABLE" property="etWindable" jdbcType="INTEGER" />
+    <result column="ET_WIND_AMOUNT" property="etWindAmount" jdbcType="REAL" />
+    <result column="ET_WIND_PERIOD" property="etWindPeriod" jdbcType="REAL" />
+    <result column="ET_WIND_PERIOD_SELECT" property="etWindPeriodSelect" jdbcType="INTEGER" />
+    <result column="ET_MICROABLE" property="etMicroable" jdbcType="INTEGER" />
+    <result column="ET_MICROABLE_AMOUNT" property="etMicroableAmount" jdbcType="REAL" />
+    <result column="ET_MICROABLE_PERIOD" property="etMicroablePeriod" jdbcType="REAL" />
+    <result column="ET_MICROABLE_PERIOD_SELECT" property="etMicroablePeriodSelect" jdbcType="INTEGER" />
+    <result column="CH_FIXED_COST_SELECTED" property="chFixedCostSelected" jdbcType="INTEGER" />
+    <result column="CH_UNUSUAL_ENERGY_USINGABLE" property="chUnusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="MG_UNUSUAL_ENERGY_USINGABLE" property="mgUnusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="ET_ST_UNUSUAL_ENERGY_USINGABLE" property="etStUnusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="ET_OFF_H_UNUSUAL_ENERGY_USINGABLE" property="etOffHUnusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="ET_OFF_L_UNUSUAL_ENERGY_USINGABLE" property="etOffLUnusualEnergyUsingable" jdbcType="INTEGER" />
+    <result column="CH_UNUSUAL_ENERGY_USINGABLE_DES" property="chUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+    <result column="MG_UNUSUAL_ENERGY_USINGABLE_DES" property="mgUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+    <result column="ET_ST_UNUSUAL_ENERGY_USINGABLE_DES" property="etStUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+    <result column="ET_OFF_H_UNUSUAL_ENERGY_USINGABLE_DES" property="etOffHUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+    <result column="ET_OFF_L_UNUSUAL_ENERGY_USINGABLE_DES" property="etOffLUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+    
+  </resultMap>
+  <sql id="Base_Column_List" >
+    REPORT_ID, CH_FUEL_CODE, CH_RELIABLITY_LEVEL, CH_ENERGY_USED, CH_PERIOD_SELECT, CH_PERIOD, CH_FIXED_COST, 
+    CH_UNIT_PRICE, VATABLE, MG_RELIABLITY_LEVEL, MG_GAS_USED, MG_PERIOD_SELECT, MG_PERIOD, 
+    MG_CHARGING_BASIS, MG_ST_AMOUNT_SELECT, MG_ST_AMOUNT, MG_ST_UNIT_PRICE, MG_TW_INITIAL_UNIT, 
+    MG_TW_UNITS, MG_TW_UNITS_SELECTED, MG_TW_FOLLOW_ON, MG_VAT_ABLE, ET_ELECTRICITY_TARIFF, 
+    ET_ST_RELIABLITY_LEVEL, ET_ST_ELECTRICITY_USED, ET_ST_PERIOD, ET_ST_PERIOD_SELECT, 
+    ET_ST_VATABLE, ET_ST_CHARGING_BASIS, ET_ST_STANDING_CHARGE_AMOUNT, ET_ST_STANDING_CHARGE_AMOUNT_SELECT, 
+    ET_ST_UNIT_PRICE, ET_ST_INITIAL_UNIT_PRICE, ET_ST_UNITS_AT_THIS_PRICE, ET_ST_UNITS_AT_THIS_PRICE_SELECT, 
+    ET_ST_FOLLOWON_UNIT_PRICE, ET_OFF_H_RELIABLITY_LEVEL, ET_OFF_H_ELECTRICITY_USED, 
+    ET_OFF_H_PERIOD, ET_OFF_H_PERIOD_SELECT, ET_OFF_H_VATABLE, ET_OFF_H_CHARGING_BASIS, 
+    ET_OFF_H_STANDING_CHARGE_AMOUNT, ET_OFF_H_STANDING_CHARGE_AMOUNT_SELECT, ET_OFF_H_UNIT_PRICE, 
+    ET_OFF_H_INITIAL_UNIT_AMOUNT, ET_OFF_H_UNITS_AT_THIS_PRICE, ET_OFF_H_UNITS_AT_THIS_PRICE_SELECT, 
+    ET_OFF_H_FOLLOW, ET_OFF_L_RELIABLITY_LEVEL, ET_OFF_L_ELECTRICITY_USED, ET_OFF_L_PERIOD, 
+    ET_OFF_L_PERIOD_SELECT, ET_OFF_L_VATABLE, ET_OFF_L_CHARGING_BASIS, ET_OFF_L_STANDING_CHARGE_AMOUNT, 
+    ET_OFF_L_STANDING_CHARGE_AMOUNT_SELECT, ET_OFF_L_UNIT_PRICE, ET_OFF_L_INITIAL_UNIT_AMOUNT, 
+    ET_OFF_L_UNITS_AT_THIS_PRICE, ET_OFF_L_UNITS_AT_THIS_PRICE_SELECT, ET_OFF_L_FOLLOW, 
+    ET_PVABLE, ET_PV_AMOUNT, ET_PV_PERIOD, ET_PV_PERIOD_SELECT, ET_WINDABLE, ET_WIND_AMOUNT, 
+    ET_WIND_PERIOD, ET_WIND_PERIOD_SELECT, ET_MICROABLE, ET_MICROABLE_AMOUNT, ET_MICROABLE_PERIOD, 
+    ET_MICROABLE_PERIOD_SELECT, CH_FIXED_COST_SELECTED, CH_UNUSUAL_ENERGY_USINGABLE, 
+    MG_UNUSUAL_ENERGY_USINGABLE, ET_ST_UNUSUAL_ENERGY_USINGABLE, ET_OFF_H_UNUSUAL_ENERGY_USINGABLE, 
+    ET_OFF_L_UNUSUAL_ENERGY_USINGABLE
+  </sql>
+  <sql id="Blob_Column_List" >
+    CH_UNUSUAL_ENERGY_USINGABLE_DES, MG_UNUSUAL_ENERGY_USINGABLE_DES, ET_ST_UNUSUAL_ENERGY_USINGABLE_DES, 
+    ET_OFF_H_UNUSUAL_ENERGY_USINGABLE_DES, ET_OFF_L_UNUSUAL_ENERGY_USINGABLE_DES
+  </sql>
+  
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gdsap_eval_bill_data
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from gdsap_eval_bill_data
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillData" >
+    insert into gdsap_eval_bill_data (REPORT_ID, CH_FUEL_CODE, CH_RELIABLITY_LEVEL, CH_ENERGY_USED, 
+      CH_PERIOD_SELECT, CH_PERIOD, CH_FIXED_COST, 
+      CH_UNIT_PRICE, VATABLE, MG_RELIABLITY_LEVEL, 
+      MG_GAS_USED, MG_PERIOD_SELECT, MG_PERIOD, 
+      MG_CHARGING_BASIS, MG_ST_AMOUNT_SELECT, MG_ST_AMOUNT, 
+      MG_ST_UNIT_PRICE, MG_TW_INITIAL_UNIT, MG_TW_UNITS, 
+      MG_TW_UNITS_SELECTED, MG_TW_FOLLOW_ON, MG_VAT_ABLE, 
+      ET_ELECTRICITY_TARIFF, ET_ST_RELIABLITY_LEVEL, 
+      ET_ST_ELECTRICITY_USED, ET_ST_PERIOD, ET_ST_PERIOD_SELECT, 
+      ET_ST_VATABLE, ET_ST_CHARGING_BASIS, ET_ST_STANDING_CHARGE_AMOUNT, 
+      ET_ST_STANDING_CHARGE_AMOUNT_SELECT, ET_ST_UNIT_PRICE, 
+      ET_ST_INITIAL_UNIT_PRICE, ET_ST_UNITS_AT_THIS_PRICE, ET_ST_UNITS_AT_THIS_PRICE_SELECT, 
+      ET_ST_FOLLOWON_UNIT_PRICE, ET_OFF_H_RELIABLITY_LEVEL, 
+      ET_OFF_H_ELECTRICITY_USED, ET_OFF_H_PERIOD, ET_OFF_H_PERIOD_SELECT, 
+      ET_OFF_H_VATABLE, ET_OFF_H_CHARGING_BASIS, ET_OFF_H_STANDING_CHARGE_AMOUNT, 
+      ET_OFF_H_STANDING_CHARGE_AMOUNT_SELECT, ET_OFF_H_UNIT_PRICE, 
+      ET_OFF_H_INITIAL_UNIT_AMOUNT, ET_OFF_H_UNITS_AT_THIS_PRICE, 
+      ET_OFF_H_UNITS_AT_THIS_PRICE_SELECT, ET_OFF_H_FOLLOW, 
+      ET_OFF_L_RELIABLITY_LEVEL, ET_OFF_L_ELECTRICITY_USED, 
+      ET_OFF_L_PERIOD, ET_OFF_L_PERIOD_SELECT, ET_OFF_L_VATABLE, 
+      ET_OFF_L_CHARGING_BASIS, ET_OFF_L_STANDING_CHARGE_AMOUNT, 
+      ET_OFF_L_STANDING_CHARGE_AMOUNT_SELECT, ET_OFF_L_UNIT_PRICE, 
+      ET_OFF_L_INITIAL_UNIT_AMOUNT, ET_OFF_L_UNITS_AT_THIS_PRICE, 
+      ET_OFF_L_UNITS_AT_THIS_PRICE_SELECT, ET_OFF_L_FOLLOW, 
+      ET_PVABLE, ET_PV_AMOUNT, ET_PV_PERIOD, 
+      ET_PV_PERIOD_SELECT, ET_WINDABLE, ET_WIND_AMOUNT, 
+      ET_WIND_PERIOD, ET_WIND_PERIOD_SELECT, ET_MICROABLE, 
+      ET_MICROABLE_AMOUNT, ET_MICROABLE_PERIOD, ET_MICROABLE_PERIOD_SELECT, 
+      CH_FIXED_COST_SELECTED, CH_UNUSUAL_ENERGY_USINGABLE, 
+      MG_UNUSUAL_ENERGY_USINGABLE, ET_ST_UNUSUAL_ENERGY_USINGABLE, 
+      ET_OFF_H_UNUSUAL_ENERGY_USINGABLE, ET_OFF_L_UNUSUAL_ENERGY_USINGABLE, 
+      CH_UNUSUAL_ENERGY_USINGABLE_DES, MG_UNUSUAL_ENERGY_USINGABLE_DES, 
+      ET_ST_UNUSUAL_ENERGY_USINGABLE_DES, ET_OFF_H_UNUSUAL_ENERGY_USINGABLE_DES, 
+      ET_OFF_L_UNUSUAL_ENERGY_USINGABLE_DES)
+    values (#{reportId,jdbcType=BIGINT}, #{chFuelCode,jdbcType=INTEGER}, #{chReliablityLevel,jdbcType=INTEGER}, #{chEnergyUsed,jdbcType=REAL}, 
+      #{chPeriodSelect,jdbcType=INTEGER}, #{chPeriod,jdbcType=REAL}, #{chFixedCost,jdbcType=REAL}, 
+      #{chUnitPrice,jdbcType=REAL}, #{vatable,jdbcType=INTEGER}, #{mgReliablityLevel,jdbcType=INTEGER}, 
+      #{mgGasUsed,jdbcType=REAL}, #{mgPeriodSelect,jdbcType=INTEGER}, #{mgPeriod,jdbcType=REAL}, 
+      #{mgChargingBasis,jdbcType=INTEGER}, #{mgStAmountSelect,jdbcType=INTEGER}, #{mgStAmount,jdbcType=REAL}, 
+      #{mgStUnitPrice,jdbcType=REAL}, #{mgTwInitialUnit,jdbcType=REAL}, #{mgTwUnits,jdbcType=REAL}, 
+      #{mgTwUnitsSelected,jdbcType=INTEGER}, #{mgTwFollowOn,jdbcType=REAL}, #{mgVatAble,jdbcType=INTEGER}, 
+      #{etElectricityTariff,jdbcType=INTEGER}, #{etStReliablityLevel,jdbcType=INTEGER}, 
+      #{etStElectricityUsed,jdbcType=REAL}, #{etStPeriod,jdbcType=REAL}, #{etStPeriodSelect,jdbcType=INTEGER}, 
+      #{etStVatable,jdbcType=INTEGER}, #{etStChargingBasis,jdbcType=INTEGER}, #{etStStandingChargeAmount,jdbcType=REAL}, 
+      #{etStStandingChargeAmountSelect,jdbcType=INTEGER}, #{etStUnitPrice,jdbcType=REAL}, 
+      #{etStInitialUnitPrice,jdbcType=REAL}, #{etStUnitsAtThisPrice,jdbcType=REAL}, #{etStUnitsAtThisPriceSelect,jdbcType=INTEGER}, 
+      #{etStFollowonUnitPrice,jdbcType=REAL}, #{etOffHReliablityLevel,jdbcType=INTEGER}, 
+      #{etOffHElectricityUsed,jdbcType=REAL}, #{etOffHPeriod,jdbcType=REAL}, #{etOffHPeriodSelect,jdbcType=INTEGER}, 
+      #{etOffHVatable,jdbcType=INTEGER}, #{etOffHChargingBasis,jdbcType=INTEGER}, #{etOffHStandingChargeAmount,jdbcType=REAL}, 
+      #{etOffHStandingChargeAmountSelect,jdbcType=INTEGER}, #{etOffHUnitPrice,jdbcType=REAL}, 
+      #{etOffHInitialUnitAmount,jdbcType=REAL}, #{etOffHUnitsAtThisPrice,jdbcType=REAL}, 
+      #{etOffHUnitsAtThisPriceSelect,jdbcType=INTEGER}, #{etOffHFollow,jdbcType=REAL}, 
+      #{etOffLReliablityLevel,jdbcType=INTEGER}, #{etOffLElectricityUsed,jdbcType=REAL}, 
+      #{etOffLPeriod,jdbcType=REAL}, #{etOffLPeriodSelect,jdbcType=INTEGER}, #{etOffLVatable,jdbcType=INTEGER}, 
+      #{etOffLChargingBasis,jdbcType=INTEGER}, #{etOffLStandingChargeAmount,jdbcType=REAL}, 
+      #{etOffLStandingChargeAmountSelect,jdbcType=INTEGER}, #{etOffLUnitPrice,jdbcType=REAL}, 
+      #{etOffLInitialUnitAmount,jdbcType=REAL}, #{etOffLUnitsAtThisPrice,jdbcType=REAL}, 
+      #{etOffLUnitsAtThisPriceSelect,jdbcType=INTEGER}, #{etOffLFollow,jdbcType=REAL}, 
+      #{etPvable,jdbcType=INTEGER}, #{etPvAmount,jdbcType=REAL}, #{etPvPeriod,jdbcType=REAL}, 
+      #{etPvPeriodSelect,jdbcType=INTEGER}, #{etWindable,jdbcType=INTEGER}, #{etWindAmount,jdbcType=REAL}, 
+      #{etWindPeriod,jdbcType=REAL}, #{etWindPeriodSelect,jdbcType=INTEGER}, #{etMicroable,jdbcType=INTEGER}, 
+      #{etMicroableAmount,jdbcType=REAL}, #{etMicroablePeriod,jdbcType=REAL}, #{etMicroablePeriodSelect,jdbcType=INTEGER}, 
+      #{chFixedCostSelected,jdbcType=INTEGER}, #{chUnusualEnergyUsingable,jdbcType=INTEGER}, 
+      #{mgUnusualEnergyUsingable,jdbcType=INTEGER}, #{etStUnusualEnergyUsingable,jdbcType=INTEGER}, 
+      #{etOffHUnusualEnergyUsingable,jdbcType=INTEGER}, #{etOffLUnusualEnergyUsingable,jdbcType=INTEGER}, 
+      #{chUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}, #{mgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}, 
+      #{etStUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}, #{etOffHUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}, 
+      #{etOffLUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillData" >
+    update gdsap_eval_bill_data
+    <set >
+      <if test="chFuelCode != null">
+      	CH_FUEL_CODE = #{chFuelCode,jdbcType=INTEGER}, 
+      </if>
+      <if test="chReliablityLevel != null" >
+        CH_RELIABLITY_LEVEL = #{chReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="chEnergyUsed != null" >
+        CH_ENERGY_USED = #{chEnergyUsed,jdbcType=REAL},
+      </if>
+      <if test="chPeriodSelect != null" >
+        CH_PERIOD_SELECT = #{chPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="chPeriod != null" >
+        CH_PERIOD = #{chPeriod,jdbcType=REAL},
+      </if>
+      <if test="chFixedCost != null" >
+        CH_FIXED_COST = #{chFixedCost,jdbcType=REAL},
+      </if>
+      <if test="chUnitPrice != null" >
+        CH_UNIT_PRICE = #{chUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="vatable != null" >
+        VATABLE = #{vatable,jdbcType=INTEGER},
+      </if>
+      <if test="mgReliablityLevel != null" >
+        MG_RELIABLITY_LEVEL = #{mgReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="mgGasUsed != null" >
+        MG_GAS_USED = #{mgGasUsed,jdbcType=REAL},
+      </if>
+      <if test="mgPeriodSelect != null" >
+        MG_PERIOD_SELECT = #{mgPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="mgPeriod != null" >
+        MG_PERIOD = #{mgPeriod,jdbcType=REAL},
+      </if>
+      <if test="mgChargingBasis != null" >
+        MG_CHARGING_BASIS = #{mgChargingBasis,jdbcType=INTEGER},
+      </if>
+      <if test="mgStAmountSelect != null" >
+        MG_ST_AMOUNT_SELECT = #{mgStAmountSelect,jdbcType=INTEGER},
+      </if>
+      <if test="mgStAmount != null" >
+        MG_ST_AMOUNT = #{mgStAmount,jdbcType=REAL},
+      </if>
+      <if test="mgStUnitPrice != null" >
+        MG_ST_UNIT_PRICE = #{mgStUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="mgTwInitialUnit != null" >
+        MG_TW_INITIAL_UNIT = #{mgTwInitialUnit,jdbcType=REAL},
+      </if>
+      <if test="mgTwUnits != null" >
+        MG_TW_UNITS = #{mgTwUnits,jdbcType=REAL},
+      </if>
+      <if test="mgTwUnitsSelected != null" >
+        MG_TW_UNITS_SELECTED = #{mgTwUnitsSelected,jdbcType=INTEGER},
+      </if>
+      <if test="mgTwFollowOn != null" >
+        MG_TW_FOLLOW_ON = #{mgTwFollowOn,jdbcType=REAL},
+      </if>
+      <if test="mgVatAble != null" >
+        MG_VAT_ABLE = #{mgVatAble,jdbcType=INTEGER},
+      </if>
+      <if test="etElectricityTariff != null" >
+        ET_ELECTRICITY_TARIFF = #{etElectricityTariff,jdbcType=INTEGER},
+      </if>
+      <if test="etStReliablityLevel != null" >
+        ET_ST_RELIABLITY_LEVEL = #{etStReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="etStElectricityUsed != null" >
+        ET_ST_ELECTRICITY_USED = #{etStElectricityUsed,jdbcType=REAL},
+      </if>
+      <if test="etStPeriod != null" >
+        ET_ST_PERIOD = #{etStPeriod,jdbcType=REAL},
+      </if>
+      <if test="etStPeriodSelect != null" >
+        ET_ST_PERIOD_SELECT = #{etStPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etStVatable != null" >
+        ET_ST_VATABLE = #{etStVatable,jdbcType=INTEGER},
+      </if>
+      <if test="etStChargingBasis != null" >
+        ET_ST_CHARGING_BASIS = #{etStChargingBasis,jdbcType=INTEGER},
+      </if>
+      <if test="etStStandingChargeAmount != null" >
+        ET_ST_STANDING_CHARGE_AMOUNT = #{etStStandingChargeAmount,jdbcType=REAL},
+      </if>
+      <if test="etStStandingChargeAmountSelect != null" >
+        ET_ST_STANDING_CHARGE_AMOUNT_SELECT = #{etStStandingChargeAmountSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etStUnitPrice != null" >
+        ET_ST_UNIT_PRICE = #{etStUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="etStInitialUnitPrice != null" >
+        ET_ST_INITIAL_UNIT_PRICE = #{etStInitialUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="etStUnitsAtThisPrice != null" >
+        ET_ST_UNITS_AT_THIS_PRICE = #{etStUnitsAtThisPrice,jdbcType=REAL},
+      </if>
+      <if test="etStUnitsAtThisPriceSelect != null" >
+        ET_ST_UNITS_AT_THIS_PRICE_SELECT = #{etStUnitsAtThisPriceSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etStFollowonUnitPrice != null" >
+        ET_ST_FOLLOWON_UNIT_PRICE = #{etStFollowonUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="etOffHReliablityLevel != null" >
+        ET_OFF_H_RELIABLITY_LEVEL = #{etOffHReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHElectricityUsed != null" >
+        ET_OFF_H_ELECTRICITY_USED = #{etOffHElectricityUsed,jdbcType=REAL},
+      </if>
+      <if test="etOffHPeriod != null" >
+        ET_OFF_H_PERIOD = #{etOffHPeriod,jdbcType=REAL},
+      </if>
+      <if test="etOffHPeriodSelect != null" >
+        ET_OFF_H_PERIOD_SELECT = #{etOffHPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHVatable != null" >
+        ET_OFF_H_VATABLE = #{etOffHVatable,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHChargingBasis != null" >
+        ET_OFF_H_CHARGING_BASIS = #{etOffHChargingBasis,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHStandingChargeAmount != null" >
+        ET_OFF_H_STANDING_CHARGE_AMOUNT = #{etOffHStandingChargeAmount,jdbcType=REAL},
+      </if>
+      <if test="etOffHStandingChargeAmountSelect != null" >
+        ET_OFF_H_STANDING_CHARGE_AMOUNT_SELECT = #{etOffHStandingChargeAmountSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHUnitPrice != null" >
+        ET_OFF_H_UNIT_PRICE = #{etOffHUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="etOffHInitialUnitAmount != null" >
+        ET_OFF_H_INITIAL_UNIT_AMOUNT = #{etOffHInitialUnitAmount,jdbcType=REAL},
+      </if>
+      <if test="etOffHUnitsAtThisPrice != null" >
+        ET_OFF_H_UNITS_AT_THIS_PRICE = #{etOffHUnitsAtThisPrice,jdbcType=REAL},
+      </if>
+      <if test="etOffHUnitsAtThisPriceSelect != null" >
+        ET_OFF_H_UNITS_AT_THIS_PRICE_SELECT = #{etOffHUnitsAtThisPriceSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHFollow != null" >
+        ET_OFF_H_FOLLOW = #{etOffHFollow,jdbcType=REAL},
+      </if>
+      <if test="etOffLReliablityLevel != null" >
+        ET_OFF_L_RELIABLITY_LEVEL = #{etOffLReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLElectricityUsed != null" >
+        ET_OFF_L_ELECTRICITY_USED = #{etOffLElectricityUsed,jdbcType=REAL},
+      </if>
+      <if test="etOffLPeriod != null" >
+        ET_OFF_L_PERIOD = #{etOffLPeriod,jdbcType=REAL},
+      </if>
+      <if test="etOffLPeriodSelect != null" >
+        ET_OFF_L_PERIOD_SELECT = #{etOffLPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLVatable != null" >
+        ET_OFF_L_VATABLE = #{etOffLVatable,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLChargingBasis != null" >
+        ET_OFF_L_CHARGING_BASIS = #{etOffLChargingBasis,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLStandingChargeAmount != null" >
+        ET_OFF_L_STANDING_CHARGE_AMOUNT = #{etOffLStandingChargeAmount,jdbcType=REAL},
+      </if>
+      <if test="etOffLStandingChargeAmountSelect != null" >
+        ET_OFF_L_STANDING_CHARGE_AMOUNT_SELECT = #{etOffLStandingChargeAmountSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLUnitPrice != null" >
+        ET_OFF_L_UNIT_PRICE = #{etOffLUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="etOffLInitialUnitAmount != null" >
+        ET_OFF_L_INITIAL_UNIT_AMOUNT = #{etOffLInitialUnitAmount,jdbcType=REAL},
+      </if>
+      <if test="etOffLUnitsAtThisPrice != null" >
+        ET_OFF_L_UNITS_AT_THIS_PRICE = #{etOffLUnitsAtThisPrice,jdbcType=REAL},
+      </if>
+      <if test="etOffLUnitsAtThisPriceSelect != null" >
+        ET_OFF_L_UNITS_AT_THIS_PRICE_SELECT = #{etOffLUnitsAtThisPriceSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLFollow != null" >
+        ET_OFF_L_FOLLOW = #{etOffLFollow,jdbcType=REAL},
+      </if>
+      <if test="etPvable != null" >
+        ET_PVABLE = #{etPvable,jdbcType=INTEGER},
+      </if>
+      <if test="etPvAmount != null" >
+        ET_PV_AMOUNT = #{etPvAmount,jdbcType=REAL},
+      </if>
+      <if test="etPvPeriod != null" >
+        ET_PV_PERIOD = #{etPvPeriod,jdbcType=REAL},
+      </if>
+      <if test="etPvPeriodSelect != null" >
+        ET_PV_PERIOD_SELECT = #{etPvPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etWindable != null" >
+        ET_WINDABLE = #{etWindable,jdbcType=INTEGER},
+      </if>
+      <if test="etWindAmount != null" >
+        ET_WIND_AMOUNT = #{etWindAmount,jdbcType=REAL},
+      </if>
+      <if test="etWindPeriod != null" >
+        ET_WIND_PERIOD = #{etWindPeriod,jdbcType=REAL},
+      </if>
+      <if test="etWindPeriodSelect != null" >
+        ET_WIND_PERIOD_SELECT = #{etWindPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="etMicroable != null" >
+        ET_MICROABLE = #{etMicroable,jdbcType=INTEGER},
+      </if>
+      <if test="etMicroableAmount != null" >
+        ET_MICROABLE_AMOUNT = #{etMicroableAmount,jdbcType=REAL},
+      </if>
+      <if test="etMicroablePeriod != null" >
+        ET_MICROABLE_PERIOD = #{etMicroablePeriod,jdbcType=REAL},
+      </if>
+      <if test="etMicroablePeriodSelect != null" >
+        ET_MICROABLE_PERIOD_SELECT = #{etMicroablePeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="chFixedCostSelected != null" >
+        CH_FIXED_COST_SELECTED = #{chFixedCostSelected,jdbcType=INTEGER},
+      </if>
+      <if test="chUnusualEnergyUsingable != null" >
+        CH_UNUSUAL_ENERGY_USINGABLE = #{chUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="mgUnusualEnergyUsingable != null" >
+        MG_UNUSUAL_ENERGY_USINGABLE = #{mgUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="etStUnusualEnergyUsingable != null" >
+        ET_ST_UNUSUAL_ENERGY_USINGABLE = #{etStUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="etOffHUnusualEnergyUsingable != null" >
+        ET_OFF_H_UNUSUAL_ENERGY_USINGABLE = #{etOffHUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="etOffLUnusualEnergyUsingable != null" >
+        ET_OFF_L_UNUSUAL_ENERGY_USINGABLE = #{etOffLUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="chUnusualEnergyUsingableDes != null" >
+        CH_UNUSUAL_ENERGY_USINGABLE_DES = #{chUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="mgUnusualEnergyUsingableDes != null" >
+        MG_UNUSUAL_ENERGY_USINGABLE_DES = #{mgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="etStUnusualEnergyUsingableDes != null" >
+        ET_ST_UNUSUAL_ENERGY_USINGABLE_DES = #{etStUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="etOffHUnusualEnergyUsingableDes != null" >
+        ET_OFF_H_UNUSUAL_ENERGY_USINGABLE_DES = #{etOffHUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="etOffLUnusualEnergyUsingableDes != null" >
+        ET_OFF_L_UNUSUAL_ENERGY_USINGABLE_DES = #{etOffLUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillData" >
+    update gdsap_eval_bill_data
+    set CH_RELIABLITY_LEVEL = #{chReliablityLevel,jdbcType=INTEGER},CH_FUEL_CODE=#{chFuelCode,jdbcType=INTEGER},
+      CH_ENERGY_USED = #{chEnergyUsed,jdbcType=REAL},
+      CH_PERIOD_SELECT = #{chPeriodSelect,jdbcType=INTEGER},
+      CH_PERIOD = #{chPeriod,jdbcType=REAL},
+      CH_FIXED_COST = #{chFixedCost,jdbcType=REAL},
+      CH_UNIT_PRICE = #{chUnitPrice,jdbcType=REAL},
+      VATABLE = #{vatable,jdbcType=INTEGER},
+      MG_RELIABLITY_LEVEL = #{mgReliablityLevel,jdbcType=INTEGER},
+      MG_GAS_USED = #{mgGasUsed,jdbcType=REAL},
+      MG_PERIOD_SELECT = #{mgPeriodSelect,jdbcType=INTEGER},
+      MG_PERIOD = #{mgPeriod,jdbcType=REAL},
+      MG_CHARGING_BASIS = #{mgChargingBasis,jdbcType=INTEGER},
+      MG_ST_AMOUNT_SELECT = #{mgStAmountSelect,jdbcType=INTEGER},
+      MG_ST_AMOUNT = #{mgStAmount,jdbcType=REAL},
+      MG_ST_UNIT_PRICE = #{mgStUnitPrice,jdbcType=REAL},
+      MG_TW_INITIAL_UNIT = #{mgTwInitialUnit,jdbcType=REAL},
+      MG_TW_UNITS = #{mgTwUnits,jdbcType=REAL},
+      MG_TW_UNITS_SELECTED = #{mgTwUnitsSelected,jdbcType=INTEGER},
+      MG_TW_FOLLOW_ON = #{mgTwFollowOn,jdbcType=REAL},
+      MG_VAT_ABLE = #{mgVatAble,jdbcType=INTEGER},
+      ET_ELECTRICITY_TARIFF = #{etElectricityTariff,jdbcType=INTEGER},
+      ET_ST_RELIABLITY_LEVEL = #{etStReliablityLevel,jdbcType=INTEGER},
+      ET_ST_ELECTRICITY_USED = #{etStElectricityUsed,jdbcType=REAL},
+      ET_ST_PERIOD = #{etStPeriod,jdbcType=REAL},
+      ET_ST_PERIOD_SELECT = #{etStPeriodSelect,jdbcType=INTEGER},
+      ET_ST_VATABLE = #{etStVatable,jdbcType=INTEGER},
+      ET_ST_CHARGING_BASIS = #{etStChargingBasis,jdbcType=INTEGER},
+      ET_ST_STANDING_CHARGE_AMOUNT = #{etStStandingChargeAmount,jdbcType=REAL},
+      ET_ST_STANDING_CHARGE_AMOUNT_SELECT = #{etStStandingChargeAmountSelect,jdbcType=INTEGER},
+      ET_ST_UNIT_PRICE = #{etStUnitPrice,jdbcType=REAL},
+      ET_ST_INITIAL_UNIT_PRICE = #{etStInitialUnitPrice,jdbcType=REAL},
+      ET_ST_UNITS_AT_THIS_PRICE = #{etStUnitsAtThisPrice,jdbcType=REAL},
+      ET_ST_UNITS_AT_THIS_PRICE_SELECT = #{etStUnitsAtThisPriceSelect,jdbcType=INTEGER},
+      ET_ST_FOLLOWON_UNIT_PRICE = #{etStFollowonUnitPrice,jdbcType=REAL},
+      ET_OFF_H_RELIABLITY_LEVEL = #{etOffHReliablityLevel,jdbcType=INTEGER},
+      ET_OFF_H_ELECTRICITY_USED = #{etOffHElectricityUsed,jdbcType=REAL},
+      ET_OFF_H_PERIOD = #{etOffHPeriod,jdbcType=REAL},
+      ET_OFF_H_PERIOD_SELECT = #{etOffHPeriodSelect,jdbcType=INTEGER},
+      ET_OFF_H_VATABLE = #{etOffHVatable,jdbcType=INTEGER},
+      ET_OFF_H_CHARGING_BASIS = #{etOffHChargingBasis,jdbcType=INTEGER},
+      ET_OFF_H_STANDING_CHARGE_AMOUNT = #{etOffHStandingChargeAmount,jdbcType=REAL},
+      ET_OFF_H_STANDING_CHARGE_AMOUNT_SELECT = #{etOffHStandingChargeAmountSelect,jdbcType=INTEGER},
+      ET_OFF_H_UNIT_PRICE = #{etOffHUnitPrice,jdbcType=REAL},
+      ET_OFF_H_INITIAL_UNIT_AMOUNT = #{etOffHInitialUnitAmount,jdbcType=REAL},
+      ET_OFF_H_UNITS_AT_THIS_PRICE = #{etOffHUnitsAtThisPrice,jdbcType=REAL},
+      ET_OFF_H_UNITS_AT_THIS_PRICE_SELECT = #{etOffHUnitsAtThisPriceSelect,jdbcType=INTEGER},
+      ET_OFF_H_FOLLOW = #{etOffHFollow,jdbcType=REAL},
+      ET_OFF_L_RELIABLITY_LEVEL = #{etOffLReliablityLevel,jdbcType=INTEGER},
+      ET_OFF_L_ELECTRICITY_USED = #{etOffLElectricityUsed,jdbcType=REAL},
+      ET_OFF_L_PERIOD = #{etOffLPeriod,jdbcType=REAL},
+      ET_OFF_L_PERIOD_SELECT = #{etOffLPeriodSelect,jdbcType=INTEGER},
+      ET_OFF_L_VATABLE = #{etOffLVatable,jdbcType=INTEGER},
+      ET_OFF_L_CHARGING_BASIS = #{etOffLChargingBasis,jdbcType=INTEGER},
+      ET_OFF_L_STANDING_CHARGE_AMOUNT = #{etOffLStandingChargeAmount,jdbcType=REAL},
+      ET_OFF_L_STANDING_CHARGE_AMOUNT_SELECT = #{etOffLStandingChargeAmountSelect,jdbcType=INTEGER},
+      ET_OFF_L_UNIT_PRICE = #{etOffLUnitPrice,jdbcType=REAL},
+      ET_OFF_L_INITIAL_UNIT_AMOUNT = #{etOffLInitialUnitAmount,jdbcType=REAL},
+      ET_OFF_L_UNITS_AT_THIS_PRICE = #{etOffLUnitsAtThisPrice,jdbcType=REAL},
+      ET_OFF_L_UNITS_AT_THIS_PRICE_SELECT = #{etOffLUnitsAtThisPriceSelect,jdbcType=INTEGER},
+      ET_OFF_L_FOLLOW = #{etOffLFollow,jdbcType=REAL},
+      ET_PVABLE = #{etPvable,jdbcType=INTEGER},
+      ET_PV_AMOUNT = #{etPvAmount,jdbcType=REAL},
+      ET_PV_PERIOD = #{etPvPeriod,jdbcType=REAL},
+      ET_PV_PERIOD_SELECT = #{etPvPeriodSelect,jdbcType=INTEGER},
+      ET_WINDABLE = #{etWindable,jdbcType=INTEGER},
+      ET_WIND_AMOUNT = #{etWindAmount,jdbcType=REAL},
+      ET_WIND_PERIOD = #{etWindPeriod,jdbcType=REAL},
+      ET_WIND_PERIOD_SELECT = #{etWindPeriodSelect,jdbcType=INTEGER},
+      ET_MICROABLE = #{etMicroable,jdbcType=INTEGER},
+      ET_MICROABLE_AMOUNT = #{etMicroableAmount,jdbcType=REAL},
+      ET_MICROABLE_PERIOD = #{etMicroablePeriod,jdbcType=REAL},
+      ET_MICROABLE_PERIOD_SELECT = #{etMicroablePeriodSelect,jdbcType=INTEGER},
+      CH_FIXED_COST_SELECTED = #{chFixedCostSelected,jdbcType=INTEGER},
+      CH_UNUSUAL_ENERGY_USINGABLE = #{chUnusualEnergyUsingable,jdbcType=INTEGER},
+      MG_UNUSUAL_ENERGY_USINGABLE = #{mgUnusualEnergyUsingable,jdbcType=INTEGER},
+      ET_ST_UNUSUAL_ENERGY_USINGABLE = #{etStUnusualEnergyUsingable,jdbcType=INTEGER},
+      ET_OFF_H_UNUSUAL_ENERGY_USINGABLE = #{etOffHUnusualEnergyUsingable,jdbcType=INTEGER},
+      ET_OFF_L_UNUSUAL_ENERGY_USINGABLE = #{etOffLUnusualEnergyUsingable,jdbcType=INTEGER},
+      CH_UNUSUAL_ENERGY_USINGABLE_DES = #{chUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      MG_UNUSUAL_ENERGY_USINGABLE_DES = #{mgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      ET_ST_UNUSUAL_ENERGY_USINGABLE_DES = #{etStUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      ET_OFF_H_UNUSUAL_ENERGY_USINGABLE_DES = #{etOffHUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      ET_OFF_L_UNUSUAL_ENERGY_USINGABLE_DES = #{etOffLUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+</mapper>

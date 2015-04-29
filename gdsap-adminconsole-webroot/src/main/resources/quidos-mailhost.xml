@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mail-configs>
+	<mailhosts>
+		<mailhost>
+			<id>QUBE-HOST</id>
+			<smtp>smtp.emailsrvr.com</smtp>
+			<smtp-port>25</smtp-port>
+			<from-mail-address>it-admin@quidos.co.uk</from-mail-address>
+			<username>it-admin@quidos.co.uk</username>
+			<password>r11meh</password>
+		</mailhost>
+	</mailhosts>
+	
+	<mailTemplates>
+		<mailTemplate>
+			<id>Forget_Password</id>
+			<subject>Your Forgotten Password</subject>
+			<content>
+			<![CDATA[
+			<p>Dear ${user.firstName?if_exists} ${user.surName?if_exists},</p>
+			<p>You have requested your username and password.</p>
+			<p>Please find your login details as below:</p>
+			<p>
+			Username: ${user.userName?if_exists} <br>
+			Password: ${user.userPwd?if_exists}
+			</p>
+			<p>Please <a href="http://qube.quidos.co.uk/passport/index">click here</a> to sign in QUBE.</p>
+			<p>If you click "Change Password" in the menu after you sign in, you can change your password as you wish.</p>
+			<p>Should you have any problem, please do not hesitate to contact us.</p>
+			<p>Kind Regards,</p>
+			<p>
+			Quidos QUBE Technical Support Team <br>
+			${url?if_exists}
+			</p>
+			]]>
+		</content>
+		</mailTemplate>
+	</mailTemplates>
+</mail-configs>

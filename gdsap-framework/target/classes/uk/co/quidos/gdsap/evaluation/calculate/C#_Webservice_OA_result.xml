@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculate-Result>
+	<RDSAP>
+		<standNumOfOcc>3</standNumOfOcc><!-- double value -->
+		<maingasAvilable>true</maingasAvilable><!--boolean value: true or false-->
+		<judgeType>1</judgeType><!-- int value -->
+		
+
+		<dataOutput><!--rdsap.getDataOutput()-->
+			<actualHousehold></actualHousehold>
+			<typicalHousehold></typicalHousehold>
+			<electricityRcost></electricityRcost>
+			<gasRcost></gasRcost>
+			<otherRcost></otherRcost>
+			<percentOfEnergyByHeating></percentOfEnergyByHeating>
+			<percentOfEnergyByHotWater></percentOfEnergyByHotWater>
+			<spaceHeating></spaceHeating>
+			<waterHeating></waterHeating>
+			<totalEnergyUse></totalEnergyUse>
+			<livingAreaTemperature></livingAreaTemperature>
+			<boilerFuel></boilerFuel>
+			<existingSingleGlazedPercentage></existingSingleGlazedPercentage>
+
+			<recommendation>
+				<improvements><!--output.getRecommendation().getImprovements(); 是集合，直接传json-->
+					<![CDATA[json字符串]]>
+				</improvements>
+			</recommendation>
+			
+			<recommendation_EPC><!--building.getImprovement_EPC().getCalRecommendation_EPC();-->
+				<improvements_EPC><!--output.getRecommendation_EPC().getImprovements_EPC(); 是集合，<improvements_EPC>直接传json-->
+					<![CDATA[json字符串]]>
+				</improvements_EPC>
+			</recommendation_EPC>
+
+			<improvementIssue><!--Map TODO-->
+			</improvementIssue>
+
+			<perFuelSavingList>
+				<PerFuelSaving>
+					<code></code>
+					<kwhSaving></kwhSaving>
+					<standingChargeFraction></standingChargeFraction>
+				</PerFuelSaving>
+			</perFuelSavingList>
+
+			<standardOccupancyParameters><!--getStandardOccupancyParameters()-->
+				<occupants></occupants><!-- .getOccupants() 以下节点类似都是节点名首字母大写 -->
+				<averageHoursOfHeating></averageHoursOfHeating>
+				<thermostatSetting></thermostatSetting>
+				<unheatedRooms></unheatedRooms>
+				<recommendOutsideDrying></recommendOutsideDrying>
+				<recommendShowers></recommendShowers>
+			</standardOccupancyParameters>
+			
+			<actOccupancyParameters>
+				<occupants></occupants>
+				<averageHoursOfHeating></averageHoursOfHeating>
+				<thermostatSetting></thermostatSetting>
+				<unheatedRooms></unheatedRooms>
+				<recommendOutsideDrying></recommendOutsideDrying>
+				<recommendShowers></recommendShowers>
+			</actOccupancyParameters>
+
+			<calFuelPriceList><!--.getCalFuelPriceList()-->
+				<communityFuelPriceList><!--.getCalFuelPriceList().getCommunityFuelPriceList(); 是Map-->
+					<![CDATA[json字符串]]>
+				</communityFuelPriceList>
+
+				<mainGasFuelPriceList><!--.getCalFuelPriceList().getMainGasFuelPriceList(); 是Map-->
+					<![CDATA[json字符串]]>
+				</mainGasFuelPriceList>
+
+				<electricityFuelPriceList><!--.getCalFuelPriceList().getElectricityFuelPriceList(); 是Map-->
+					<![CDATA[json字符串]]>
+				</electricityFuelPriceList>
+
+				<allFuelPriceList><!--.getCalFuelPriceList().getAllFuelPriceList(); 是Map-->
+					<![CDATA[json字符串]]>
+				</allFuelPriceList>
+			</calFuelPriceList>
+		</dataOutput>
+	</RDSAP>
+</Calculate-Result>

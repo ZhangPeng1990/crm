@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapGdpuserReportMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapGdpuserReport" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <id column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="ID" property="id" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <resultMap id="rm_report" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReport" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="RRN" property="rrn" jdbcType="VARCHAR" />
+    <result column="OA_RRN" property="oaRrn" jdbcType="VARCHAR" />
+    <result column="INSPECTION_DATE" property="inspectionDate" jdbcType="TIMESTAMP" />
+    <result column="REPORT_TYPE" property="reportType" jdbcType="INTEGER" />
+    <result column="COMPLETION_DATE" property="completionDate" jdbcType="TIMESTAMP" />
+    <result column="REGISTRATION_DATE" property="registrationDate" jdbcType="TIMESTAMP" />
+    <result column="REPORT_XML_STATUS" property="reportXmlStatus" jdbcType="VARCHAR" />
+    <result column="LANGUAGE_CODE" property="languageCode" jdbcType="VARCHAR" />
+    <result column="TRANSACTION_TYPE" property="transactionType" jdbcType="INTEGER" />
+    <result column="EA_FULL_NAME" property="eaFullName" jdbcType="VARCHAR" />
+    <result column="EA_CERTIFICATE_NAME" property="eaCertificateName" jdbcType="VARCHAR" />
+    <result column="ADDRESS1" property="address1" jdbcType="VARCHAR" />
+    <result column="ADDRESS2" property="address2" jdbcType="VARCHAR" />
+    <result column="ADDRESS3" property="address3" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="POSTTOWN" property="posttown" jdbcType="VARCHAR" />
+    <result column="UPRN" property="uprn" jdbcType="VARCHAR" />
+    <result column="RELATED_PARTY_DISCLOSURE" property="relatedPartyDisclosure" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="REPORT_XML_FILE" property="reportXmlFile" jdbcType="VARCHAR" />
+    
+    <result column="OLD_REPORT_CAL_XML_FILE" property="oldReportCalXmlFile" jdbcType="VARCHAR" />
+    
+    <result column="PROPERTY_TYPE" property="propertyType" jdbcType="INTEGER" />
+    <result column="RDSAP_MHS_FUEL" property="rdsapMhsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_SMHS_FUEL" property="rdsapSmhsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_SHS_FUEL" property="rdsapShsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_WHS_FUEL" property="rdsapWhsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_MAIN_GAS_AVAILABLE" property="rdsapMainGasAvailable" jdbcType="INTEGER" />
+    <result column="REPORT_LOCATION" property="reportLocation" jdbcType="VARCHAR" />
+    
+    <result column="UNOCCUPIED_PROPERTYABLE" property="unoccupiedPropertyable" jdbcType="INTEGER" />
+    <result column="LODGE_DATE" property="lodgeDate" jdbcType="TIMESTAMP" />
+    <result column="REPORT_STATUS" property="reportStatus" jdbcType="INTEGER" />
+    <result column="UPLOAD_WAY" property="uploadWay" jdbcType="INTEGER" />
+    <result column="EPC_VERSION" property="epcVersion" jdbcType="INTEGER" />
+  </resultMap>
+  
+   <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapGdpuserReport" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+    insert into gdsap_gdpuser_report (REPORT_ID, USER_ID, ID 
+      )
+    values (#{reportId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{id,jdbcType=BIGINT} 
+      )
+  </insert>
+  
+  <select id="findPageBreakByCondition" resultMap="rm_report" parameterType="map">
+		select gdsap_eval_report.* from gdsap_gdpuser_report inner join gdsap_eval_report on 
+  			gdsap_gdpuser_report.REPORT_ID = gdsap_eval_report.ID 
+		<where>
+		  <if test="userId != null"> 
+				and gdsap_gdpuser_report.USER_ID = #{userId,jdbcType=BIGINT}
+      		</if>
+      		<if test="rrn != null">
+				and gdsap_eval_report.RRN LIKE "%"#{rrn,jdbcType=VARCHAR}"%"
+      		</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate != null">
+				 and gdsap_eval_report.INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} and INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate == null">
+				 and gdsap_eval_report.INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate == null &amp;&amp; endInspectionDate != null">
+				 and gdsap_eval_report.INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="urpn != null">
+				and gdsap_eval_report.UPRN = #{urpn,jdbcType=VARCHAR} 
+      		</if>
+			<if test="transactionType != null">
+				and gdsap_eval_report.TRANSACTION_TYPE = #{transactionType,jdbcType=INTEGER}
+      		</if>
+			<if test="propertyType != null">
+				and gdsap_eval_report.PROPERTY_TYPE = #{propertyType,jdbcType=INTEGER}
+      		</if>
+      		<if test="propertyType != null">
+				and gdsap_eval_report.PROPERTY_TYPE = #{propertyType,jdbcType=INTEGER}
+      		</if>
+      		<if test="reportStatus != null">
+				and gdsap_eval_report.REPORT_STATUS &gt;= #{reportStatus,jdbcType=INTEGER}
+      		</if>
+      		<if test="reportStatus == null">
+				and gdsap_eval_report.REPORT_STATUS >= 0
+      		</if>
+      	</where>
+      	order by gdsap_eval_report.INSERT_TIME DESC 
+  </select>
+  
+  <select id="findNumberByCondition" resultType="java.lang.Integer" parameterType="map">
+		select count(0) as a from gdsap_gdpuser_report inner join gdsap_eval_report on 
+  			gdsap_gdpuser_report.REPORT_ID = gdsap_eval_report.ID 
+		<where>
+		    <if test="userId != null"> 
+				and gdsap_gdpuser_report.USER_ID = #{userId,jdbcType=BIGINT}
+      		</if>
+      		<if test="rrn != null">
+				and gdsap_eval_report.RRN LIKE "%"#{rrn,jdbcType=VARCHAR}"%"
+      		</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate != null">
+				 and gdsap_eval_report.INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} and INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate == null">
+				 and gdsap_eval_report.INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate == null &amp;&amp; endInspectionDate != null">
+				 and gdsap_eval_report.INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="urpn != null">
+				and gdsap_eval_report.UPRN = #{urpn,jdbcType=VARCHAR} 
+      		</if>
+			<if test="transactionType != null">
+				and gdsap_eval_report.TRANSACTION_TYPE = #{transactionType,jdbcType=INTEGER}
+      		</if>
+			<if test="propertyType != null">
+				and gdsap_eval_report.PROPERTY_TYPE = #{propertyType,jdbcType=INTEGER}
+      		</if>
+      		<if test="propertyType != null">
+				and gdsap_eval_report.PROPERTY_TYPE = #{propertyType,jdbcType=INTEGER}
+      		</if>
+      		<if test="reportStatus != null">
+				and gdsap_eval_report.REPORT_STATUS = #{reportStatus,jdbcType=INTEGER}
+      		</if>
+      		<if test="reportStatus == null">
+				and gdsap_eval_report.REPORT_STATUS >= 0
+      		</if>
+      	</where>
+  </select>
+  
+  <delete id="delete" parameterType="map" >
+    delete from gdsap_gdpuser_report 
+    where REPORT_ID = #{reportId,jdbcType=BIGINT} AND USER_ID = #{userId,jdbcType=BIGINT}
+  </delete>
+  
+</mapper>

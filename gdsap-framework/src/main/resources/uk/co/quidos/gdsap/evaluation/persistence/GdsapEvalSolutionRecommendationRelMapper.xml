@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionRecommendationRelMapper">
+	<resultMap id="BaseResultMap"
+		type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionRecommendationRel">
+		<id column="RECOMMENDATION_ID" property="recommendationId" jdbcType="BIGINT" />
+		<id column="SOLUTION_ID" property="solutionId" jdbcType="BIGINT" />
+		<result column="ESTIMATED_COSTS_START" property="estimatedCostsStart" jdbcType="REAL" />
+		<result column="ESTIMATED_COSTS_END" property="estimatedCostsEnd" jdbcType="REAL" />
+		<result column="ESTIMATED_ANNUAL_SAVINGS" property="estimatedAnnualSavings" jdbcType="REAL" />
+		<result column="TYPICAL_ANNUAL_SAVINGS" property="typicalAnnualSavings" jdbcType="REAL" />
+		<result column="GREEN_DEAL_CATEGORY" property="greenDealCategory" jdbcType="INTEGER"/>
+		<result column="IN_USE_FACTOR" property="inUseFactor" jdbcType="REAL"/>
+		<result column="IN_USE_FACTOR_2" property="inUseFactor2" jdbcType="REAL"/>
+		
+		<result column="WALL_CONSTRUCTION_1" property="wallConstruction1" jdbcType="VARCHAR" />
+		<result column="WALL_CONSTRUCTION_2" property="wallConstruction2" jdbcType="VARCHAR" />
+		<result column="WALL_CONSTRUCTION_3" property="wallConstruction3" jdbcType="VARCHAR" />
+		<result column="WALL_CONSTRUCTION_4" property="wallConstruction4" jdbcType="VARCHAR" />
+		
+		<result column="KEY0" property="key0" jdbcType="VARCHAR" />
+		<result column="VALUE0" property="value0" jdbcType="INTEGER" />
+		<result column="KEY1" property="key1" jdbcType="VARCHAR" />
+		<result column="VALUE1" property="value1" jdbcType="INTEGER" />
+		<result column="KEY2" property="key2" jdbcType="VARCHAR" />
+		<result column="VALUE2" property="value2" jdbcType="INTEGER" />
+		<result column="KEY3" property="key3" jdbcType="VARCHAR" />
+		<result column="VALUE3" property="value3" jdbcType="INTEGER" />
+		<result column="KEY4" property="key4" jdbcType="VARCHAR" />
+		<result column="VALUE4" property="value4" jdbcType="INTEGER" />
+		<result column="KEY5" property="key5" jdbcType="VARCHAR" />
+		<result column="VALUE5" property="value5" jdbcType="INTEGER" />
+		<result column="KEY6" property="key6" jdbcType="VARCHAR" />
+		<result column="VALUE6" property="value6" jdbcType="INTEGER" />
+		<result column="KEY7" property="key7" jdbcType="VARCHAR" />
+		<result column="VALUE7" property="value7" jdbcType="INTEGER" />
+		<result column="KEY8" property="key8" jdbcType="VARCHAR" />
+		<result column="VALUE8" property="value8" jdbcType="INTEGER" />
+		<result column="KEY9" property="key9" jdbcType="VARCHAR" />
+		<result column="VALUE9" property="value9" jdbcType="INTEGER" />
+		
+		<result column="INPUT_KEY0" property="inputKey0" jdbcType="VARCHAR" />
+		<result column="INPUT_VALUE0" property="inputValue0" jdbcType="VARCHAR" />
+		<result column="INPUT_KEY1" property="inputKey1" jdbcType="VARCHAR" />
+		<result column="INPUT_VALUE1" property="inputValue1" jdbcType="VARCHAR" />
+		<result column="INPUT_KEY2" property="inputKey2" jdbcType="VARCHAR" />
+		<result column="INPUT_VALUE2" property="inputValue2" jdbcType="VARCHAR" />
+		<result column="INPUT_KEY3" property="inputKey3" jdbcType="VARCHAR" />
+		<result column="INPUT_VALUE3" property="inputValue3" jdbcType="VARCHAR" />
+		<result column="INPUT_KEY4" property="inputKey4" jdbcType="VARCHAR" />
+		<result column="INPUT_VALUE4" property="inputValue4" jdbcType="VARCHAR" />
+		<result column="INPUT_KEY5" property="inputKey5" jdbcType="VARCHAR" />
+		<result column="INPUT_VALUE5" property="inputValue5" jdbcType="VARCHAR" />
+		
+		<result column="CHECKED_KEY0" property="checkedKey0" jdbcType="VARCHAR" />
+		<result column="CHECKED_VALUE0" property="checkedValue0" jdbcType="BOOLEAN" />
+		<result column="CHECKED_KEY1" property="checkedKey1" jdbcType="VARCHAR" />
+		<result column="CHECKED_VALUE1" property="checkedValue1" jdbcType="BOOLEAN" />
+		<result column="CHECKED_KEY2" property="checkedKey2" jdbcType="VARCHAR" />
+		<result column="CHECKED_VALUE2" property="checkedValue2" jdbcType="BOOLEAN" />
+		<result column="CHECKED_KEY3" property="checkedKey3" jdbcType="VARCHAR" />
+		<result column="CHECKED_VALUE3" property="checkedValue3" jdbcType="BOOLEAN" />
+		<result column="CHECKED_KEY4" property="checkedKey4" jdbcType="VARCHAR" />
+		<result column="CHECKED_VALUE4" property="checkedValue4" jdbcType="BOOLEAN" />
+		<result column="CHECKED_KEY5" property="checkedKey5" jdbcType="VARCHAR" />
+		<result column="CHECKED_VALUE5" property="checkedValue5" jdbcType="BOOLEAN" />
+		
+	</resultMap>
+	
+	<resultMap id="queryRecommendationSolutionRecommendationRelResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.QueryRecommendationSolutionRecommendationRelResultMap" extends="BaseResultMap">
+		<result column="RECOMMENDATION_CODE" property="recommendationCode" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		RECOMMENDATION_ID, SOLUTION_ID, ESTIMATED_COSTS_START,
+		ESTIMATED_COSTS_END,
+		ESTIMATED_ANNUAL_SAVINGS,
+		TYPICAL_ANNUAL_SAVINGS,GREEN_DEAL_CATEGORY,IN_USE_FACTOR,IN_USE_FACTOR_2,WALL_CONSTRUCTION_1,WALL_CONSTRUCTION_2,WALL_CONSTRUCTION_3,WALL_CONSTRUCTION_4,
+		KEY0, VALUE0, KEY1, VALUE1, KEY2, VALUE2, KEY3, VALUE3, KEY4,
+		VALUE4,
+		KEY5, VALUE5, KEY6, VALUE6, KEY7, VALUE7, KEY8, VALUE8, KEY9, VALUE9, 
+		INPUT_KEY0, INPUT_VALUE0, INPUT_KEY1, INPUT_VALUE1, INPUT_KEY2, INPUT_VALUE2, INPUT_KEY3, INPUT_VALUE3, INPUT_KEY4, INPUT_VALUE4, INPUT_KEY5, INPUT_VALUE5,
+		CHECKED_KEY0,CHECKED_VALUE0,CHECKED_KEY1,CHECKED_VALUE1,CHECKED_KEY2,CHECKED_VALUE2,CHECKED_KEY3,CHECKED_VALUE3,CHECKED_KEY4,CHECKED_VALUE4,CHECKED_KEY5,CHECKED_VALUE5 
+	</sql>
+	
+	<sql id="Query_RSRRel_Column_List">
+		RECOMMENDATION_CODE
+	</sql>
+	
+	<select id="load" resultMap="BaseResultMap"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionRecommendationRelKey">
+		select
+		<include refid="Base_Column_List" />
+		from GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+		where RECOMMENDATION_ID =
+		#{recommendationId,jdbcType=BIGINT}
+		and SOLUTION_ID =
+		#{solutionId,jdbcType=BIGINT}
+	</select>
+
+	<delete id="delete"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionRecommendationRelKey">
+		delete from GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+		where
+		RECOMMENDATION_ID = #{recommendationId,jdbcType=BIGINT}
+		and SOLUTION_ID
+		= #{solutionId,jdbcType=BIGINT}
+	</delete>
+	
+	<delete id="deleteBySolution" parameterType="java.lang.Long">
+		delete from GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL 
+		where 
+		SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+	</delete>
+
+	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionRecommendationRel">
+		insert into GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+		(RECOMMENDATION_ID,
+		SOLUTION_ID, ESTIMATED_COSTS_START,
+		ESTIMATED_COSTS_END, ESTIMATED_ANNUAL_SAVINGS,
+		TYPICAL_ANNUAL_SAVINGS,GREEN_DEAL_CATEGORY,IN_USE_FACTOR,IN_USE_FACTOR_2,WALL_CONSTRUCTION_1,WALL_CONSTRUCTION_2,WALL_CONSTRUCTION_3,WALL_CONSTRUCTION_4,
+		KEY0, VALUE0,
+		KEY1, VALUE1, KEY2,
+		VALUE2, KEY3, VALUE3,
+		KEY4, VALUE4,
+		KEY5,
+		VALUE5, KEY6, VALUE6,
+		KEY7, VALUE7, KEY8,
+		VALUE8, KEY9, VALUE9,
+		INPUT_KEY0, INPUT_VALUE0, 
+		INPUT_KEY1, INPUT_VALUE1, 
+		INPUT_KEY2, INPUT_VALUE2, 
+		INPUT_KEY3, INPUT_VALUE3, 
+		INPUT_KEY4, INPUT_VALUE4, 
+		INPUT_KEY5, INPUT_VALUE5,
+		CHECKED_KEY0,CHECKED_VALUE0,
+		CHECKED_KEY1,CHECKED_VALUE1,
+		CHECKED_KEY2,CHECKED_VALUE2,
+		CHECKED_KEY3,CHECKED_VALUE3,
+		CHECKED_KEY4,CHECKED_VALUE4,
+		CHECKED_KEY5,CHECKED_VALUE5 
+		)
+		values (#{recommendationId,jdbcType=BIGINT},
+		#{solutionId,jdbcType=BIGINT},
+		#{estimatedCostsStart,jdbcType=REAL},
+		#{estimatedCostsEnd,jdbcType=REAL},
+		#{estimatedAnnualSavings,jdbcType=REAL},
+		#{typicalAnnualSavings,jdbcType=REAL}, 
+		#{greenDealCategory,jdbcType=INTEGER},#{inUseFactor,jdbcType=REAL},#{inUseFactor2,jdbcType=REAL},
+		#{wallConstruction1,jdbcType=VARCHAR},#{wallConstruction2,jdbcType=VARCHAR},#{wallConstruction3,jdbcType=VARCHAR},#{wallConstruction4,jdbcType=VARCHAR},
+		#{key0,jdbcType=VARCHAR},
+		#{value0,jdbcType=INTEGER},
+		#{key1,jdbcType=VARCHAR},
+		#{value1,jdbcType=INTEGER}, 
+		#{key2,jdbcType=VARCHAR},
+		#{value2,jdbcType=INTEGER}, 
+		#{key3,jdbcType=VARCHAR},
+		#{value3,jdbcType=INTEGER},
+		#{key4,jdbcType=VARCHAR},
+		#{value4,jdbcType=INTEGER}, 
+		#{key5,jdbcType=VARCHAR},
+		#{value5,jdbcType=INTEGER}, 
+		#{key6,jdbcType=VARCHAR},
+		#{value6,jdbcType=INTEGER},
+		#{key7,jdbcType=VARCHAR},
+		#{value7,jdbcType=INTEGER}, 
+		#{key8,jdbcType=VARCHAR},
+		#{value8,jdbcType=INTEGER}, 
+		#{key9,jdbcType=VARCHAR},
+		#{value9,jdbcType=INTEGER},
+		#{inputKey0,jdbcType=VARCHAR},
+		#{inputValue0,jdbcType=VARCHAR},
+		#{inputKey1,jdbcType=VARCHAR},
+		#{inputValue1,jdbcType=VARCHAR},
+		#{inputKey2,jdbcType=VARCHAR},
+		#{inputValue2,jdbcType=VARCHAR},
+		#{inputKey3,jdbcType=VARCHAR},
+		#{inputValue3,jdbcType=VARCHAR},
+		#{inputKey4,jdbcType=VARCHAR},
+		#{inputValue4,jdbcType=VARCHAR},
+		#{inputKey5,jdbcType=VARCHAR},
+		#{inputValue5,jdbcType=VARCHAR},
+		#{checkedKey0,jdbcType=VARCHAR},
+		#{checkedValue0,jdbcType=BOOLEAN},
+		#{checkedKey1,jdbcType=VARCHAR},
+		#{checkedValue1,jdbcType=BOOLEAN},
+		#{checkedKey2,jdbcType=VARCHAR},
+		#{checkedValue2,jdbcType=BOOLEAN},
+		#{checkedKey3,jdbcType=VARCHAR},
+		#{checkedValue3,jdbcType=BOOLEAN},
+		#{checkedKey4,jdbcType=VARCHAR},
+		#{checkedValue4,jdbcType=BOOLEAN},
+		#{checkedKey5,jdbcType=VARCHAR},
+		#{checkedValue5,jdbcType=BOOLEAN} 
+		)
+	</insert>
+
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionRecommendationRel">
+		update GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+		<set>
+			<if test="estimatedCostsStart != null">
+				ESTIMATED_COSTS_START =
+				#{estimatedCostsStart,jdbcType=REAL},
+			</if>
+			<if test="estimatedCostsEnd != null">
+				ESTIMATED_COSTS_END =
+				#{estimatedCostsEnd,jdbcType=REAL},
+			</if>
+			<if test="estimatedAnnualSavings != null">
+				ESTIMATED_ANNUAL_SAVINGS =
+				#{estimatedAnnualSavings,jdbcType=REAL},
+			</if>
+			<if test="typicalAnnualSavings != null">
+				TYPICAL_ANNUAL_SAVINGS =
+				#{typicalAnnualSavings,jdbcType=REAL},
+			</if>
+			<if test="greenDealCategory != null">
+				GREEN_DEAL_CATEGORY = #{greenDealCategory,jdbcType=INTEGER},
+			</if>
+			<if test="inUseFactor != null">
+				IN_USE_FACTOR = #{inUseFactor,jdbcType=REAL},
+			</if>
+			<if test="inUseFactor2 != null">
+				IN_USE_FACTOR_2 = #{inUseFactor2,jdbcType=REAL},
+			</if>
+			
+			<if test="wallConstruction1 != null">
+				WALL_CONSTRUCTION_1 = #{wallConstruction1,jdbcType=VARCHAR},
+			</if>
+			<if test="wallConstruction2 != null">
+				WALL_CONSTRUCTION_2 = #{wallConstruction2,jdbcType=VARCHAR},
+			</if>
+			<if test="wallConstruction3 != null">
+				WALL_CONSTRUCTION_3 = #{wallConstruction3,jdbcType=VARCHAR},
+			</if>
+			<if test="wallConstruction4 != null">
+				WALL_CONSTRUCTION_4 = #{wallConstruction4,jdbcType=VARCHAR},
+			</if>
+			
+			<if test="key0 != null">
+				KEY0 = #{key0,jdbcType=VARCHAR},
+			</if>
+			<if test="value0 != null">
+				VALUE0 = #{value0,jdbcType=INTEGER},
+			</if>
+			<if test="key1 != null">
+				KEY1 = #{key1,jdbcType=VARCHAR},
+			</if>
+			<if test="value1 != null">
+				VALUE1 = #{value1,jdbcType=INTEGER},
+			</if>
+			<if test="key2 != null">
+				KEY2 = #{key2,jdbcType=VARCHAR},
+			</if>
+			<if test="value2 != null">
+				VALUE2 = #{value2,jdbcType=INTEGER},
+			</if>
+			<if test="key3 != null">
+				KEY3 = #{key3,jdbcType=VARCHAR},
+			</if>
+			<if test="value3 != null">
+				VALUE3 = #{value3,jdbcType=INTEGER},
+			</if>
+			<if test="key4 != null">
+				KEY4 = #{key4,jdbcType=VARCHAR},
+			</if>
+			<if test="value4 != null">
+				VALUE4 = #{value4,jdbcType=INTEGER},
+			</if>
+			<if test="key5 != null">
+				KEY5 = #{key5,jdbcType=VARCHAR},
+			</if>
+			<if test="value5 != null">
+				VALUE5 = #{value5,jdbcType=INTEGER},
+			</if>
+			<if test="key6 != null">
+				KEY6 = #{key6,jdbcType=VARCHAR},
+			</if>
+			<if test="value6 != null">
+				VALUE6 = #{value6,jdbcType=INTEGER},
+			</if>
+			<if test="key7 != null">
+				KEY7 = #{key7,jdbcType=VARCHAR},
+			</if>
+			<if test="value7 != null">
+				VALUE7 = #{value7,jdbcType=INTEGER},
+			</if>
+			<if test="key8 != null">
+				KEY8 = #{key8,jdbcType=VARCHAR},
+			</if>
+			<if test="value8 != null">
+				VALUE8 = #{value8,jdbcType=INTEGER},
+			</if>
+			<if test="key9 != null">
+				KEY9 = #{key9,jdbcType=VARCHAR},
+			</if>
+			<if test="value9 != null">
+				VALUE9 = #{value9,jdbcType=INTEGER},
+			</if>
+			
+			<if test="inputKey0 != null">
+				INPUT_KEY0 = #{inputKey0,jdbcType=VARCHAR},
+			</if>
+			<if test="inputValue0 != null">
+				INPUT_VALUE0 = #{inputValue0,jdbcType=VARCHAR},
+			</if>
+			<if test="inputKey1 != null">
+				INPUT_KEY1 = #{inputKey1,jdbcType=VARCHAR},
+			</if>
+			<if test="inputValue1 != null">
+				INPUT_VALUE1 = #{inputValue1,jdbcType=VARCHAR},
+			</if>
+			<if test="inputKey2 != null">
+				INPUT_KEY2 = #{inputKey2,jdbcType=VARCHAR},
+			</if>
+			<if test="inputValue2 != null">
+				INPUT_VALUE2 = #{inputValue2,jdbcType=VARCHAR},
+			</if>
+			<if test="inputKey3 != null">
+				INPUT_KEY3 = #{inputKey3,jdbcType=VARCHAR},
+			</if>
+			<if test="inputValue3 != null">
+				INPUT_VALUE3 = #{inputValue3,jdbcType=VARCHAR},
+			</if>
+			<if test="inputKey4 != null">
+				INPUT_KEY4 = #{inputKey4,jdbcType=VARCHAR},
+			</if>
+			<if test="inputValue4 != null">
+				INPUT_VALUE4 = #{inputValue4,jdbcType=VARCHAR},
+			</if>
+			<if test="inputKey5 != null">
+				INPUT_KEY5 = #{inputKey5,jdbcType=VARCHAR},
+			</if>
+			<if test="inputValue5 != null">
+				INPUT_VALUE5 = #{inputValue5,jdbcType=VARCHAR},
+			</if>
+		
+			<if test="checkedKey0 != null">
+				CHECKED_KEY0 = #{checkedKey0,jdbcType=VARCHAR},
+			</if>
+			<if test="checkedValue0 != null">
+				CHECKED_VALUE0 = #{checkedValue0,jdbcType=BOOLEAN},
+			</if>
+			<if test="checkedKey1 != null">
+				CHECKED_KEY1 = #{checkedKey1,jdbcType=VARCHAR},
+			</if>
+			<if test="checkedValue1 != null">
+				CHECKED_VALUE1 = #{checkedValue1,jdbcType=BOOLEAN},
+			</if>
+			<if test="checkedKey2 != null">
+				CHECKED_KEY2 = #{checkedKey2,jdbcType=VARCHAR},
+			</if>
+			<if test="checkedValue2 != null">
+				CHECKED_VALUE2 = #{checkedValue2,jdbcType=BOOLEAN},
+			</if>
+			<if test="checkedKey3 != null">
+				CHECKED_KEY3 = #{checkedKey3,jdbcType=VARCHAR},
+			</if>
+			<if test="checkedValue3 != null">
+				CHECKED_VALUE3 = #{checkedValue3,jdbcType=BOOLEAN},
+			</if>
+			<if test="checkedKey4 != null">
+				CHECKED_KEY4 = #{checkedKey4,jdbcType=VARCHAR},
+			</if>
+			<if test="checkedValue4 != null">
+				CHECKED_VALUE4 = #{checkedValue4,jdbcType=BOOLEAN},
+			</if>
+			<if test="checkedKey5 != null">
+				CHECKED_KEY5 = #{checkedKey5,jdbcType=VARCHAR},
+			</if>
+			<if test="checkedValue5 != null">
+				CHECKED_VALUE5 = #{checkedValue5,jdbcType=BOOLEAN},
+			</if>
+		</set>
+		where RECOMMENDATION_ID = #{recommendationId,jdbcType=BIGINT}
+		and
+		SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+	</update>
+	
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolutionRecommendationRel">
+		update GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+		set
+		ESTIMATED_COSTS_START = #{estimatedCostsStart,jdbcType=REAL},
+		ESTIMATED_COSTS_END = #{estimatedCostsEnd,jdbcType=REAL},
+		ESTIMATED_ANNUAL_SAVINGS = #{estimatedAnnualSavings,jdbcType=REAL},
+		TYPICAL_ANNUAL_SAVINGS = #{typicalAnnualSavings,jdbcType=REAL},
+		GREEN_DEAL_CATEGORY = #{greenDealCategory,jdbcType=INTEGER},
+		IN_USE_FACTOR = #{inUseFactor,jdbcType=REAL},
+		IN_USE_FACTOR_2 = #{inUseFactor2,jdbcType=REAL},
+		WALL_CONSTRUCTION_1 = #{wallConstruction1,jdbcType=VARCHAR},
+		WALL_CONSTRUCTION_2 = #{wallConstruction2,jdbcType=VARCHAR},
+		WALL_CONSTRUCTION_3 = #{wallConstruction3,jdbcType=VARCHAR},
+		WALL_CONSTRUCTION_4 = #{wallConstruction4,jdbcType=VARCHAR},
+		KEY0 = #{key0,jdbcType=VARCHAR},
+		VALUE0 = #{value0,jdbcType=INTEGER},
+		KEY1 = #{key1,jdbcType=VARCHAR},
+		VALUE1 = #{value1,jdbcType=INTEGER},
+		KEY2 = #{key2,jdbcType=VARCHAR},
+		VALUE2 = #{value2,jdbcType=INTEGER},
+		KEY3 = #{key3,jdbcType=INTEGER},
+		VALUE3 = #{value3,jdbcType=INTEGER},
+		KEY4 = #{key4,jdbcType=VARCHAR},
+		VALUE4 = #{value4,jdbcType=INTEGER},
+		KEY5 = #{key5,jdbcType=VARCHAR},
+		VALUE5 = #{value5,jdbcType=INTEGER},
+		KEY6 = #{key6,jdbcType=VARCHAR},
+		VALUE6 = #{value6,jdbcType=INTEGER},
+		KEY7 = #{key7,jdbcType=VARCHAR},
+		VALUE7 = #{value7,jdbcType=INTEGER},
+		KEY8 = #{key8,jdbcType=VARCHAR},
+		VALUE8 = #{value8,jdbcType=INTEGER},
+		KEY9 = #{key9,jdbcType=VARCHAR},
+		VALUE9 = #{value9,jdbcType=INTEGER},
+		INPUT_KEY0 = #{inputKey0,jdbcType=VARCHAR},
+		INPUT_VALUE0 = #{inputValue0,jdbcType=VARCHAR},
+		INPUT_KEY1 = #{inputKey1,jdbcType=VARCHAR},
+		INPUT_VALUE1 = #{inputValue1,jdbcType=VARCHAR},
+		INPUT_KEY2 = #{inputKey2,jdbcType=VARCHAR},
+		INPUT_VALUE2 = #{inputValue2,jdbcType=VARCHAR},
+		INPUT_KEY3 = #{inputKey3,jdbcType=VARCHAR},
+		INPUT_VALUE3 = #{inputValue3,jdbcType=VARCHAR},
+		INPUT_KEY4 = #{inputKey4,jdbcType=VARCHAR},
+		INPUT_VALUE4 = #{inputValue4,jdbcType=VARCHAR},
+		INPUT_KEY5 = #{inputKey5,jdbcType=VARCHAR},
+		INPUT_VALUE5 = #{inputValue5,jdbcType=VARCHAR},
+		CHECKED_KEY0 = #{checkedKey0,jdbcType=VARCHAR},
+		CHECKED_VALUE0 = #{checkedValue0,jdbcType=BOOLEAN},
+		CHECKED_KEY1 = #{checkedKey1,jdbcType=VARCHAR},
+		CHECKED_VALUE1 = #{checkedValue1,jdbcType=BOOLEAN},
+		CHECKED_KEY2 = #{checkedKey2,jdbcType=VARCHAR},
+		CHECKED_VALUE2 = #{checkedValue2,jdbcType=BOOLEAN},
+		CHECKED_KEY3 = #{checkedKey3,jdbcType=VARCHAR},
+		CHECKED_VALUE3 = #{checkedValue3,jdbcType=BOOLEAN},
+		CHECKED_KEY4 = #{checkedKey4,jdbcType=VARCHAR},
+		CHECKED_VALUE4 = #{checkedValue4,jdbcType=BOOLEAN},
+		CHECKED_KEY5 = #{checkedKey5,jdbcType=VARCHAR},
+		CHECKED_VALUE5 = #{checkedValue5,jdbcType=BOOLEAN} 
+		where RECOMMENDATION_ID = #{recommendationId,jdbcType=BIGINT}
+		and
+		SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+	</update>
+
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+	</select>
+
+	<select id="countAll" resultType="java.lang.Integer">
+		select count(0) as c from
+		GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL
+	</select>
+	
+	<select id="findRelBySolutionId" resultMap="queryRecommendationSolutionRecommendationRelResultMap" parameterType="java.lang.Long">
+		select <include refid="Base_Column_List"/> ,<include refid="Query_RSRRel_Column_List"/> 
+		from 
+		GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL inner join GDSAP_EVAL_RECOMMENDATION on 
+		GDSAP_EVAL_SOLUTION_RECOMMENDATION_REL.RECOMMENDATION_ID = GDSAP_EVAL_RECOMMENDATION.ID 
+		where 
+		SOLUTION_ID = #{solutionId,jdbcType=BIGINT}
+	</select>
+</mapper>

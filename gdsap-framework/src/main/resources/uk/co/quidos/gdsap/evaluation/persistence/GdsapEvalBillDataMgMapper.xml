@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalBillDataMgMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataMg" >
+    <id column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+    <result column="MG_RELIABLITY_LEVEL" property="mgReliablityLevel" jdbcType="INTEGER" />
+    <result column="MG_GAS_USED" property="mgGasUsed" jdbcType="REAL" />
+    <result column="MG_PERIOD_SELECT" property="mgPeriodSelect" jdbcType="INTEGER" />
+    <result column="MG_PERIOD" property="mgPeriod" jdbcType="REAL" />
+    <result column="MG_CHARGING_BASIS" property="mgChargingBasis" jdbcType="INTEGER" />
+    <result column="MG_ST_AMOUNT_SELECT" property="mgStAmountSelect" jdbcType="INTEGER" />
+    <result column="MG_ST_AMOUNT" property="mgStAmount" jdbcType="REAL" />
+    <result column="MG_ST_UNIT_PRICE" property="mgStUnitPrice" jdbcType="REAL" />
+    <result column="MG_TW_INITIAL_UNIT" property="mgTwInitialUnit" jdbcType="REAL" />
+    <result column="MG_TW_UNITS" property="mgTwUnits" jdbcType="REAL" />
+    <result column="MG_TW_UNITS_SELECTED" property="mgTwUnitsSelected" jdbcType="INTEGER" />
+    <result column="MG_TW_FOLLOW_ON" property="mgTwFollowOn" jdbcType="REAL" />
+    <result column="MG_VAT_ABLE" property="mgVatAble" jdbcType="INTEGER" />
+    <result column="MG_UNUSUAL_ENERGY_USINGABLE" property="mgUnusualEnergyUsingable" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataMg" extends="BaseResultMap" >
+    <result column="MG_UNUSUAL_ENERGY_USINGABLE_DES" property="mgUnusualEnergyUsingableDes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    REPORT_ID, MG_RELIABLITY_LEVEL, MG_GAS_USED, MG_PERIOD_SELECT, MG_PERIOD, MG_CHARGING_BASIS, 
+    MG_ST_AMOUNT_SELECT, MG_ST_AMOUNT, MG_ST_UNIT_PRICE, MG_TW_INITIAL_UNIT, MG_TW_UNITS, 
+    MG_TW_UNITS_SELECTED, MG_TW_FOLLOW_ON, MG_VAT_ABLE, MG_UNUSUAL_ENERGY_USINGABLE
+  </sql>
+  <sql id="Blob_Column_List" >
+    MG_UNUSUAL_ENERGY_USINGABLE_DES
+  </sql>
+  <select id="load" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from GDSAP_EVAL_BILL_DATA_MG
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_BILL_DATA_MG
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataMg" >
+    insert into gdsap_eval_bill_data_mg (REPORT_ID, MG_RELIABLITY_LEVEL, MG_GAS_USED, 
+      MG_PERIOD_SELECT, MG_PERIOD, MG_CHARGING_BASIS, 
+      MG_ST_AMOUNT_SELECT, MG_ST_AMOUNT, MG_ST_UNIT_PRICE, 
+      MG_TW_INITIAL_UNIT, MG_TW_UNITS, MG_TW_UNITS_SELECTED, 
+      MG_TW_FOLLOW_ON, MG_VAT_ABLE, MG_UNUSUAL_ENERGY_USINGABLE, 
+      MG_UNUSUAL_ENERGY_USINGABLE_DES)
+    values (#{reportId,jdbcType=BIGINT}, #{mgReliablityLevel,jdbcType=INTEGER}, #{mgGasUsed,jdbcType=REAL}, 
+      #{mgPeriodSelect,jdbcType=INTEGER}, #{mgPeriod,jdbcType=REAL}, #{mgChargingBasis,jdbcType=INTEGER}, 
+      #{mgStAmountSelect,jdbcType=INTEGER}, #{mgStAmount,jdbcType=REAL}, #{mgStUnitPrice,jdbcType=REAL}, 
+      #{mgTwInitialUnit,jdbcType=REAL}, #{mgTwUnits,jdbcType=REAL}, #{mgTwUnitsSelected,jdbcType=INTEGER}, 
+      #{mgTwFollowOn,jdbcType=REAL}, #{mgVatAble,jdbcType=INTEGER}, #{mgUnusualEnergyUsingable,jdbcType=INTEGER}, 
+      #{mgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataMg" >
+    update GDSAP_EVAL_BILL_DATA_MG
+    <set >
+      <if test="mgReliablityLevel != null" >
+        MG_RELIABLITY_LEVEL = #{mgReliablityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="mgGasUsed != null" >
+        MG_GAS_USED = #{mgGasUsed,jdbcType=REAL},
+      </if>
+      <if test="mgPeriodSelect != null" >
+        MG_PERIOD_SELECT = #{mgPeriodSelect,jdbcType=INTEGER},
+      </if>
+      <if test="mgPeriod != null" >
+        MG_PERIOD = #{mgPeriod,jdbcType=REAL},
+      </if>
+      <if test="mgChargingBasis != null" >
+        MG_CHARGING_BASIS = #{mgChargingBasis,jdbcType=INTEGER},
+      </if>
+      <if test="mgStAmountSelect != null" >
+        MG_ST_AMOUNT_SELECT = #{mgStAmountSelect,jdbcType=INTEGER},
+      </if>
+      <if test="mgStAmount != null" >
+        MG_ST_AMOUNT = #{mgStAmount,jdbcType=REAL},
+      </if>
+      <if test="mgStUnitPrice != null" >
+        MG_ST_UNIT_PRICE = #{mgStUnitPrice,jdbcType=REAL},
+      </if>
+      <if test="mgTwInitialUnit != null" >
+        MG_TW_INITIAL_UNIT = #{mgTwInitialUnit,jdbcType=REAL},
+      </if>
+      <if test="mgTwUnits != null" >
+        MG_TW_UNITS = #{mgTwUnits,jdbcType=REAL},
+      </if>
+      <if test="mgTwUnitsSelected != null" >
+        MG_TW_UNITS_SELECTED = #{mgTwUnitsSelected,jdbcType=INTEGER},
+      </if>
+      <if test="mgTwFollowOn != null" >
+        MG_TW_FOLLOW_ON = #{mgTwFollowOn,jdbcType=REAL},
+      </if>
+      <if test="mgVatAble != null" >
+        MG_VAT_ABLE = #{mgVatAble,jdbcType=INTEGER},
+      </if>
+      <if test="mgUnusualEnergyUsingable != null" >
+        MG_UNUSUAL_ENERGY_USINGABLE = #{mgUnusualEnergyUsingable,jdbcType=INTEGER},
+      </if>
+      <if test="mgUnusualEnergyUsingableDes != null" >
+        MG_UNUSUAL_ENERGY_USINGABLE_DES = #{mgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalBillDataMg" >
+    update GDSAP_EVAL_BILL_DATA_MG
+    set MG_RELIABLITY_LEVEL = #{mgReliablityLevel,jdbcType=INTEGER},
+      MG_GAS_USED = #{mgGasUsed,jdbcType=REAL},
+      MG_PERIOD_SELECT = #{mgPeriodSelect,jdbcType=INTEGER},
+      MG_PERIOD = #{mgPeriod,jdbcType=REAL},
+      MG_CHARGING_BASIS = #{mgChargingBasis,jdbcType=INTEGER},
+      MG_ST_AMOUNT_SELECT = #{mgStAmountSelect,jdbcType=INTEGER},
+      MG_ST_AMOUNT = #{mgStAmount,jdbcType=REAL},
+      MG_ST_UNIT_PRICE = #{mgStUnitPrice,jdbcType=REAL},
+      MG_TW_INITIAL_UNIT = #{mgTwInitialUnit,jdbcType=REAL},
+      MG_TW_UNITS = #{mgTwUnits,jdbcType=REAL},
+      MG_TW_UNITS_SELECTED = #{mgTwUnitsSelected,jdbcType=INTEGER},
+      MG_TW_FOLLOW_ON = #{mgTwFollowOn,jdbcType=REAL},
+      MG_VAT_ABLE = #{mgVatAble,jdbcType=INTEGER},
+      MG_UNUSUAL_ENERGY_USINGABLE = #{mgUnusualEnergyUsingable,jdbcType=INTEGER},
+      MG_UNUSUAL_ENERGY_USINGABLE_DES = #{mgUnusualEnergyUsingableDes,jdbcType=LONGVARCHAR}
+    where REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findAll" resultMap="ResultMapWithBLOBs">
+  	select * from GDSAP_EVAL_BILL_DATA_MG
+  </select>
+  
+  <select id="countAll" resultType="java.lang.Integer">
+  	select count(0) as c from GDSAP_EVAL_BILL_DATA_MG
+  </select>
+</mapper>

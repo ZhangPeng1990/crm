@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalReportMapper" >
+  <resultMap id="rm" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReport" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="RRN" property="rrn" jdbcType="VARCHAR" />
+    <result column="OA_RRN" property="oaRrn" jdbcType="VARCHAR" />
+    <result column="GDIP_RRN" property="gdipRrn" jdbcType="VARCHAR" />
+    <result column="INSPECTION_DATE" property="inspectionDate" jdbcType="TIMESTAMP" />
+    <result column="REPORT_TYPE" property="reportType" jdbcType="INTEGER" />
+    <result column="COMPLETION_DATE" property="completionDate" jdbcType="TIMESTAMP" />
+    <result column="REGISTRATION_DATE" property="registrationDate" jdbcType="TIMESTAMP" />
+    <result column="REPORT_XML_STATUS" property="reportXmlStatus" jdbcType="VARCHAR" />
+    <result column="LANGUAGE_CODE" property="languageCode" jdbcType="VARCHAR" />
+    <result column="TRANSACTION_TYPE" property="transactionType" jdbcType="INTEGER" />
+    <result column="EA_FULL_NAME" property="eaFullName" jdbcType="VARCHAR" />
+    <result column="EA_CERTIFICATE_NAME" property="eaCertificateName" jdbcType="VARCHAR" />
+    <result column="ADDRESS1" property="address1" jdbcType="VARCHAR" />
+    <result column="ADDRESS2" property="address2" jdbcType="VARCHAR" />
+    <result column="ADDRESS3" property="address3" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="POSTTOWN" property="posttown" jdbcType="VARCHAR" />
+    <result column="UPRN" property="uprn" jdbcType="VARCHAR" />
+    <result column="RELATED_PARTY_DISCLOSURE" property="relatedPartyDisclosure" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="REPORT_XML_FILE" property="reportXmlFile" jdbcType="VARCHAR" />
+    
+    <result column="OLD_REPORT_CAL_XML_FILE" property="oldReportCalXmlFile" jdbcType="VARCHAR" />
+    
+    <result column="PROPERTY_TYPE" property="propertyType" jdbcType="INTEGER" />
+    <result column="RDSAP_MHS_FUEL" property="rdsapMhsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_SMHS_FUEL" property="rdsapSmhsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_SHS_FUEL" property="rdsapShsFuel" jdbcType="INTEGER" />
+    <result column="RDSAP_WHS_FUEL" property="rdsapWhsFuel" jdbcType="INTEGER" />
+    <result column="HABITABLE_ROOM_COUNT" property="habitableRoomCount" jdbcType="INTEGER" />
+    <result column="RDSAP_MAIN_GAS_AVAILABLE" property="rdsapMainGasAvailable" jdbcType="INTEGER" />
+    <result column="REPORT_LOCATION" property="reportLocation" jdbcType="VARCHAR" />
+    
+    <result column="UNOCCUPIED_PROPERTYABLE" property="unoccupiedPropertyable" jdbcType="INTEGER" />
+    <result column="LODGE_DATE" property="lodgeDate" jdbcType="TIMESTAMP" />
+    <result column="GDIP_LODGE_DATE" property="gdipLodgeDate" jdbcType="TIMESTAMP" />
+    <result column="REPORT_STATUS" property="reportStatus" jdbcType="INTEGER" />
+    <result column="UPLOAD_WAY" property="uploadWay" jdbcType="INTEGER" />
+    <result column="EPC_VERSION" property="epcVersion" jdbcType="INTEGER" />
+    <result column="COMPANY_ID" property="companyId" jdbcType="VARCHAR" />
+    <result column="COMPANY_JOB_REF" property="companyJobRef" jdbcType="VARCHAR" />
+    
+    <result column="LODGED_GDIP_RRN" property="lodgedGdipRrn" jdbcType="VARCHAR" />
+    <result column="REQUEST_XML_FILE" property="requestXmlFile" jdbcType="VARCHAR" />
+    <result column="GDIP_LIG_XML_FILE" property="gdipLigXmlFile" jdbcType="VARCHAR" />
+    <result column="LODGED_GDIP_LIG_XML_FILE" property="lodgedGdipLigXmlFile" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="load" resultMap="rm" parameterType="java.lang.Integer" >
+    select 
+    *
+    from GDSAP_EVAL_REPORT
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Integer" >
+    delete from GDSAP_EVAL_REPORT
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReport" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+    insert into GDSAP_EVAL_REPORT (ID, RRN, OA_RRN, GDIP_RRN, INSPECTION_DATE, 
+      REPORT_TYPE, COMPLETION_DATE, REGISTRATION_DATE, 
+      REPORT_XML_STATUS, LANGUAGE_CODE, TRANSACTION_TYPE, 
+      EA_FULL_NAME, EA_CERTIFICATE_NAME, ADDRESS1, 
+      ADDRESS2, ADDRESS3, POSTCODE, 
+      POSTTOWN, UPRN, RELATED_PARTY_DISCLOSURE, 
+      USER_ID, INSERT_TIME, UPDATE_TIME, 
+      REPORT_XML_FILE, OLD_REPORT_CAL_XML_FILE, PROPERTY_TYPE, RDSAP_MHS_FUEL, 
+      RDSAP_SMHS_FUEL, RDSAP_SHS_FUEL, RDSAP_WHS_FUEL,HABITABLE_ROOM_COUNT, RDSAP_MAIN_GAS_AVAILABLE,
+      REPORT_LOCATION,UNOCCUPIED_PROPERTYABLE,LODGE_DATE,GDIP_LODGE_DATE,REPORT_STATUS,UPLOAD_WAY,EPC_VERSION,
+      COMPANY_ID,COMPANY_JOB_REF,LODGED_GDIP_RRN,REQUEST_XML_FILE,GDIP_LIG_XML_FILE,LODGED_GDIP_LIG_XML_FILE
+      )
+    values (#{id,jdbcType=BIGINT}, #{rrn,jdbcType=VARCHAR},#{oaRrn,jdbcType=VARCHAR}, #{gdipRrn,jdbcType=VARCHAR}, 
+      #{inspectionDate,jdbcType=TIMESTAMP}, 
+      #{reportType,jdbcType=INTEGER}, #{completionDate,jdbcType=TIMESTAMP}, #{registrationDate,jdbcType=TIMESTAMP}, 
+      #{reportXmlStatus,jdbcType=VARCHAR}, #{languageCode,jdbcType=VARCHAR}, #{transactionType,jdbcType=INTEGER}, 
+      #{eaFullName,jdbcType=VARCHAR}, #{eaCertificateName,jdbcType=VARCHAR}, #{address1,jdbcType=VARCHAR}, 
+      #{address2,jdbcType=VARCHAR}, #{address3,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, 
+      #{posttown,jdbcType=VARCHAR}, #{uprn,jdbcType=VARCHAR}, #{relatedPartyDisclosure,jdbcType=INTEGER}, 
+      #{userId,jdbcType=BIGINT}, #{insertTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{reportXmlFile,jdbcType=VARCHAR}, #{oldReportCalXmlFile,jdbcType=VARCHAR}, #{propertyType,jdbcType=INTEGER}, #{rdsapMhsFuel,jdbcType=INTEGER}, 
+      #{rdsapSmhsFuel,jdbcType=INTEGER}, #{rdsapShsFuel,jdbcType=INTEGER}, #{rdsapWhsFuel,jdbcType=INTEGER}, #{habitableRoomCount,jdbcType=INTEGER},
+      #{rdsapMainGasAvailable,jdbcType=INTEGER},
+      #{reportLocation,jdbcType=VARCHAR},#{unoccupiedPropertyable,jdbcType=INTEGER},#{lodgeDate,jdbcType=TIMESTAMP},#{gdipLodgeDate,jdbcType=TIMESTAMP},
+      #{reportStatus,jdbcType=INTEGER},#{uploadWay,jdbcType=INTEGER},#{epcVersion,jdbcType=INTEGER},#{companyId,jdbcType=VARCHAR},#{companyJobRef,jdbcType=VARCHAR},
+      #{lodgedGdipRrn,jdbcType=VARCHAR}, #{requestXmlFile,jdbcType=VARCHAR}, #{gdipLigXmlFile,jdbcType=VARCHAR}, #{lodgedGdipLigXmlFile,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <select id="countAll" resultType="java.lang.Integer" >
+    select count(0) from GDSAP_EVAL_REPORT
+  </select>
+  
+  <select id="findAll" resultMap="rm" >
+    select * from GDSAP_EVAL_REPORT ORDER BY INSERT_TIME DESC
+  </select>
+  
+  <select id="findAllIds" resultType="java.lang.Long">
+  	select ID from GDSAP_EVAL_REPORT ORDER BY INSERT_TIME DESC
+  </select>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReport" >
+    update GDSAP_EVAL_REPORT
+    <set >
+      <if test="rrn != null" >
+        RRN = #{rrn,jdbcType=VARCHAR},
+      </if>
+      <if test="oaRrn != null" >
+        OA_RRN = #{oaRrn,jdbcType=VARCHAR},
+      </if>
+      <if test="gdipRrn != null" >
+        GDIP_RRN = #{gdipRrn,jdbcType=VARCHAR},
+      </if>
+      <if test="inspectionDate != null" >
+        INSPECTION_DATE = #{inspectionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportType != null" >
+        REPORT_TYPE = #{reportType,jdbcType=INTEGER},
+      </if>
+      <if test="completionDate != null" >
+        COMPLETION_DATE = #{completionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registrationDate != null" >
+        REGISTRATION_DATE = #{registrationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportXmlStatus != null" >
+        REPORT_XML_STATUS = #{reportXmlStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="languageCode != null" >
+        LANGUAGE_CODE = #{languageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionType != null" >
+        TRANSACTION_TYPE = #{transactionType,jdbcType=INTEGER},
+      </if>
+      <if test="eaFullName != null" >
+        EA_FULL_NAME = #{eaFullName,jdbcType=VARCHAR},
+      </if>
+      <if test="eaCertificateName != null" >
+        EA_CERTIFICATE_NAME = #{eaCertificateName,jdbcType=VARCHAR},
+      </if>
+      <if test="address1 != null" >
+        ADDRESS1 = #{address1,jdbcType=VARCHAR},
+      </if>
+      <if test="address2 != null" >
+        ADDRESS2 = #{address2,jdbcType=VARCHAR},
+      </if>
+      <if test="address3 != null" >
+        ADDRESS3 = #{address3,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="posttown != null" >
+        POSTTOWN = #{posttown,jdbcType=VARCHAR},
+      </if>
+      <if test="uprn != null" >
+        UPRN = #{uprn,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedPartyDisclosure != null" >
+        RELATED_PARTY_DISCLOSURE = #{relatedPartyDisclosure,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="insertTime != null" >
+        INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportXmlFile != null" >
+        REPORT_XML_FILE =  #{reportXmlFile,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="oldReportCalXmlFile != null" >
+        OLD_REPORT_CAL_XML_FILE =  #{oldReportCalXmlFile,jdbcType=VARCHAR},
+      </if>
+      
+      <if test="propertyType != null" >
+        PROPERTY_TYPE =  #{propertyType,jdbcType=VARCHAR},
+      </if>
+     <if test="rdsapMhsFuel != null" >
+        RDSAP_MHS_FUEL = #{rdsapMhsFuel,jdbcType=INTEGER},
+      </if>
+      <if test="rdsapSmhsFuel != null" >
+        RDSAP_SMHS_FUEL = #{rdsapSmhsFuel,jdbcType=INTEGER},
+      </if>
+      <if test="rdsapShsFuel != null" >
+        RDSAP_SHS_FUEL = #{rdsapShsFuel,jdbcType=INTEGER},
+      </if>
+      <if test="rdsapWhsFuel != null" >
+        RDSAP_WHS_FUEL = #{rdsapWhsFuel,jdbcType=INTEGER},
+      </if>
+      <if test="habitableRoomCount != null" >
+        HABITABLE_ROOM_COUNT = #{habitableRoomCount,jdbcType=INTEGER},
+      </if>
+      <if test="reportLocation != null" >
+        RDSAP_WHS_FUEL = #{reportLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="rdsapMainGasAvailable != null">
+      	RDSAP_MAIN_GAS_AVAILABLE = #{rdsapMainGasAvailable,jdbcType=INTEGER},
+      </if>
+      <if test="unoccupiedPropertyable != null">
+      	UNOCCUPIED_PROPERTYABLE = #{unoccupiedPropertyable,jdbcType=INTEGER},
+      </if>
+      <if test="lodgeDate != null" >
+        LODGE_DATE = #{lodgeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gdipLodgeDate != null" >
+        GDIP_LODGE_DATE = #{gdipLodgeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportStatus != null">
+      	REPORT_STATUS = #{reportStatus,jdbcType=INTEGER},
+      </if>
+      <if test="uploadWay != null">
+      	UPLOAD_WAY = #{reportStatus,jdbcType=INTEGER},
+      </if>
+      <if test="epcVersion != null">
+      	EPC_VERSION = #{epcVersion,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+      	COMPANY_ID = #{companyId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyJobRef != null">
+      	COMPANY_JOB_REF = #{companyJobRef,jdbcType=VARCHAR},
+      </if>
+      <if test="lodgedGdipRrn != null" >
+        LODGED_GDIP_RRN = #{lodgedGdipRrn,jdbcType=VARCHAR},
+      </if>
+      <if test="requestXmlFile != null" >
+        REQUEST_XML_FILE = #{requestXmlFile,jdbcType=VARCHAR},
+      </if>
+      <if test="gdipLigXmlFile != null" >
+        GDIP_LIG_XML_FILE = #{gdipLigXmlFile,jdbcType=VARCHAR},
+      </if>
+      <if test="lodgedGdipLigXmlFile != null" >
+        LODGED_GDIP_LIG_XML_FILE = #{lodgedGdipLigXmlFile,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReport" >
+    update GDSAP_EVAL_REPORT
+    set RRN = #{rrn,jdbcType=VARCHAR},OA_RRN = #{oaRrn,jdbcType=VARCHAR},
+      GDIP_RRN = #{gdipRrn,jdbcType=VARCHAR},
+      INSPECTION_DATE = #{inspectionDate,jdbcType=TIMESTAMP},
+      REPORT_TYPE = #{reportType,jdbcType=INTEGER},
+      COMPLETION_DATE = #{completionDate,jdbcType=TIMESTAMP},
+      REGISTRATION_DATE = #{registrationDate,jdbcType=TIMESTAMP},
+      REPORT_XML_STATUS = #{reportXmlStatus,jdbcType=VARCHAR},
+      LANGUAGE_CODE = #{languageCode,jdbcType=VARCHAR},
+      TRANSACTION_TYPE = #{transactionType,jdbcType=INTEGER},
+      EA_FULL_NAME = #{eaFullName,jdbcType=VARCHAR},
+      EA_CERTIFICATE_NAME = #{eaCertificateName,jdbcType=VARCHAR},
+      ADDRESS1 = #{address1,jdbcType=VARCHAR},
+      ADDRESS2 = #{address2,jdbcType=VARCHAR},
+      ADDRESS3 = #{address3,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      POSTTOWN = #{posttown,jdbcType=VARCHAR},
+      UPRN = #{uprn,jdbcType=VARCHAR},
+      RELATED_PARTY_DISCLOSURE = #{relatedPartyDisclosure,jdbcType=INTEGER},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      REPORT_XML_FILE =  #{reportXmlFile,jdbcType=VARCHAR},
+      OLD_REPORT_CAL_XML_FILE =  #{oldReportCalXmlFile,jdbcType=VARCHAR},
+      PROPERTY_TYPE =  #{propertyType,jdbcType=VARCHAR},
+      RDSAP_MHS_FUEL = #{rdsapMhsFuel,jdbcType=INTEGER},
+      RDSAP_SMHS_FUEL = #{rdsapSmhsFuel,jdbcType=INTEGER},
+      RDSAP_SHS_FUEL = #{rdsapShsFuel,jdbcType=INTEGER},
+      RDSAP_WHS_FUEL = #{rdsapWhsFuel,jdbcType=INTEGER},
+      HABITABLE_ROOM_COUNT = #{habitableRoomCount,jdbcType=INTEGER},
+      REPORT_LOCATION = #{reportLocation,jdbcType=VARCHAR},
+      RDSAP_MAIN_GAS_AVAILABLE = #{rdsapMainGasAvailable,jdbcType=INTEGER},
+      UNOCCUPIED_PROPERTYABLE = #{unoccupiedPropertyable,jdbcType=INTEGER},
+      LODGE_DATE = #{lodgeDate,jdbcType=TIMESTAMP},
+      GDIP_LODGE_DATE = #{gdipLodgeDate,jdbcType=TIMESTAMP},
+      REPORT_STATUS = #{reportStatus,jdbcType=INTEGER},
+      UPLOAD_WAY = #{uploadWay,jdbcType=INTEGER},
+      EPC_VERSION = #{epcVersion,jdbcType=INTEGER},
+      COMPANY_ID =  #{companyId,jdbcType=VARCHAR},
+      COMPANY_JOB_REF =  #{companyJobRef,jdbcType=VARCHAR},
+      LODGED_GDIP_RRN = #{lodgedGdipRrn,jdbcType=VARCHAR},
+      REQUEST_XML_FILE = #{requestXmlFile,jdbcType=VARCHAR},
+      GDIP_LIG_XML_FILE = #{gdipLigXmlFile,jdbcType=VARCHAR},
+      LODGED_GDIP_LIG_XML_FILE = #{lodgedGdipLigXmlFile,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findNumberByCondition" resultType="java.lang.Integer" parameterType="map">
+		select count(0) as a from GDSAP_EVAL_REPORT
+		<where>
+		    <if test="userId != null">
+				and USER_ID = #{userId,jdbcType=BIGINT}
+      		</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate != null">
+				 and INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} and INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate == null">
+				 and INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate == null &amp;&amp; endInspectionDate != null">
+				 and INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+      		<if test="reportStatus != null">
+				and REPORT_STATUS = #{reportStatus,jdbcType=INTEGER} 
+      		</if>
+			<if test="keywords != null">
+				and(UPRN = #{keywords,jdbcType=VARCHAR} or RRN = #{keywords,jdbcType=VARCHAR} or OA_RRN = #{keywords,jdbcType=VARCHAR} or POSTCODE = #{keywords,jdbcType=VARCHAR})
+      		</if>
+			<if test="transactionType != null">
+				and TRANSACTION_TYPE = #{transactionType,jdbcType=INTEGER}
+      		</if>
+      		<if test="reportLocation != null">
+				and REPORT_LOCATION = #{reportLocation,jdbcType=VARCHAR}
+      		</if>
+			<if test="propertyType != null">
+				and PROPERTY_TYPE = #{propertyType,jdbcType=INTEGER}
+      		</if>
+      		and gdsap_eval_report.REPORT_STATUS >= 0  and gdsap_eval_report.UPLOAD_WAY != 6
+      	</where>
+  </select>
+  
+  <select id="findPageBreakByCondition" resultMap="rm" parameterType="map">
+		select * from GDSAP_EVAL_REPORT
+		<where>
+		  <if test="userId != null"> 
+				and USER_ID = #{userId,jdbcType=BIGINT}
+      		</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate != null">
+				 and INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} and INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate == null">
+				 and INSERT_TIME &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate == null &amp;&amp; endInspectionDate != null">
+				 and INSERT_TIME &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="reportStatus != null">
+				and REPORT_STATUS = #{reportStatus,jdbcType=INTEGER} 
+      		</if>
+			<if test="keywords != null">
+				and(UPRN = #{keywords,jdbcType=VARCHAR} or RRN = #{keywords,jdbcType=VARCHAR} or OA_RRN = #{keywords,jdbcType=VARCHAR} or POSTCODE = #{keywords,jdbcType=VARCHAR})  
+      		</if>
+			<if test="transactionType != null">
+				and TRANSACTION_TYPE = #{transactionType,jdbcType=INTEGER}
+      		</if>
+			<if test="propertyType != null">
+				and PROPERTY_TYPE = #{propertyType,jdbcType=INTEGER}
+      		</if>
+      		and gdsap_eval_report.REPORT_STATUS >= 0 and gdsap_eval_report.UPLOAD_WAY != 6
+      	</where>
+      	order by INSERT_TIME DESC 
+  </select>
+  
+  <select id="adminfindNumberByCondition" resultType="java.lang.Integer" parameterType="map">
+		select count(0) as a from GDSAP_EVAL_REPORT 
+		INNER JOIN GDSAP_USR_USER 
+  			ON GDSAP_EVAL_REPORT.USER_ID=GDSAP_USR_USER.ID 
+		<where>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate != null">
+				 and GDSAP_EVAL_REPORT.LODGE_DATE &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} and GDSAP_EVAL_REPORT.LODGE_DATE &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate == null">
+				 and GDSAP_EVAL_REPORT.LODGE_DATE &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate == null &amp;&amp; endInspectionDate != null">
+				 and GDSAP_EVAL_REPORT.LODGE_DATE &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="organisationCertificationNumber != null">
+				and ORGANISATION_CERTIFICATION_NUMBER = #{organisationCertificationNumber,jdbcType=INTEGER}
+      		</if>
+      		<if test="userName != null">
+				and USER_NAME = #{userName,jdbcType=VARCHAR}
+      		</if>
+      		<if test="keywords != null">
+				and(UPRN = #{keywords,jdbcType=VARCHAR} or RRN = #{keywords,jdbcType=VARCHAR} or OA_RRN = #{keywords,jdbcType=VARCHAR} or GDSAP_EVAL_REPORT.POSTCODE = #{keywords,jdbcType=VARCHAR})  
+      		</if>
+      		<if test="reportStatus != null">
+				and REPORT_STATUS = #{reportStatus,jdbcType=INTEGER}
+      		</if>
+      		and gdsap_eval_report.REPORT_STATUS >= 0 
+      	</where>
+  </select>
+  
+  <select id="adminfindByCondition" resultMap="rm" parameterType="map">
+		select * from GDSAP_EVAL_REPORT 
+		INNER JOIN GDSAP_USR_USER 
+  			ON GDSAP_EVAL_REPORT.USER_ID=GDSAP_USR_USER.ID 
+		<where>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate != null">
+				 and GDSAP_EVAL_REPORT.LODGE_DATE &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} and GDSAP_EVAL_REPORT.LODGE_DATE &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate != null &amp;&amp; endInspectionDate == null">
+				 and GDSAP_EVAL_REPORT.LODGE_DATE &gt;= #{startInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="startInspectionDate == null &amp;&amp; endInspectionDate != null">
+				 and GDSAP_EVAL_REPORT.LODGE_DATE &lt;= #{endInspectionDate,jdbcType=TIMESTAMP} 
+			</if>
+			<if test="organisationCertificationNumber != null">
+				and ORGANISATION_CERTIFICATION_NUMBER = #{organisationCertificationNumber,jdbcType=INTEGER}
+      		</if>
+      		<if test="userName != null">
+				and USER_NAME = #{userName,jdbcType=VARCHAR}
+      		</if>
+      		<if test="keywords != null">
+				and(UPRN = #{keywords,jdbcType=VARCHAR} or RRN = #{keywords,jdbcType=VARCHAR} or OA_RRN = #{keywords,jdbcType=VARCHAR} or GDSAP_EVAL_REPORT.POSTCODE = #{keywords,jdbcType=VARCHAR})  
+      		</if>
+      		<if test="reportStatus != null">
+				and REPORT_STATUS = #{reportStatus,jdbcType=INTEGER}
+      		</if>
+      	</where>
+      	order by GDSAP_EVAL_REPORT.INSERT_TIME DESC 
+  </select>
+  
+  <select id="findByRRN" parameterType="java.lang.String" resultMap="rm">
+  	select * from GDSAP_EVAL_REPORT where RRN=#{rrn,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="findByRRN_reportStatus" parameterType="map" resultMap="rm">
+  	select * from GDSAP_EVAL_REPORT where GDIP_RRN=#{rrn,jdbcType=VARCHAR} 
+  		AND REPORT_STATUS=#{reportStatus,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findByOARRN_reportStatus" parameterType="map" resultMap="rm">
+  	select * from GDSAP_EVAL_REPORT where OA_RRN=#{oaRrn,jdbcType=VARCHAR} 
+  		AND REPORT_STATUS=#{reportStatus,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findByCompany_companyJobRef" parameterType="map" resultMap="rm">
+  	select * from GDSAP_EVAL_REPORT where COMPANY_ID=#{companyId,jdbcType=VARCHAR} 
+  		AND COMPANY_JOB_REF=#{companyJobRef,jdbcType=VARCHAR}
+  </select>
+  
+  <update id="updateOldReportCalXmlFile" parameterType="map">
+  	update GDSAP_EVAL_REPORT set OLD_REPORT_CAL_XML_FILE=#{oldReportCalXmlFile,jdbcType=VARCHAR} where ID=#{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="updateUnoccupiedPropertyable" parameterType="map">
+  	update GDSAP_EVAL_REPORT set UNOCCUPIED_PROPERTYABLE = #{unoccupiedPropertyable,jdbcType=INTEGER} where ID=#{id,jdbcType=BIGINT}
+  </update>
+</mapper>

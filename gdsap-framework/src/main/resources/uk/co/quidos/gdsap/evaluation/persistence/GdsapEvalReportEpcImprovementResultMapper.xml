@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalReportEpcImprovementResultMapper" >
+  <resultMap id="BaseResultMap" type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReportEpcImprovementResult" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="IMPROVEMENT_TYPE" property="improvementType" jdbcType="VARCHAR" />
+    <result column="IMPROVEMENT_NUMBER" property="improvementNumber" jdbcType="INTEGER" />
+    <result column="GREEN_DEAL_CATEGORY" property="greenDealCategory" jdbcType="VARCHAR" />
+    <result column="ESTIMATED_SAVING" property="estimatedSaving" jdbcType="REAL" />
+    <result column="TYPICAL_SAVING" property="typicalSaving" jdbcType="REAL" />
+    <result column="INDICATIVE_COST_START" property="indicativeCostStart" jdbcType="REAL" />
+    <result column="INDICATIVE_COST_END" property="indicativeCostEnd" jdbcType="REAL" />
+    <result column="IN_USE_FACTOR" property="inUseFactor" jdbcType="REAL" />
+    <result column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, IMPROVEMENT_TYPE, IMPROVEMENT_NUMBER, GREEN_DEAL_CATEGORY, ESTIMATED_SAVING, 
+    TYPICAL_SAVING, INDICATIVE_COST_START, INDICATIVE_COST_END, IN_USE_FACTOR, REPORT_ID
+  </sql>
+  <select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT 
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="delete" parameterType="java.lang.Long" >
+    delete from GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT 
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReportEpcImprovementResult" useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+    insert into GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT (ID, IMPROVEMENT_TYPE, IMPROVEMENT_NUMBER, 
+      GREEN_DEAL_CATEGORY, ESTIMATED_SAVING, TYPICAL_SAVING, 
+      INDICATIVE_COST_START, INDICATIVE_COST_END, IN_USE_FACTOR, 
+      REPORT_ID)
+    values (#{id,jdbcType=BIGINT}, #{improvementType,jdbcType=VARCHAR}, #{improvementNumber,jdbcType=INTEGER}, 
+      #{greenDealCategory,jdbcType=VARCHAR}, #{estimatedSaving,jdbcType=REAL}, #{typicalSaving,jdbcType=REAL}, 
+      #{indicativeCostStart,jdbcType=REAL}, #{indicativeCostEnd,jdbcType=REAL}, #{inUseFactor,jdbcType=REAL}, 
+      #{reportId,jdbcType=BIGINT})
+  </insert>
+  
+  <update id="updateSelective" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReportEpcImprovementResult" >
+    update GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT
+    <set >
+      <if test="improvementType != null" >
+        IMPROVEMENT_TYPE = #{improvementType,jdbcType=VARCHAR},
+      </if>
+      <if test="improvementNumber != null" >
+        IMPROVEMENT_NUMBER = #{improvementNumber,jdbcType=INTEGER},
+      </if>
+      <if test="greenDealCategory != null" >
+        GREEN_DEAL_CATEGORY = #{greenDealCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="estimatedSaving != null" >
+        ESTIMATED_SAVING = #{estimatedSaving,jdbcType=REAL},
+      </if>
+      <if test="typicalSaving != null" >
+        TYPICAL_SAVING = #{typicalSaving,jdbcType=REAL},
+      </if>
+      <if test="indicativeCostStart != null" >
+        INDICATIVE_COST_START = #{indicativeCostStart,jdbcType=REAL},
+      </if>
+      <if test="indicativeCostEnd != null" >
+        INDICATIVE_COST_END = #{indicativeCostEnd,jdbcType=REAL},
+      </if>
+      <if test="inUseFactor != null" >
+        IN_USE_FACTOR = #{inUseFactor,jdbcType=REAL},
+      </if>
+      <if test="solutionId != null" >
+        REPORT_ID = #{reportId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <update id="update" parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalReportEpcImprovementResult" >
+    update GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT
+    set IMPROVEMENT_TYPE = #{improvementType,jdbcType=VARCHAR},
+      IMPROVEMENT_NUMBER = #{improvementNumber,jdbcType=INTEGER},
+      GREEN_DEAL_CATEGORY = #{greenDealCategory,jdbcType=VARCHAR},
+      ESTIMATED_SAVING = #{estimatedSaving,jdbcType=REAL},
+      TYPICAL_SAVING = #{typicalSaving,jdbcType=REAL},
+      INDICATIVE_COST_START = #{indicativeCostStart,jdbcType=REAL},
+      INDICATIVE_COST_END = #{indicativeCostEnd,jdbcType=REAL},
+      IN_USE_FACTOR = #{inUseFactor,jdbcType=REAL},
+      REPORT_ID = #{reportId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findAll" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> 
+  	from 
+  	GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT
+  </select>
+  
+  <select id="countAll" resultType="java.lang.Integer">
+  	select count(0) as c from 
+  	GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT
+  </select>
+  
+  <select id="findAllId" resultType="java.lang.Long">
+  	select ID from GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT 
+  </select>
+  
+  <select id="findByReportId" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List"/> from 
+  	GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT 
+  	where 
+  	REPORT_ID = #{reportId,jdbcType=BIGINT}
+  </select>
+  
+  <delete id="deleteByReportId" parameterType="java.lang.Long">
+  	delete from GDSAP_EVAL_REPORT_EPC_IMPROVEMENT_RESULT 
+  	where 
+  	REPORT_ID = #{reportId,jdbcType=BIGINT} 
+  </delete>
+</mapper>

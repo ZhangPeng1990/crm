@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="uk.co.quidos.gdsap.evaluation.persistence.GdsapEvalSolutionMapper">
+	<resultMap id="BaseResultMap"
+		type="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolution">
+		<id column="ID" property="id" jdbcType="BIGINT" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="SOLUTION_TYPE" property="solutionType" jdbcType="INTEGER" />
+		<result column="INSERT_TIME" property="insertTime" jdbcType="TIMESTAMP" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="SELECTED" property="selected" jdbcType="INTEGER" />
+		<result column="REPORT_ID" property="reportId" jdbcType="BIGINT" />
+		<result column="DES" property="des" jdbcType="LONGVARCHAR" />
+		<result column="SOLUTION_LODGE_XML_PATH" property="solutionLodgeXmlPath" jdbcType="VARCHAR" />
+		<result column="SOLUTION_PART_LODGE_XML_PATH" property="solutionPartLodgeXmlPath" jdbcType="VARCHAR" />
+		<result column="SOLUTION_PDF_PATH" property="solutionPdfPath" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		ID, TITLE, SOLUTION_TYPE, INSERT_TIME, UPDATE_TIME, SELECTED, REPORT_ID,
+		DES,SOLUTION_LODGE_XML_PATH,SOLUTION_PART_LODGE_XML_PATH,SOLUTION_PDF_PATH
+	</sql>
+
+	<select id="load" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select
+		<include refid="Base_Column_List" />
+		from GDSAP_EVAL_SOLUTION
+		where ID = #{id,jdbcType=BIGINT}
+	</select>
+
+	<select id="findByTitle" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from GDSAP_EVAL_SOLUTION
+		where TITLE = #{title,jdbcType=BIGINT}
+	</select>
+
+	<select id="findByReportId" resultMap="BaseResultMap"
+		parameterType="java.lang.Long">
+		select *
+		from GDSAP_EVAL_SOLUTION
+		where REPORT_ID = #{reportId,jdbcType=BIGINT} 
+		order by INSERT_TIME DESC 
+	</select>
+
+	<update id="updateSelectedByReportIdAndSelected" parameterType="map">
+		update GDSAP_EVAL_SOLUTION set SELECTED = #{selected,jdbcType=INTEGER}
+		where 
+		REPORT_ID = #{reportId,jdbcType=BIGINT} 
+		and SOLUTION_TYPE = #{solutionType,jdbcType=INTEGER} 
+	</update>
+	
+	<select id="findByReport" resultMap="BaseResultMap" 
+		parameterType="map">
+		select * 
+		from GDSAP_EVAL_SOLUTION
+		where REPORT_ID = #{reportId,jdbcType=BIGINT} 
+		and SOLUTION_TYPE = #{solutionType,jdbcType=INTEGER} 
+		order by INSERT_TIME DESC 
+	</select>
+	
+	<delete id="delete" parameterType="java.lang.Long">
+		delete from
+		GDSAP_EVAL_SOLUTION
+		where ID = #{id,jdbcType=BIGINT}
+	</delete>
+
+	<insert id="insert"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolution"
+		useGeneratedKeys="true" keyProperty="id">
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+		insert into GDSAP_EVAL_SOLUTION (ID, TITLE, SOLUTION_TYPE, INSERT_TIME,
+		UPDATE_TIME,
+		SELECTED, REPORT_ID,
+		DES,SOLUTION_LODGE_XML_PATH,
+		SOLUTION_PART_LODGE_XML_PATH,
+		SOLUTION_PDF_PATH)
+		values (#{id,jdbcType=BIGINT},
+		#{title,jdbcType=VARCHAR},
+		#{solutionType,jdbcType=INTEGER},
+		#{insertTime,jdbcType=TIMESTAMP},
+		#{updateTime,jdbcType=TIMESTAMP}, #{selected,jdbcType=INTEGER},
+		#{reportId,jdbcType=BIGINT},
+		#{des,jdbcType=LONGVARCHAR},#{solutionLodgeXmlPath,jdbcType=VARCHAR},
+		#{solutionPartLodgeXmlPath,jdbcType=VARCHAR},
+		#{solutionPdfPath,jdbcType=VARCHAR})
+	</insert>
+
+	<update id="updateSelective"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolution">
+		update GDSAP_EVAL_SOLUTION
+		<set>
+			<if test="title != null">
+				TITLE = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="solutionType != null">
+				SOLUTION_TYPE = #{solutionType,jdbcType=INTEGER},
+			</if>
+			<if test="insertTime != null">
+				INSERT_TIME = #{insertTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="selected != null">
+				SELECTED = #{selected,jdbcType=INTEGER},
+			</if>
+			<if test="reportId != null">
+				REPORT_ID = #{reportId,jdbcType=BIGINT},
+			</if>
+			<if test="des != null">
+				DES = #{des,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="SOLUTION_LODGE_XML_PATH">
+				SOLUTION_LODGE_XML_PATH = #{solutionLodgeXmlPath,jdbcType=VARCHAR},
+			</if>
+			<if test="SOLUTION_PART_LODGE_XML_PATH">
+				SOLUTION_PART_LODGE_XML_PATH = #{solutionPartLodgeXmlPath,jdbcType=VARCHAR},
+			</if>
+			<if test="SOLUTION_LODGE_XML_PATH">
+				SOLUTION_PDF_PATH = #{solutionPdfPath,jdbcType=VARCHAR}
+			</if>
+		</set>
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<update id="update"
+		parameterType="uk.co.quidos.gdsap.evaluation.persistence.object.GdsapEvalSolution">
+		update GDSAP_EVAL_SOLUTION
+		set TITLE =
+		#{title,jdbcType=VARCHAR},
+		SOLUTION_TYPE =
+		#{solutionType,jdbcType=INTEGER},
+		INSERT_TIME =
+		#{insertTime,jdbcType=TIMESTAMP},
+		UPDATE_TIME =
+		#{updateTime,jdbcType=TIMESTAMP},
+		SELECTED =
+		#{selected,jdbcType=INTEGER},
+		REPORT_ID = #{reportId,jdbcType=BIGINT},
+		DES = #{des,jdbcType=LONGVARCHAR},
+		SOLUTION_LODGE_XML_PATH = #{solutionLodgeXmlPath,jdbcType=VARCHAR},
+		SOLUTION_PART_LODGE_XML_PATH = #{solutionPartLodgeXmlPath,jdbcType=VARCHAR},
+		SOLUTION_PDF_PATH = #{solutionPdfPath,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=BIGINT}
+	</update>
+
+	<select id="findAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from
+		GDSAP_EVAL_SOLUTION
+	</select>
+
+	<select id="findAllIds" resultType="java.lang.Long">
+		select ID
+		from
+		GDSAP_EVAL_SOLUTION
+	</select>
+
+	<select id="countAll" resultType="java.lang.Integer">
+		select count(0) as c
+		from
+		GDSAP_EVAL_SOLUTION
+	</select>
+	
+	<select id="findSelectedByReportId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from 
+		GDSAP_EVAL_SOLUTION 
+		where 
+		REPORT_ID = #{reportId,jdbcType=BIGINT} and SELECTED=1
+	</select>
+	
+	<update id="updateSolutionPdfPathById" parameterType="map">
+		update GDSAP_EVAL_SOLUTION
+		set 
+		UPDATE_TIME =#{updateTime,jdbcType=TIMESTAMP},
+		SOLUTION_PDF_PATH = #{solutionPdfPath,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=BIGINT} 
+	</update>
+</mapper>
